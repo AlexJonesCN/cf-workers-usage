@@ -3,143 +3,239 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Worker 用量看板</title>
+    <title>Workers 监控面板</title>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
     <style>
-        :root { --primary: #F38020; --bg: #f9fafb; --card-bg: #ffffff; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background: var(--bg); margin: 0; padding: 20px; color: #333; }
+        :root { --primary: #F38020; --bg: #f3f4f6; --card: #ffffff; --text: #1f2937; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
         
-        .container { max-width: 1000px; margin: 0 auto; }
-        
-        /* 顶部标题栏 */
-        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
-        .header h1 { font-size: 20px; margin: 0; display: flex; align-items: center; gap: 10px; }
-        .update-time { font-size: 12px; color: #666; background: #eee; padding: 4px 8px; border-radius: 4px; }
+        /* 顶部 Header */
+        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 10px; }
+        .header h1 { margin: 0; font-size: 24px; display: flex; align-items: center; gap: 8px; }
+        .last-update { font-size: 13px; color: #6b7280; background: #e5e7eb; padding: 4px 8px; border-radius: 4px; }
 
-        /* 卡片布局 - 模仿 Cloudflare 红框区域 */
-        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px; }
-        .card { background: var(--card-bg); padding: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border: 1px solid #e5e7eb; }
-        .card-title { font-size: 14px; color: #6b7280; margin-bottom: 8px; font-weight: 500; }
-        .card-value { font-size: 28px; font-weight: 700; color: #111827; }
-        .card-sub { font-size: 12px; color: #9ca3af; margin-top: 4px; }
-        
-        /* 图表区域 */
-        .chart-container { background: var(--card-bg); padding: 20px; border-radius: 8px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); border: 1px solid #e5e7eb; height: 400px; }
+        /* 额度进度卡片 (重点功能) */
+        .quota-card { background: var(--card); padding: 20px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 24px; border-left: 5px solid var(--primary); }
+        .quota-header { display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 600; font-size: 16px; }
+        .progress-bg { height: 20px; background: #e5e7eb; border-radius: 10px; overflow: hidden; position: relative; }
+        .progress-bar { height: 100%; background: linear-gradient(90deg, #F38020, #f9a056); width: 0%; transition: width 1s ease; border-radius: 10px; }
+        .quota-text { display: flex; justify-content: space-between; font-size: 13px; color: #6b7280; margin-top: 6px; }
+
+        /* 控制栏 */
+        .controls { display: flex; gap: 10px; margin-bottom: 15px; }
+        .btn { border: none; background: #fff; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 14px; color: #666; transition: 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
+        .btn.active { background: var(--primary); color: white; font-weight: 500; }
+        .btn:hover:not(.active) { background: #f9fafb; }
+
+        /* 概览卡片 */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
+        .stat-card { background: var(--card); padding: 20px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+        .stat-title { color: #6b7280; font-size: 13px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .stat-value { font-size: 28px; font-weight: 700; color: #111827; }
+        .stat-sub { font-size: 12px; margin-top: 4px; }
+        .text-green { color: #10b981; } .text-red { color: #ef4444; }
+
+        /* 图表容器 */
+        #chart-container { background: var(--card); padding: 20px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); height: 450px; }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1><span style="color:var(--primary)">☁️</span> Worker 用量看板</h1>
-            <span id="update-time" class="update-time">更新中...</span>
+            <h1><span style="color:var(--primary)">⚡</span> Cloudflare Worker 监控</h1>
+            <span id="update-time" class="last-update">更新中...</span>
         </div>
 
-        <div class="stats-grid">
-            <div class="card">
-                <div class="card-title">总请求数 (30天)</div>
-                <div class="card-value" id="total-requests">-</div>
-                <div class="card-sub">Total Requests</div>
+        <div class="quota-card">
+            <div class="quota-header">
+                <span>今日请求用量 (UTC)</span>
+                <span id="quota-percent">0%</span>
             </div>
-            <div class="card">
-                <div class="card-title">错误请求数</div>
-                <div class="card-value" id="total-errors" style="color: #ef4444">-</div>
-                <div class="card-sub">Errors</div>
+            <div class="progress-bg">
+                <div id="quota-bar" class="progress-bar"></div>
             </div>
-            <div class="card">
-                <div class="card-title">请求成功率</div>
-                <div class="card-value" id="success-rate">-</div>
-                <div class="card-sub">Success Rate</div>
+            <div class="quota-text">
+                <span id="quota-detail">0 / 100,000</span>
+                <span>重置时间: 00:00 UTC</span>
             </div>
         </div>
 
-        <div id="main" class="chart-container"></div>
+        <div class="controls">
+            <button class="btn" onclick="setRange('24h')">最近 24 小时</button>
+            <button class="btn active" onclick="setRange('7d')">最近 7 天</button>
+            <button class="btn" onclick="setRange('30d')">最近 30 天</button>
+        </div>
+
+        <div class="grid">
+            <div class="stat-card">
+                <div class="stat-title">区间总请求数</div>
+                <div class="stat-value" id="disp-req">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">区间错误数</div>
+                <div class="stat-value text-red" id="disp-err">-</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-title">平均每小时请求</div>
+                <div class="stat-value" id="disp-avg">-</div>
+            </div>
+        </div>
+
+        <div id="chart-container"></div>
     </div>
 
     <script>
+        let rawData = [];
+        let chartInstance = null;
+        
+        // 配置：你的每日额度 (免费版通常是 100,000)
+        const DAILY_LIMIT = 100000;
+
+        // 初始化
         fetch('./data.json')
             .then(res => res.json())
             .then(data => {
-                // 1. 数据处理：聚合统计
-                let totalReq = 0;
-                let totalErr = 0;
+                rawData = data;
+                document.getElementById('update-time').innerText = '最后同步: ' + new Date().toLocaleString();
                 
-                // 按日期归并数据（处理多个 Worker 的情况）
-                const dateMap = {};
-                
-                data.forEach(item => {
-                    totalReq += item.sum.requests;
-                    totalErr += item.sum.errors;
-                    
-                    // 提取日期（去除时间部分）
-                    const dateStr = item.dimensions.datetime.split('T')[0];
-                    if (!dateMap[dateStr]) {
-                        dateMap[dateStr] = { requests: 0, errors: 0 };
-                    }
-                    dateMap[dateStr].requests += item.sum.requests;
-                    dateMap[dateStr].errors += item.sum.errors;
-                });
+                // 1. 计算今日用量 (UTC时间当天)
+                calculateTodayQuota();
 
-                // 2. 更新顶部卡片数字
-                document.getElementById('total-requests').innerText = totalReq.toLocaleString();
-                document.getElementById('total-errors').innerText = totalErr.toLocaleString();
-                
-                const rate = totalReq > 0 ? ((totalReq - totalErr) / totalReq * 100).toFixed(2) + '%' : '0%';
-                document.getElementById('success-rate').innerText = rate;
-                document.getElementById('update-time').innerText = '最后更新: ' + new Date().toLocaleString();
-
-                // 3. 准备图表数据
-                const sortedDates = Object.keys(dateMap).sort();
-                const seriesReq = sortedDates.map(d => dateMap[d].requests);
-                const seriesErr = sortedDates.map(d => dateMap[d].errors);
-
-                // 4. 渲染图表
-                const chart = echarts.init(document.getElementById('main'));
-                chart.setOption({
-                    title: { text: '每日请求趋势', left: 'center', textStyle: { fontSize: 14, color: '#666' } },
-                    tooltip: { trigger: 'axis', axisPointer: { type: 'cross' } },
-                    legend: { bottom: 0, data: ['请求数', '错误数'] },
-                    grid: { left: '3%', right: '4%', bottom: '10%', containLabel: true },
-                    xAxis: { 
-                        type: 'category', 
-                        data: sortedDates,
-                        axisLine: { lineStyle: { color: '#e5e7eb' } },
-                        axisLabel: { color: '#6b7280' }
-                    },
-                    yAxis: { 
-                        type: 'value', 
-                        splitLine: { lineStyle: { type: 'dashed', color: '#f3f4f6' } } 
-                    },
-                    series: [
-                        {
-                            name: '请求数',
-                            type: 'line',
-                            data: seriesReq,
-                            smooth: true,
-                            symbol: 'none',
-                            areaStyle: {
-                                color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                                    { offset: 0, color: 'rgba(243, 128, 32, 0.3)' },
-                                    { offset: 1, color: 'rgba(243, 128, 32, 0.01)' }
-                                ])
-                            },
-                            itemStyle: { color: '#F38020' }
-                        },
-                        {
-                            name: '错误数',
-                            type: 'bar',
-                            data: seriesErr,
-                            itemStyle: { color: '#ef4444' }
-                        }
-                    ]
-                });
-                
-                // 响应式调整
-                window.addEventListener('resize', () => chart.resize());
+                // 2. 默认显示 7 天数据
+                setRange('7d');
             })
             .catch(err => {
                 console.error(err);
-                document.getElementById('update-time').innerText = '数据加载失败，请检查 Actions 日志';
+                document.getElementById('update-time').innerText = '数据加载失败';
             });
+
+        function calculateTodayQuota() {
+            // 获取 UTC 今天的日期字符串 (YYYY-MM-DD)
+            const todayStr = new Date().toISOString().split('T')[0];
+            
+            // 过滤出今天的记录
+            const todayRequests = rawData
+                .filter(item => item.dimensions.datetime.startsWith(todayStr))
+                .reduce((sum, item) => sum + item.sum.requests, 0);
+
+            // 更新 UI
+            const percent = Math.min((todayRequests / DAILY_LIMIT) * 100, 100).toFixed(1);
+            document.getElementById('quota-bar').style.width = percent + '%';
+            document.getElementById('quota-percent').innerText = percent + '%';
+            document.getElementById('quota-detail').innerText = `${todayRequests.toLocaleString()} / ${DAILY_LIMIT.toLocaleString()}`;
+            
+            // 颜色警告
+            if (percent > 80) document.getElementById('quota-bar').style.backgroundColor = '#ef4444';
+        }
+
+        function setRange(range) {
+            // 按钮样式切换
+            document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+            event.target.classList.add('active');
+
+            // 确定时间范围
+            const now = new Date();
+            let startTime = new Date();
+            let dateFormat = ''; // 图表X轴格式
+            
+            if (range === '24h') {
+                startTime.setHours(now.getHours() - 24);
+                dateFormat = '{value}\n(小时)'; 
+            } else if (range === '7d') {
+                startTime.setDate(now.getDate() - 7);
+                dateFormat = '{value}\n(日期)';
+            } else {
+                startTime.setDate(now.getDate() - 30);
+                dateFormat = '{value}';
+            }
+
+            // 过滤数据
+            const filtered = rawData.filter(item => new Date(item.dimensions.datetime) >= startTime);
+
+            // 数据聚合逻辑 (非常重要：根据不同时间跨度合并数据)
+            const map = {};
+            
+            filtered.forEach(item => {
+                let key;
+                const d = new Date(item.dimensions.datetime);
+                
+                if (range === '24h') {
+                    // 24小时视图：按小时聚合 (MM-DD HH:00)
+                    key = `${d.getMonth()+1}/${d.getDate()} ${d.getHours()}:00`;
+                } else {
+                    // 7天/30天视图：按天聚合 (YYYY-MM-DD)
+                    key = d.toISOString().split('T')[0];
+                }
+
+                if (!map[key]) map[key] = { req: 0, err: 0 };
+                map[key].req += item.sum.requests;
+                map[key].err += item.sum.errors;
+            });
+
+            const keys = Object.keys(map).sort();
+            const requests = keys.map(k => map[k].req);
+            const errors = keys.map(k => map[k].err);
+
+            // 更新统计卡片
+            const totalReq = requests.reduce((a, b) => a + b, 0);
+            const totalErr = errors.reduce((a, b) => a + b, 0);
+            document.getElementById('disp-req').innerText = totalReq.toLocaleString();
+            document.getElementById('disp-err').innerText = totalErr.toLocaleString();
+            
+            // 计算平均值 (分母为数据点数量，避免除以0)
+            const avg = keys.length > 0 ? Math.round(totalReq / keys.length) : 0;
+            document.getElementById('disp-avg').innerText = avg.toLocaleString();
+
+            renderChart(keys, requests, errors, range);
+        }
+
+        function renderChart(labels, reqData, errData, range) {
+            if (chartInstance) chartInstance.dispose();
+            chartInstance = echarts.init(document.getElementById('chart-container'));
+
+            const option = {
+                title: { text: '请求趋势', left: 'center' },
+                tooltip: { 
+                    trigger: 'axis',
+                    axisPointer: { type: 'cross' }
+                },
+                legend: { data: ['总请求', '错误'], bottom: 0 },
+                grid: { left: '3%', right: '4%', bottom: '10%', containLabel: true },
+                xAxis: {
+                    type: 'category',
+                    data: labels,
+                    axisLabel: { 
+                        interval: range === '30d' ? 2 : 'auto', // 30天模式下隔点显示日期，防止拥挤
+                        rotate: range === '24h' ? 45 : 0
+                    }
+                },
+                yAxis: { type: 'value' },
+                series: [
+                    {
+                        name: '总请求',
+                        type: 'line',
+                        smooth: true,
+                        data: reqData,
+                        areaStyle: {
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                { offset: 0, color: 'rgba(243, 128, 32, 0.4)' },
+                                { offset: 1, color: 'rgba(243, 128, 32, 0.05)' }
+                            ])
+                        },
+                        itemStyle: { color: '#F38020' }
+                    },
+                    {
+                        name: '错误',
+                        type: 'bar',
+                        data: errData,
+                        itemStyle: { color: '#ef4444' }
+                    }
+                ]
+            };
+            chartInstance.setOption(option);
+            window.onresize = chartInstance.resize;
+        }
     </script>
 </body>
 </html>
