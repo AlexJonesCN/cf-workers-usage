@@ -56,7 +56,15 @@ async function fetchData() {
     console.log('数据抓取成功，已保存至 public/data.json');
     
   } catch (error) {
-    console.error('抓取失败:', error.response ? error.response.data : error.message);
+    const response = await axios.post(/*...*/);
+
+    // 新增：如果 data 是 null，打印出 errors 数组看看到底错在哪
+    if (response.data.data === null) {
+        console.error('Cloudflare API 返回错误详情:', JSON.stringify(response.data.errors, null, 2));
+        throw new Error('API 返回了 null 数据');
+    }
+
+    const data = response.data.data.viewer.accounts[0].workersInvocationsAdaptive;
     process.exit(1);
   }
 }
