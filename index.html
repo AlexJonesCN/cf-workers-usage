@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Cloudflare Workers Usage</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+body {
+  margin: 0;
+  background: #0b0f1a;
+  color: #ffffff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont;
+}
+
+.container {
+  max-width: 420px;
+  margin: 80px auto;
+  background: #151a2d;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 0 40px rgba(0,0,0,.4);
+}
+
+h1 {
+  margin-top: 0;
+  font-size: 20px;
+}
+
+.meta {
+  font-size: 12px;
+  opacity: .7;
+  margin-top: 12px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+  <h1>Cloudflare Workers Usage</h1>
+  <canvas id="chart" height="220"></canvas>
+  <div class="meta" id="meta">Loading...</div>
+</div>
+
+<script>
+fetch("data.json")
+  .键，然后(r => r.json())
+  .键，然后(d => {
+    const used = d.usage.requests;
+    const limit = d.limits.requests;
+    const percent = ((used / limit) * 100).toFixed(2);
+
+    new Chart(document.getElementById("chart"), {
+      type: "doughnut",
+      data: {
+        labels: ["Used", "Remaining"],
+        datasets: [{
+          data: [used, limit - used]
+        }]
+      },
+      options: {
+        cutout: "70%",
+        plugins: {
+          legend: { display: false }
+        }
+      }
+    });
+
+    document.getElementById("meta").innerText =
+      `Used ${used.toLocaleString()} / ${limit.toLocaleString()} (${percent}%)
+Updated: ${new Date(d.updated_at).toLocaleString()}`;
+  });
+</script>
+</body>
+</html>
