@@ -8,7 +8,7 @@ const endpoint = 'https://api.cloudflare.com/client/v4/graphql';
 
 async function fetchData() {
   if (!ACCOUNT_ID || !API_TOKEN) {
-    console.error('❌ 错误: 环境变量丢失。');
+    console.error('❌ 错误: 环境变量丢失。请检查 GitHub Secrets。');
     process.exitCode = 1;
     return;
   }
@@ -70,15 +70,21 @@ async function fetchData() {
       return;
     }
 
-    const data = accounts[0].workersInvocationsAdaptive;
+    const rawData = accounts[0].workersInvocationsAdaptive;
     
-    // 保存数据
+    // 👇👇👇 修改点开始：改变了保存的数据结构 👇👇👇
+    const output = {
+        updatedAt: new Date().toISOString(), // 记录当前脚本运行的时间 (UTC)
+        data: rawData
+    };
+    
     const publicDir = path.join(__dirname, '../public');
     if (!fs.existsSync(publicDir)) fs.mkdirSync(publicDir, { recursive: true });
     
-    fs.writeFileSync(path.join(publicDir, 'data.json'), JSON.stringify(data, null, 2));
+    fs.writeFileSync(path.join(publicDir, 'data.json'), JSON.stringify(output, null, 2));
+    // 👆👆👆 修改点结束 👆👆👆
     
-    console.log(`✅ 数据抓取成功！共获取 ${data.length} 条记录。`);
+    console.log(`✅ 数据抓取成功！共获取 ${rawData.length} 条记录。`);
 
   } catch (error) {
     console.error('❌ 请求异常:', error.message);
