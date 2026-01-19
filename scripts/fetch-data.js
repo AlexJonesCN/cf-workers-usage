@@ -34,7 +34,9 @@ async function fetchData() {
   `;
 
   try {
-    console.log(`📡 正在连接 Cloudflare API... (Account ID: ${ACCOUNT_ID.slice(0, 4)}***)`);
+    // 隐藏部分 ID 仅作日志展示
+    const maskedId = ACCOUNT_ID.length > 4 ? ACCOUNT_ID.slice(0, 4) + '***' : '***';
+    console.log(`📡 正在连接 Cloudflare API... (Account ID: ${maskedId})`);
 
     const response = await axios.post(
       endpoint,
@@ -44,11 +46,11 @@ async function fetchData() {
           'Authorization': `Bearer ${API_TOKEN}`,
           'Content-Type': 'application/json',
         },
-        timeout: 10000 // 设置10秒超时，防止挂起
+        timeout: 10000 // 10秒超时
       }
     );
 
-    // 2. 检查 GraphQL 错误（最常见的问题点）
+    // 2. 检查 GraphQL 错误
     if (response.data.errors && response.data.errors.length > 0) {
       console.error('❌ Cloudflare API 返回业务错误:');
       console.error(JSON.stringify(response.data.errors, null, 2));
@@ -56,11 +58,10 @@ async function fetchData() {
       return;
     }
 
-    // 3. 检查数据结构是否存在
+    // 3. 检查数据结构
     const accounts = response.data?.data?.viewer?.accounts;
     if (!accounts || accounts.length === 0) {
       console.error('❌ 数据错误: 找不到该 Account ID 的数据。请检查 CF_ACCOUNT_ID 是否正确。');
-      console.error('API 返回结构:', JSON.stringify(response.data, null, 2));
       process.exitCode = 1;
       return;
     }
@@ -69,16 +70,22 @@ async function fetchData() {
     
     // 4. 保存文件
     const publicDir = path.join(__dirname, '../public');
-    if (!fs.existsSync(publicDir)) fs.mkdirSync(publicDir);
+    if (!fs.existsSync(publicDir)) fs.mkdirSync(publicDir, { recursive: true });
+    
     fs.writeFileSync(path.join(publicDir, 'data.json'), JSON.stringify(data, null, 2));
     
-    console.log('✅ 数据抓取成功！');
+    console.log('✅ 数据抓取成功！已保存至 public/data.json');
 
   } catch (error) {
     console.error('❌ 请求发生异常:');
     if (error.response) {
-      // 请求已发出，服务器返回状态码不在 2xx 范围内
       console.error(`状态码: ${error.response.status}`);
       console.error('响应体:', JSON.stringify(error.response.data, null, 2));
-    } else if (error.request) {
-      console.error('无响应: 请求已发出但未收到响应');
+    } else {
+      console.error('错误信息:', error.message);
+    }
+    process.exitCode = 1;
+  }
+} // <--- 这里的花括号必须有！
+
+fetchData(); // <--- 这一行调用代码绝对不能漏！
