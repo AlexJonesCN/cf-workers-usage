@@ -234,7 +234,12 @@
 
             const option = {
                 title: { text: '请求趋势', left: 'center' },
-                tooltip: { trigger: 'axis', axisPointer: { type: 'cross' } },
+                // 修改点 1: 格式化 Tooltip，确保鼠标悬停时数字不带小数
+                tooltip: { 
+                    trigger: 'axis', 
+                    axisPointer: { type: 'cross' },
+                    valueFormatter: (value) => Math.floor(value) 
+                },
                 legend: { data: ['总请求', '错误'], bottom: 0 },
                 grid: { left: '3%', right: '4%', bottom: '10%', containLabel: true },
                 xAxis: {
@@ -245,7 +250,16 @@
                         rotate: range === '24h' ? 45 : 0 
                     }
                 },
-                yAxis: { type: 'value' },
+                // 修改点 2: 强制 Y 轴不出现小数
+                yAxis: { 
+                    type: 'value',
+                    minInterval: 1, // <--- 核心代码：强制最小间隔为 1
+                    axisLabel: {
+                        formatter: function (value) {
+                            return Math.floor(value); // 确保刻度标签只显示整数
+                        }
+                    }
+                },
                 series: [
                     {
                         name: '总请求',
