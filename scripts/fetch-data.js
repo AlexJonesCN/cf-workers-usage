@@ -14,6 +14,7 @@ async function fetchData() {
     return;
   }
 
+  // 👇 修改点：删除了 cpuTime 字段，只保留 requests 和 errors
   const query = `
     query Viewer {
       viewer {
@@ -25,8 +26,14 @@ async function fetchData() {
               datetime_leq: "${new Date().toISOString()}"
             }
           ) {
-            sum { requests errors cpuTime }
-            dimensions { datetime scriptName }
+            sum {
+              requests
+              errors
+            }
+            dimensions {
+              datetime
+              scriptName
+            }
           }
         }
       }
@@ -70,6 +77,7 @@ async function fetchData() {
     
     // 4. 保存文件
     const publicDir = path.join(__dirname, '../public');
+    // 递归创建目录，防止父目录不存在导致报错
     if (!fs.existsSync(publicDir)) fs.mkdirSync(publicDir, { recursive: true });
     
     fs.writeFileSync(path.join(publicDir, 'data.json'), JSON.stringify(data, null, 2));
@@ -86,6 +94,6 @@ async function fetchData() {
     }
     process.exitCode = 1;
   }
-} // <--- 这里的花括号必须有！
+}
 
-fetchData(); // <--- 这一行调用代码绝对不能漏！
+fetchData();
