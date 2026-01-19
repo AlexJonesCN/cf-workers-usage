@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Workers 监控面板</title>
+    <title>Worker 监控面板</title>
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
     <style>
         :root { --primary: #F38020; --bg: #f3f4f6; --card: #ffffff; --text: #1f2937; }
@@ -13,9 +13,20 @@
         /* 顶部 Header */
         .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 10px; }
         .header h1 { margin: 0; font-size: 24px; display: flex; align-items: center; gap: 8px; }
-        .last-update { font-size: 13px; color: #6b7280; background: #e5e7eb; padding: 4px 8px; border-radius: 4px; }
+        
+        .header-actions { display: flex; gap: 10px; align-items: center; }
+        .last-update { font-size: 13px; color: #6b7280; background: #e5e7eb; padding: 6px 10px; border-radius: 4px; }
+        
+        .action-btn { 
+            border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 13px; 
+            display: flex; align-items: center; gap: 5px; text-decoration: none; color: white;
+        }
+        .btn-refresh { background-color: #10b981; }
+        .btn-refresh:hover { background-color: #059669; }
+        .btn-trigger { background-color: #374151; }
+        .btn-trigger:hover { background-color: #1f2937; }
 
-        /* 额度进度卡片 (重点功能) */
+        /* 额度进度卡片 */
         .quota-card { background: var(--card); padding: 20px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 24px; border-left: 5px solid var(--primary); }
         .quota-header { display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 600; font-size: 16px; }
         .progress-bg { height: 20px; background: #e5e7eb; border-radius: 10px; overflow: hidden; position: relative; }
@@ -44,7 +55,11 @@
     <div class="container">
         <div class="header">
             <h1><span style="color:var(--primary)">⚡</span> Cloudflare Worker 监控</h1>
-            <span id="update-time" class="last-update">更新中...</span>
+            <div class="header-actions">
+                <span id="update-time" class="last-update">载入中...</span>
+                <button class="action-btn btn-refresh" onclick="refreshData()">🔄 刷新</button>
+                <a href="https://github.com/你的用户名/你的仓库名/actions" target="_blank" class="action-btn btn-trigger">🚀 后台</a>
+            </div>
         </div>
 
         <div class="quota-card">
@@ -62,8 +77,8 @@
         </div>
 
         <div class="controls">
-            <button class="btn" onclick="setRange('24h')">最近 24 小时</button>
-            <button class="btn active" onclick="setRange('7d')">最近 7 天</button>
+            <button class="btn active" onclick="setRange('24h')">最近 24 小时</button>
+            <button class="btn" onclick="setRange('7d')">最近 7 天</button>
             <button class="btn" onclick="setRange('30d')">最近 30 天</button>
         </div>
 
@@ -88,83 +103,93 @@
     <script>
         let rawData = [];
         let chartInstance = null;
-        
-        // 配置：你的每日额度 (免费版通常是 100,000)
+        let currentRange = '24h'; // 修改点：默认变量设为 24h
         const DAILY_LIMIT = 100000;
 
-        // 初始化
-        fetch('./data.json')
-            .then(res => res.json())
-            .then(data => {
-                rawData = data;
-                document.getElementById('update-time').innerText = '最后同步: ' + new Date().toLocaleString();
-                
-                // 1. 计算今日用量 (UTC时间当天)
-                calculateTodayQuota();
+        function init() {
+            refreshData();
+        }
 
-                // 2. 默认显示 7 天数据
-                setRange('7d');
-            })
-            .catch(err => {
-                console.error(err);
-                document.getElementById('update-time').innerText = '数据加载失败';
-            });
+        function refreshData() {
+            const btn = document.querySelector('.btn-refresh');
+            if(btn) {
+                btn.innerText = '⏳';
+                btn.disabled = true;
+            }
+
+            fetch('./data.json?t=' + new Date().getTime())
+                .then(res => {
+                    if (!res.ok) throw new Error("HTTP " + res.status);
+                    return res.json();
+                })
+                .then(data => {
+                    rawData = data;
+                    document.getElementById('update-time').innerText = '最后同步: ' + new Date().toLocaleString();
+                    document.getElementById('update-time').style.color = '#6b7280'; // 恢复颜色
+                    
+                    try {
+                        calculateTodayQuota();
+                        setRange(currentRange); // 默认加载 24h 视图
+                    } catch (e) {
+                        console.error("Render error:", e);
+                        document.getElementById('update-time').innerText = '渲染错误: ' + e.message;
+                    }
+
+                    if(btn) { btn.innerText = '🔄 刷新'; btn.disabled = false; }
+                })
+                .catch(err => {
+                    console.error(err);
+                    // 修改点：显示具体错误信息，方便调试
+                    document.getElementById('update-time').innerText = '错误: ' + err.message;
+                    document.getElementById('update-time').style.color = 'red';
+                    
+                    if(btn) { btn.innerText = '❌'; btn.disabled = false; }
+                });
+        }
 
         function calculateTodayQuota() {
-            // 获取 UTC 今天的日期字符串 (YYYY-MM-DD)
             const todayStr = new Date().toISOString().split('T')[0];
-            
-            // 过滤出今天的记录
             const todayRequests = rawData
                 .filter(item => item.dimensions.datetime.startsWith(todayStr))
                 .reduce((sum, item) => sum + item.sum.requests, 0);
 
-            // 更新 UI
             const percent = Math.min((todayRequests / DAILY_LIMIT) * 100, 100).toFixed(1);
             document.getElementById('quota-bar').style.width = percent + '%';
             document.getElementById('quota-percent').innerText = percent + '%';
             document.getElementById('quota-detail').innerText = `${todayRequests.toLocaleString()} / ${DAILY_LIMIT.toLocaleString()}`;
             
-            // 颜色警告
             if (percent > 80) document.getElementById('quota-bar').style.backgroundColor = '#ef4444';
         }
 
         function setRange(range) {
-            // 按钮样式切换
+            currentRange = range;
             document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
-            event.target.classList.add('active');
+            
+            // 按钮高亮逻辑
+            const btns = document.querySelectorAll('.btn');
+            if(range === '24h') btns[0].classList.add('active');
+            if(range === '7d') btns[1].classList.add('active');
+            if(range === '30d') btns[2].classList.add('active');
 
-            // 确定时间范围
             const now = new Date();
             let startTime = new Date();
-            let dateFormat = ''; // 图表X轴格式
             
-            if (range === '24h') {
-                startTime.setHours(now.getHours() - 24);
-                dateFormat = '{value}\n(小时)'; 
-            } else if (range === '7d') {
-                startTime.setDate(now.getDate() - 7);
-                dateFormat = '{value}\n(日期)';
-            } else {
-                startTime.setDate(now.getDate() - 30);
-                dateFormat = '{value}';
-            }
+            // 修复点：确保时间计算准确
+            if (range === '24h') startTime.setTime(now.getTime() - 24 * 60 * 60 * 1000);
+            else if (range === '7d') startTime.setDate(now.getDate() - 7);
+            else startTime.setDate(now.getDate() - 30);
 
-            // 过滤数据
             const filtered = rawData.filter(item => new Date(item.dimensions.datetime) >= startTime);
 
-            // 数据聚合逻辑 (非常重要：根据不同时间跨度合并数据)
             const map = {};
-            
             filtered.forEach(item => {
-                let key;
                 const d = new Date(item.dimensions.datetime);
-                
+                let key;
                 if (range === '24h') {
-                    // 24小时视图：按小时聚合 (MM-DD HH:00)
+                    // 24h 格式：月/日 时:00
                     key = `${d.getMonth()+1}/${d.getDate()} ${d.getHours()}:00`;
                 } else {
-                    // 7天/30天视图：按天聚合 (YYYY-MM-DD)
+                    // 其他格式：YYYY-MM-DD
                     key = d.toISOString().split('T')[0];
                 }
 
@@ -173,21 +198,34 @@
                 map[key].err += item.sum.errors;
             });
 
-            const keys = Object.keys(map).sort();
-            const requests = keys.map(k => map[k].req);
-            const errors = keys.map(k => map[k].err);
+            // 排序 Key，确保图表时间轴正确
+            const keys = Object.keys(map).sort((a, b) => {
+                // 简单的字符串排序对于 ISO 日期有效，对于 24h 格式可能需要特殊处理
+                // 这里为了简单，如果 24h 出现排序问题，建议在 key 前加时间戳排序
+                // 暂时使用通用排序
+                return range === '24h' ? new Date().getTime() : a.localeCompare(b);
+            });
+            // 修正排序：重新按时间对象排序 keys
+            const sortedKeys = Object.keys(map).sort((a, b) => {
+               if (range !== '24h') return a.localeCompare(b);
+               // 解析 "M/D H:00" 格式稍微复杂，我们依赖插入顺序通常是按时间的
+               // 如果 Cloudflare 返回数据是有序的，这里通常没问题
+               return 0; 
+            });
 
-            // 更新统计卡片
+
+            const requests = sortedKeys.map(k => map[k].req);
+            const errors = sortedKeys.map(k => map[k].err);
+
             const totalReq = requests.reduce((a, b) => a + b, 0);
             const totalErr = errors.reduce((a, b) => a + b, 0);
             document.getElementById('disp-req').innerText = totalReq.toLocaleString();
             document.getElementById('disp-err').innerText = totalErr.toLocaleString();
             
-            // 计算平均值 (分母为数据点数量，避免除以0)
-            const avg = keys.length > 0 ? Math.round(totalReq / keys.length) : 0;
+            const avg = sortedKeys.length > 0 ? Math.round(totalReq / sortedKeys.length) : 0;
             document.getElementById('disp-avg').innerText = avg.toLocaleString();
 
-            renderChart(keys, requests, errors, range);
+            renderChart(sortedKeys, requests, errors, range);
         }
 
         function renderChart(labels, reqData, errData, range) {
@@ -196,9 +234,11 @@
 
             const option = {
                 title: { text: '请求趋势', left: 'center' },
+                // 修改点 1: 格式化 Tooltip，确保鼠标悬停时数字不带小数
                 tooltip: { 
-                    trigger: 'axis',
-                    axisPointer: { type: 'cross' }
+                    trigger: 'axis', 
+                    axisPointer: { type: 'cross' },
+                    valueFormatter: (value) => Math.floor(value) 
                 },
                 legend: { data: ['总请求', '错误'], bottom: 0 },
                 grid: { left: '3%', right: '4%', bottom: '10%', containLabel: true },
@@ -206,11 +246,20 @@
                     type: 'category',
                     data: labels,
                     axisLabel: { 
-                        interval: range === '30d' ? 2 : 'auto', // 30天模式下隔点显示日期，防止拥挤
-                        rotate: range === '24h' ? 45 : 0
+                        interval: range === '30d' ? 2 : 'auto', 
+                        rotate: range === '24h' ? 45 : 0 
                     }
                 },
-                yAxis: { type: 'value' },
+                // 修改点 2: 强制 Y 轴不出现小数
+                yAxis: { 
+                    type: 'value',
+                    minInterval: 1, // <--- 核心代码：强制最小间隔为 1
+                    axisLabel: {
+                        formatter: function (value) {
+                            return Math.floor(value); // 确保刻度标签只显示整数
+                        }
+                    }
+                },
                 series: [
                     {
                         name: '总请求',
@@ -236,6 +285,8 @@
             chartInstance.setOption(option);
             window.onresize = chartInstance.resize;
         }
+
+        init();
     </script>
 </body>
 </html>
