@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Worker 监控面板</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='0.9em' font-size='90'>⚡</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E⚡%3C/text%3E%3C/svg%3E">
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
     <style>
         :root { 
@@ -266,8 +266,8 @@
             localStorage.setItem(STORAGE_KEY, newTheme);
             applyTheme(newTheme);
             
-            // Re-render chart with new theme
-            if (chartInstance) {
+            // Re-render chart with new theme if data is loaded
+            if (chartInstance && currentLabels.length > 0) {
                 renderChart(currentLabels, currentReqData, currentErrData, currentRange);
             }
         }
@@ -279,8 +279,8 @@
                 const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
                 if (autoTheme !== currentTheme) {
                     applyTheme(autoTheme);
-                    // Re-render chart with new theme
-                    if (chartInstance) {
+                    // Re-render chart with new theme if data is loaded
+                    if (chartInstance && currentLabels.length > 0) {
                         renderChart(currentLabels, currentReqData, currentErrData, currentRange);
                     }
                 }
@@ -525,7 +525,10 @@
                 ]
             };
             chartInstance.setOption(option);
-            window.onresize = chartInstance.resize;
+            if (!window.chartResizeHandler) {
+                window.chartResizeHandler = () => chartInstance && chartInstance.resize();
+                window.addEventListener('resize', window.chartResizeHandler);
+            }
         }
 
         init();
