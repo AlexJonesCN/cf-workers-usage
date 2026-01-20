@@ -1,6 +1,6 @@
 name: Update Worker Stats
 
-于:
+on:
   schedule:
     # 分钟 小时 日 月 周
     # */20 代表“每隔20分钟”
