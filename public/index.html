@@ -4,42 +4,198 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Worker 监控面板</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E⚡%3C/text%3E%3C/svg%3E">
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
     <style>
-        :root { --primary: #F38020; --bg: #f3f4f6; --card: #ffffff; --text: #1f2937; }
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding: 20px; }
+        :root { 
+            --primary: #F38020; 
+            --bg: #f3f4f6; 
+            --card: #ffffff; 
+            --text: #1f2937; 
+            --text-secondary: #6b7280;
+            --border: #e5e7eb;
+            --progress-bg: #e5e7eb;
+            --shadow: rgba(0,0,0,0.05);
+            --btn-bg: #fff;
+            --btn-hover: #f9fafb;
+            --stat-value: #111827;
+        }
+        
+        [data-theme="dark"] {
+            --bg: #111827;
+            --card: #1f2937;
+            --text: #f9fafb;
+            --text-secondary: #9ca3af;
+            --border: #374151;
+            --progress-bg: #374151;
+            --shadow: rgba(0,0,0,0.3);
+            --btn-bg: #374151;
+            --btn-hover: #4b5563;
+            --stat-value: #f9fafb;
+        }
+        
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            background: var(--bg); 
+            color: var(--text); 
+            margin: 0; 
+            padding: 20px; 
+        }
         .container { max-width: 1200px; margin: 0 auto; }
         
-        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 24px; flex-wrap: wrap; gap: 10px; }
-        .header h1 { margin: 0; font-size: 24px; display: flex; align-items: center; gap: 8px; }
+        .header { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            margin-bottom: 24px; 
+            flex-wrap: wrap; 
+            gap: 10px; 
+        }
+        .header h1 { 
+            margin: 0; 
+            font-size: 24px; 
+            display: flex; 
+            align-items: center; 
+            gap: 8px; 
+        }
         
-        .last-update { font-size: 13px; color: #6b7280; background: #e5e7eb; padding: 6px 12px; border-radius: 20px; }
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .last-update { 
+            font-size: 13px; 
+            color: var(--text-secondary); 
+            background: var(--border); 
+            padding: 6px 12px; 
+            border-radius: 20px; 
+        }
+        
+        .theme-toggle {
+            background: var(--btn-bg);
+            border: 1px solid var(--border);
+            padding: 8px 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: all 0.2s;
+            box-shadow: 0 1px 3px var(--shadow);
+        }
+        
+        .theme-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 6px var(--shadow);
+        }
 
-        .quota-card { background: var(--card); padding: 20px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); margin-bottom: 24px; border-left: 5px solid var(--primary); }
-        .quota-header { display: flex; justify-content: space-between; margin-bottom: 10px; font-weight: 600; font-size: 16px; }
-        .progress-bg { height: 20px; background: #e5e7eb; border-radius: 10px; overflow: hidden; position: relative; }
-        .progress-bar { height: 100%; background: linear-gradient(90deg, #F38020, #f9a056); width: 0%; transition: width 1s ease; border-radius: 10px; }
-        .quota-text { display: flex; justify-content: space-between; font-size: 13px; color: #6b7280; margin-top: 6px; }
+        .quota-card { 
+            background: var(--card); 
+            padding: 20px; 
+            border-radius: 12px; 
+            box-shadow: 0 1px 3px var(--shadow); 
+            margin-bottom: 24px; 
+            border-left: 5px solid var(--primary); 
+        }
+        .quota-header { 
+            display: flex; 
+            justify-content: space-between; 
+            margin-bottom: 10px; 
+            font-weight: 600; 
+            font-size: 16px; 
+        }
+        .progress-bg { 
+            height: 20px; 
+            background: var(--progress-bg); 
+            border-radius: 10px; 
+            overflow: hidden; 
+            position: relative; 
+        }
+        .progress-bar { 
+            height: 100%; 
+            background: linear-gradient(90deg, #F38020, #f9a056); 
+            width: 0%; 
+            transition: width 1s ease; 
+            border-radius: 10px; 
+        }
+        .quota-text { 
+            display: flex; 
+            justify-content: space-between; 
+            font-size: 13px; 
+            color: var(--text-secondary); 
+            margin-top: 6px; 
+        }
 
         .controls { display: flex; gap: 10px; margin-bottom: 15px; }
-        .btn { border: none; background: #fff; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-size: 14px; color: #666; transition: 0.2s; box-shadow: 0 1px 2px rgba(0,0,0,0.05); }
-        .btn.active { background: var(--primary); color: white; font-weight: 500; }
-        .btn:hover:not(.active) { background: #f9fafb; }
+        .btn { 
+            border: 1px solid var(--border); 
+            background: var(--btn-bg); 
+            padding: 8px 16px; 
+            border-radius: 6px; 
+            cursor: pointer; 
+            font-size: 14px; 
+            color: var(--text-secondary); 
+            transition: all 0.2s; 
+            box-shadow: 0 1px 2px var(--shadow); 
+        }
+        .btn.active { 
+            background: var(--primary); 
+            color: white; 
+            font-weight: 500; 
+            border-color: var(--primary);
+        }
+        .btn:hover:not(.active) { 
+            background: var(--btn-hover); 
+        }
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 24px; }
-        .stat-card { background: var(--card); padding: 20px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
-        .stat-title { color: #6b7280; font-size: 13px; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.5px; }
-        .stat-value { font-size: 28px; font-weight: 700; color: #111827; }
-        .text-green { color: #10b981; } .text-red { color: #ef4444; }
+        .grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            gap: 16px; 
+            margin-bottom: 24px; 
+        }
+        .stat-card { 
+            background: var(--card); 
+            padding: 20px; 
+            border-radius: 12px; 
+            box-shadow: 0 1px 3px var(--shadow); 
+        }
+        .stat-title { 
+            color: var(--text-secondary); 
+            font-size: 13px; 
+            margin-bottom: 8px; 
+            text-transform: uppercase; 
+            letter-spacing: 0.5px; 
+        }
+        .stat-value { 
+            font-size: 28px; 
+            font-weight: 700; 
+            color: var(--stat-value); 
+        }
+        .text-green { color: #10b981; } 
+        .text-red { color: #ef4444; }
 
-        #chart-container { background: var(--card); padding: 20px; border-radius: 12px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); height: 450px; }
+        #chart-container { 
+            background: var(--card); 
+            padding: 20px; 
+            border-radius: 12px; 
+            box-shadow: 0 1px 3px var(--shadow); 
+            height: 450px; 
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
             <h1><span style="color:var(--primary)">⚡</span> Cloudflare Worker 监控</h1>
-            <span id="update-time" class="last-update">载入中...</span>
+            <div class="header-right">
+                <span id="update-time" class="last-update">载入中...</span>
+                <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" title="切换主题">🌙</button>
+            </div>
         </div>
 
         <div class="quota-card">
@@ -81,9 +237,69 @@
     </div>
 
     <script>
+        // Theme Management
+        const STORAGE_KEY = 'theme-preference';
+        
+        function getSystemTheme() {
+            const hour = new Date().getHours();
+            // Dark mode: 20:00 - 08:00
+            return (hour >= 20 || hour < 8) ? 'dark' : 'light';
+        }
+        
+        function getCurrentTheme() {
+            // User preference takes priority over auto-switching
+            const stored = localStorage.getItem(STORAGE_KEY);
+            return stored || getSystemTheme();
+        }
+        
+        function applyTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            const toggle = document.getElementById('theme-toggle');
+            if (toggle) {
+                toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
+            }
+        }
+        
+        function toggleTheme() {
+            const current = document.documentElement.getAttribute('data-theme') || 'light';
+            const newTheme = current === 'dark' ? 'light' : 'dark';
+            localStorage.setItem(STORAGE_KEY, newTheme);
+            applyTheme(newTheme);
+            
+            // Re-render chart with new theme if data is loaded
+            if (chartInstance && currentLabels.length > 0) {
+                renderChart(currentLabels, currentReqData, currentErrData, currentRange);
+            }
+        }
+        
+        function checkAutoTheme() {
+            // Only auto-switch if user hasn't set a manual preference
+            if (!localStorage.getItem(STORAGE_KEY)) {
+                const autoTheme = getSystemTheme();
+                const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+                if (autoTheme !== currentTheme) {
+                    applyTheme(autoTheme);
+                    // Re-render chart with new theme if data is loaded
+                    if (chartInstance && currentLabels.length > 0) {
+                        renderChart(currentLabels, currentReqData, currentErrData, currentRange);
+                    }
+                }
+            }
+        }
+        
+        // Initialize theme
+        applyTheme(getCurrentTheme());
+        
+        // Check for auto theme switching every minute
+        setInterval(checkAutoTheme, 60000);
+        
+        // Original script variables
         let rawData = [];
         let chartInstance = null;
         let currentRange = '24h';
+        let currentLabels = [];
+        let currentReqData = [];
+        let currentErrData = [];
         const DAILY_LIMIT = 100000;
 
         function init() {
@@ -196,6 +412,11 @@
             const avg = sortedKeys.length > 0 ? Math.round(totalReq / sortedKeys.length) : 0;
             document.getElementById('disp-avg').innerText = avg.toLocaleString();
 
+            // Store current chart data
+            currentLabels = sortedKeys;
+            currentReqData = requests;
+            currentErrData = errors;
+
             renderChart(sortedKeys, requests, errors, range);
         }
 
@@ -203,27 +424,76 @@
             if (chartInstance) chartInstance.dispose();
             chartInstance = echarts.init(document.getElementById('chart-container'));
 
+            // Get current theme
+            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            const textColor = isDark ? '#f9fafb' : '#1f2937';
+            const axisColor = isDark ? '#9ca3af' : '#6b7280';
+            const splitLineColor = isDark ? '#374151' : '#e5e7eb';
+            const tooltipBg = isDark ? '#374151' : '#ffffff';
+            const tooltipBorder = isDark ? '#4b5563' : '#e5e7eb';
+
             const option = {
-                title: { text: '请求趋势', left: 'center' },
+                title: { 
+                    text: '请求趋势', 
+                    left: 'center',
+                    textStyle: {
+                        color: textColor
+                    }
+                },
                 tooltip: { 
                     trigger: 'axis', 
                     axisPointer: { type: 'cross' },
-                    valueFormatter: (value) => Math.floor(value) 
+                    valueFormatter: (value) => Math.floor(value),
+                    backgroundColor: tooltipBg,
+                    borderColor: tooltipBorder,
+                    textStyle: {
+                        color: textColor
+                    }
                 },
-                legend: { data: ['总请求', '错误'], bottom: 0 },
-                grid: { left: '3%', right: '4%', bottom: '10%', containLabel: true },
+                legend: { 
+                    data: ['总请求', '错误'], 
+                    bottom: 0,
+                    textStyle: {
+                        color: textColor
+                    }
+                },
+                grid: { 
+                    left: '3%', 
+                    right: '4%', 
+                    bottom: '10%', 
+                    containLabel: true 
+                },
                 xAxis: {
                     type: 'category',
                     data: labels,
                     axisLabel: { 
                         interval: range === '30d' ? 2 : 'auto', 
-                        rotate: range === '24h' ? 45 : 0 
+                        rotate: range === '24h' ? 45 : 0,
+                        color: axisColor
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: splitLineColor
+                        }
                     }
                 },
                 yAxis: { 
                     type: 'value',
                     minInterval: 1,
-                    axisLabel: { formatter: (value) => Math.floor(value) },
+                    axisLabel: { 
+                        formatter: (value) => Math.floor(value),
+                        color: axisColor
+                    },
+                    axisLine: {
+                        lineStyle: {
+                            color: splitLineColor
+                        }
+                    },
+                    splitLine: {
+                        lineStyle: {
+                            color: splitLineColor
+                        }
+                    },
                     axisPointer: {
                         label: {
                             formatter: function(params) {
@@ -255,7 +525,10 @@
                 ]
             };
             chartInstance.setOption(option);
-            window.onresize = chartInstance.resize;
+            if (!window.chartResizeHandler) {
+                window.chartResizeHandler = () => chartInstance && chartInstance.resize();
+                window.addEventListener('resize', window.chartResizeHandler);
+            }
         }
 
         init();
