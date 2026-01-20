@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-01-20T11:22:45.833Z",
+  "updatedAt": "2026-01-20T12:46:57.247Z",
   "data": [
     {
       "dimensions": {
@@ -263,7 +263,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-10T11:18:57Z",
+        "datetime": "2026-01-10T00:44:04Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -273,7 +273,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-10T00:44:04Z",
+        "datetime": "2026-01-10T11:18:57Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -1203,12 +1203,12 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T11:37:10Z",
+        "datetime": "2026-01-20T07:36:42Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
-        "requests": 2
+        "requests": 1
       }
     },
     {
@@ -1223,17 +1223,17 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-15T12:02:25Z",
+        "datetime": "2026-01-19T11:37:10Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
-        "requests": 1
+        "requests": 2
       }
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T07:36:42Z",
+        "datetime": "2026-01-15T12:02:25Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -1263,7 +1263,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T21:35:52Z",
+        "datetime": "2026-01-19T16:51:24Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -1283,7 +1283,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T16:51:24Z",
+        "datetime": "2026-01-11T21:35:52Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -1324,6 +1324,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-17T14:45:59Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T12:22:50Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -2363,7 +2373,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-07T13:50:27Z",
+        "datetime": "2026-01-09T06:14:38Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -2373,7 +2383,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T06:14:38Z",
+        "datetime": "2026-01-07T13:50:27Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -2463,7 +2473,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T04:23:51Z",
+        "datetime": "2026-01-13T13:59:51Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -2483,7 +2493,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-13T13:59:51Z",
+        "datetime": "2026-01-09T04:23:51Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -2663,7 +2673,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-10T10:51:23Z",
+        "datetime": "2026-01-08T18:39:35Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -2673,7 +2683,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T18:39:35Z",
+        "datetime": "2026-01-10T10:51:23Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -2733,7 +2743,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-17T13:22:28Z",
+        "datetime": "2026-01-08T18:47:56Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -2743,7 +2753,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T18:47:56Z",
+        "datetime": "2026-01-17T13:22:28Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -2813,7 +2823,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T12:45:00Z",
+        "datetime": "2026-01-19T12:39:32Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -2823,7 +2833,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T12:39:32Z",
+        "datetime": "2026-01-08T12:45:00Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -2853,22 +2863,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T04:12:43Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 16
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-10T14:36:14Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-09T04:12:43Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 16
       }
     },
     {
@@ -3023,22 +3033,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T10:27:14Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 51
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-09T08:28:50Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 4
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-09T10:27:14Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 51
       }
     },
     {
@@ -3543,6 +3553,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-08T13:10:12Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-19T09:17:06Z",
         "scriptName": "emby"
       },
@@ -3563,17 +3583,17 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T13:10:12Z",
+        "datetime": "2026-01-08T13:52:44Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
-        "requests": 1
+        "requests": 3
       }
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T13:52:44Z",
+        "datetime": "2026-01-09T03:15:46Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -3589,16 +3609,6 @@
       "sum": {
         "errors": 0,
         "requests": 31
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-09T03:15:46Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 3
       }
     },
     {
@@ -4183,22 +4193,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-07T12:51:36Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-08T01:49:50Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-07T12:51:36Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -4493,6 +4503,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:22:08Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 8
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-09T04:31:42Z",
         "scriptName": "emby"
       },
@@ -4693,7 +4713,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T07:35:02Z",
+        "datetime": "2026-01-14T03:05:19Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -4703,7 +4723,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-14T03:05:19Z",
+        "datetime": "2026-01-20T07:35:02Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -5213,6 +5233,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T05:42:41Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-19T11:41:52Z",
         "scriptName": "emby"
       },
@@ -5229,16 +5259,6 @@
       "sum": {
         "errors": 0,
         "requests": 25
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-20T05:42:41Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
       }
     },
     {
@@ -6243,16 +6263,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T16:02:02Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 5
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-07T12:21:50Z",
         "scriptName": "emby"
       },
@@ -6263,7 +6273,17 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T15:34:21Z",
+        "datetime": "2026-01-19T16:02:02Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 5
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-18T15:31:43Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -6273,7 +6293,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-18T15:31:43Z",
+        "datetime": "2026-01-08T15:34:21Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -6643,7 +6663,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T16:04:05Z",
+        "datetime": "2026-01-20T06:14:32Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -6653,7 +6673,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T06:14:32Z",
+        "datetime": "2026-01-19T16:04:05Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -6823,7 +6843,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T07:41:45Z",
+        "datetime": "2026-01-20T03:11:13Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -6833,7 +6853,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T03:11:13Z",
+        "datetime": "2026-01-11T07:41:45Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -6893,7 +6913,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T18:48:42Z",
+        "datetime": "2026-01-07T12:39:33Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -6903,7 +6923,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-07T12:39:33Z",
+        "datetime": "2026-01-19T18:48:42Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -7033,6 +7053,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:24:16Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-14T01:49:48Z",
         "scriptName": "emby"
       },
@@ -7074,6 +7104,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-08T07:44:30Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:24:04Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -7239,6 +7279,16 @@
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:22:10Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 10
       }
     },
     {
@@ -7603,7 +7653,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T18:47:59Z",
+        "datetime": "2026-01-15T02:22:23Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -7613,7 +7663,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-15T02:22:23Z",
+        "datetime": "2026-01-08T18:47:59Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -7873,22 +7923,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T14:56:17Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 3
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-08T12:06:13Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-08T14:56:17Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 3
       }
     },
     {
@@ -8363,7 +8413,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T06:43:43Z",
+        "datetime": "2026-01-19T17:04:44Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -8373,7 +8423,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T17:04:44Z",
+        "datetime": "2026-01-20T06:43:43Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -9233,7 +9283,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T08:12:32Z",
+        "datetime": "2026-01-19T12:07:56Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -9243,7 +9293,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T12:07:56Z",
+        "datetime": "2026-01-20T08:12:32Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -9293,16 +9343,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-10T10:27:20Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-12T15:05:20Z",
         "scriptName": "emby"
       },
@@ -9314,6 +9354,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-09T03:26:15Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-10T10:27:20Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -9593,22 +9643,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-07T12:51:45Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-09T13:39:41Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-07T12:51:45Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -9643,7 +9693,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T04:59:41Z",
+        "datetime": "2026-01-20T08:17:12Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -9653,7 +9703,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T08:17:12Z",
+        "datetime": "2026-01-19T04:59:41Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -9763,7 +9813,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T06:12:12Z",
+        "datetime": "2026-01-11T06:09:29Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -9773,7 +9823,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T06:09:29Z",
+        "datetime": "2026-01-20T06:12:12Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -9793,22 +9843,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-15T06:53:29Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-18T15:44:14Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 3
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-15T06:53:29Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -9983,7 +10033,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T05:01:38Z",
+        "datetime": "2026-01-07T08:20:00Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -9993,7 +10043,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-07T08:20:00Z",
+        "datetime": "2026-01-19T05:01:38Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -10144,6 +10194,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-09T04:39:11Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:23:37Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -10599,6 +10659,16 @@
       "sum": {
         "errors": 0,
         "requests": 12
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:25:07Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 3
       }
     },
     {
@@ -11173,6 +11243,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:26:19Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-08T14:47:30Z",
         "scriptName": "emby"
       },
@@ -11303,22 +11383,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T02:21:58Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-09T03:26:05Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T02:21:58Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
       }
     },
     {
@@ -11783,22 +11863,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-17T13:15:05Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-09T07:44:25Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-17T13:15:05Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
       }
     },
     {
@@ -12153,6 +12233,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:24:34Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-20T07:28:32Z",
         "scriptName": "emby"
       },
@@ -12373,22 +12463,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-18T15:44:20Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-19T04:58:19Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 38
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-18T15:44:20Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -12469,6 +12559,16 @@
       "sum": {
         "errors": 0,
         "requests": 4
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:24:21Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 3
       }
     },
     {
@@ -12573,7 +12673,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-17T15:43:20Z",
+        "datetime": "2026-01-15T02:19:12Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -12583,7 +12683,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-15T02:19:12Z",
+        "datetime": "2026-01-17T15:43:20Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -12703,7 +12803,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T04:30:05Z",
+        "datetime": "2026-01-17T07:57:58Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -12713,7 +12813,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-17T07:57:58Z",
+        "datetime": "2026-01-09T04:30:05Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -12733,22 +12833,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-07T08:19:47Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 15
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-18T15:07:27Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-07T08:19:47Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 15
       }
     },
     {
@@ -12993,6 +13093,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:26:17Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-09T04:32:02Z",
         "scriptName": "emby"
       },
@@ -13193,22 +13303,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T06:02:49Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 8
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-09T13:37:40Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 11
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-11T06:02:49Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 8
       }
     },
     {
@@ -13593,6 +13703,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:23:47Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 12
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-19T12:45:14Z",
         "scriptName": "emby"
       },
@@ -13754,6 +13874,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-10T17:14:43Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:26:18Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -13993,7 +14123,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T12:29:50Z",
+        "datetime": "2026-01-19T09:58:49Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -14003,7 +14133,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T09:58:49Z",
+        "datetime": "2026-01-19T12:29:50Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -14123,7 +14253,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T12:43:09Z",
+        "datetime": "2026-01-19T12:24:50Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -14133,7 +14263,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T12:24:50Z",
+        "datetime": "2026-01-08T12:43:09Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -14463,22 +14593,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T18:15:49Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-10T00:39:50Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 3
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-19T18:15:49Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -14583,7 +14713,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T13:13:24Z",
+        "datetime": "2026-01-20T02:59:13Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -14603,17 +14733,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T02:59:13Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-11T06:04:09Z",
+        "datetime": "2026-01-19T13:13:24Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -14629,6 +14749,16 @@
       "sum": {
         "errors": 0,
         "requests": 31
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-11T06:04:09Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -14753,22 +14883,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T13:06:29Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 3
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-10T00:54:53Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 9
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-08T13:06:29Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 3
       }
     },
     {
@@ -15023,6 +15153,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-19T18:59:22Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-13T06:19:16Z",
         "scriptName": "emby"
       },
@@ -15039,16 +15179,6 @@
       "sum": {
         "errors": 0,
         "requests": 2
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-19T18:59:22Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
       }
     },
     {
@@ -15253,6 +15383,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T12:22:49Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 3
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-10T02:29:41Z",
         "scriptName": "emby"
       },
@@ -15303,22 +15443,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T14:43:43Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 3
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-09T17:00:20Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-08T14:43:43Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 3
       }
     },
     {
@@ -15653,6 +15793,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:26:37Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-19T18:44:22Z",
         "scriptName": "emby"
       },
@@ -15783,6 +15933,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T05:17:00Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-18T11:26:26Z",
         "scriptName": "emby"
       },
@@ -15794,16 +15954,6 @@
     {
       "dimensions": {
         "datetime": "2026-01-08T11:58:18Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-20T05:17:00Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -16083,7 +16233,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T08:32:00Z",
+        "datetime": "2026-01-07T12:15:51Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -16093,7 +16243,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-07T12:15:51Z",
+        "datetime": "2026-01-20T08:32:00Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -16163,7 +16313,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T04:55:38Z",
+        "datetime": "2026-01-19T15:44:02Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -16173,7 +16323,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T15:44:02Z",
+        "datetime": "2026-01-19T04:55:38Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -16203,7 +16353,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T07:08:23Z",
+        "datetime": "2026-01-19T13:07:54Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -16213,7 +16363,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T13:07:54Z",
+        "datetime": "2026-01-20T07:08:23Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -16633,22 +16783,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T01:49:40Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 3
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-19T12:45:04Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-08T01:49:40Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 3
       }
     },
     {
@@ -16893,7 +17043,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T12:55:04Z",
+        "datetime": "2026-01-08T05:44:49Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -16903,7 +17053,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T05:44:49Z",
+        "datetime": "2026-01-19T12:55:04Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -17283,22 +17433,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T11:15:24Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-07T13:01:06Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-11T11:15:24Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -17403,22 +17553,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-10T10:58:35Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-11T15:31:27Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-10T10:58:35Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -17619,6 +17769,16 @@
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:24:03Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 7
       }
     },
     {
@@ -17993,6 +18153,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:22:39Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-09T06:56:40Z",
         "scriptName": "emby"
       },
@@ -18273,16 +18443,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T12:11:27Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-15T06:50:45Z",
         "scriptName": "emby"
       },
@@ -18293,7 +18453,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T12:34:52Z",
+        "datetime": "2026-01-08T12:11:27Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -18309,6 +18469,16 @@
       "sum": {
         "errors": 0,
         "requests": 4
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-08T12:34:52Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -18733,22 +18903,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T13:00:13Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 8
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-20T07:08:53Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-11T13:00:13Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 8
       }
     },
     {
@@ -18799,6 +18969,16 @@
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:23:02Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 3
       }
     },
     {
@@ -19203,6 +19383,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-18T15:30:03Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-19T11:33:41Z",
         "scriptName": "emby"
       },
@@ -19213,7 +19403,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-18T15:30:03Z",
+        "datetime": "2026-01-08T12:35:25Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -19243,7 +19433,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T12:35:25Z",
+        "datetime": "2026-01-20T11:23:39Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -19489,6 +19679,16 @@
       "sum": {
         "errors": 0,
         "requests": 17
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:50:05Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 4
       }
     },
     {
@@ -19873,7 +20073,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T16:50:00Z",
+        "datetime": "2026-01-12T18:35:56Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -19883,7 +20083,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-12T18:35:56Z",
+        "datetime": "2026-01-09T16:50:00Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -20563,6 +20763,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:25:02Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-12T09:37:39Z",
         "scriptName": "emby"
       },
@@ -20723,6 +20933,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:50:06Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 11
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-19T14:52:30Z",
         "scriptName": "emby"
       },
@@ -20794,6 +21014,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-09T17:00:40Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T12:37:58Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -21053,7 +21283,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-07T12:10:36Z",
+        "datetime": "2026-01-17T15:46:35Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -21063,7 +21293,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-17T15:46:35Z",
+        "datetime": "2026-01-07T12:10:36Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -21523,22 +21753,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T15:43:57Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 3
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-07T08:19:41Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 13
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-19T15:43:57Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 3
       }
     },
     {
@@ -21753,22 +21983,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-12T12:58:51Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-16T06:51:44Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 3
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-12T12:58:51Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
       }
     },
     {
@@ -21843,22 +22073,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T04:29:14Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-20T07:54:12Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-09T04:29:14Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
       }
     },
     {
@@ -22443,7 +22673,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-07T20:28:01Z",
+        "datetime": "2026-01-08T06:13:55Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -22453,7 +22683,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T06:13:55Z",
+        "datetime": "2026-01-07T20:28:01Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -22643,6 +22873,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-11T15:38:31Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-07T12:11:16Z",
         "scriptName": "emby"
       },
@@ -22653,12 +22893,12 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T15:38:31Z",
+        "datetime": "2026-01-20T11:26:23Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
-        "requests": 1
+        "requests": 4
       }
     },
     {
@@ -22933,16 +23173,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T07:06:10Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-07T12:41:39Z",
         "scriptName": "emby"
       },
@@ -22954,6 +23184,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-08T11:10:23Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-09T07:06:10Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -23053,16 +23293,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-17T14:06:29Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-20T05:57:51Z",
         "scriptName": "emby"
       },
@@ -23073,7 +23303,17 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T12:22:10Z",
+        "datetime": "2026-01-17T14:06:29Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-08T13:40:27Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -23093,7 +23333,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T13:40:27Z",
+        "datetime": "2026-01-19T12:22:10Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -23203,22 +23443,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T08:25:49Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-08T01:49:51Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T08:25:49Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
       }
     },
     {
@@ -23383,7 +23623,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-10T04:46:40Z",
+        "datetime": "2026-01-08T13:09:15Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -23393,7 +23633,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T13:09:15Z",
+        "datetime": "2026-01-10T04:46:40Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -23753,6 +23993,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:23:40Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-08T12:10:44Z",
         "scriptName": "emby"
       },
@@ -23813,12 +24063,12 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T12:31:28Z",
+        "datetime": "2026-01-20T08:25:17Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
-        "requests": 7
+        "requests": 1
       }
     },
     {
@@ -23833,12 +24083,12 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T08:25:17Z",
+        "datetime": "2026-01-08T12:31:28Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
-        "requests": 1
+        "requests": 7
       }
     },
     {
@@ -24073,7 +24323,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-07T12:35:00Z",
+        "datetime": "2026-01-09T03:47:39Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -24083,7 +24333,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T03:47:39Z",
+        "datetime": "2026-01-07T12:35:00Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -24133,22 +24383,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-07T12:52:09Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-19T14:07:14Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-07T12:52:09Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
       }
     },
     {
@@ -24233,22 +24483,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-13T06:16:37Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-19T09:17:11Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 3
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-13T06:16:37Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -24263,22 +24513,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T12:57:14Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 5
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-20T08:14:12Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-11T12:57:14Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 5
       }
     },
     {
@@ -24463,16 +24713,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T07:54:22Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-15T02:17:33Z",
         "scriptName": "emby"
       },
@@ -24504,6 +24744,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-19T11:53:22Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T07:54:22Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -24843,22 +25093,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T10:45:17Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-13T11:37:41Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-19T10:45:17Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -24949,6 +25199,16 @@
       "sum": {
         "errors": 0,
         "requests": 11
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T12:22:48Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
       }
     },
     {
@@ -25123,7 +25383,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T15:30:29Z",
+        "datetime": "2026-01-15T23:22:15Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -25133,7 +25393,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-15T23:22:15Z",
+        "datetime": "2026-01-19T15:30:29Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -25313,22 +25573,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T05:49:31Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-08T14:47:16Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 4
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T05:49:31Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -25413,6 +25673,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-08T06:15:52Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 3
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-07T12:06:06Z",
         "scriptName": "emby"
       },
@@ -25429,16 +25699,6 @@
       "sum": {
         "errors": 0,
         "requests": 4
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-08T06:15:52Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 3
       }
     },
     {
@@ -25509,6 +25769,16 @@
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:23:56Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 13
       }
     },
     {
@@ -25584,6 +25854,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-14T15:04:55Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:25:06Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -25939,6 +26219,16 @@
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:24:35Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 3
       }
     },
     {
@@ -26323,22 +26613,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-15T09:19:03Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 3
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-19T13:23:46Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-15T09:19:03Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 3
       }
     },
     {
@@ -26483,6 +26773,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:23:03Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 10
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-19T18:19:09Z",
         "scriptName": "emby"
       },
@@ -26583,16 +26883,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T05:34:51Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-12T08:25:06Z",
         "scriptName": "emby"
       },
@@ -26603,7 +26893,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T12:01:16Z",
+        "datetime": "2026-01-19T12:52:54Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -26613,7 +26903,17 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T12:52:54Z",
+        "datetime": "2026-01-20T05:34:51Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-19T12:01:16Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -26773,22 +27073,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-13T04:04:21Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-12T02:55:33Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-13T04:04:21Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
       }
     },
     {
@@ -27633,6 +27933,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:26:22Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 7
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-20T06:13:32Z",
         "scriptName": "emby"
       },
@@ -28093,22 +28403,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T16:47:44Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-08T11:41:50Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 4
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-19T16:47:44Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -28573,16 +28883,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-15T19:26:12Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-17T00:00:48Z",
         "scriptName": "emby"
       },
@@ -28593,7 +28893,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T12:12:06Z",
+        "datetime": "2026-01-15T19:26:12Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -28604,6 +28904,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-20T06:34:03Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-19T12:12:06Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -28669,6 +28979,16 @@
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:24:51Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
       }
     },
     {
@@ -29013,7 +29333,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T14:19:54Z",
+        "datetime": "2026-01-14T16:38:17Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -29023,7 +29343,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-14T16:38:17Z",
+        "datetime": "2026-01-19T14:19:54Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -29493,7 +29813,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T13:00:22Z",
+        "datetime": "2026-01-08T09:55:30Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -29503,7 +29823,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T09:55:30Z",
+        "datetime": "2026-01-11T13:00:22Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -29523,7 +29843,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T16:20:32Z",
+        "datetime": "2026-01-09T05:47:49Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -29533,7 +29853,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T05:47:49Z",
+        "datetime": "2026-01-19T16:20:32Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -29863,7 +30183,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-17T14:19:38Z",
+        "datetime": "2026-01-11T06:04:49Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -29873,7 +30193,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T06:04:49Z",
+        "datetime": "2026-01-17T14:19:38Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -30513,6 +30833,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-08T12:34:57Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 5
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-19T18:03:09Z",
         "scriptName": "emby"
       },
@@ -30539,16 +30869,6 @@
       "sum": {
         "errors": 0,
         "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-08T12:34:57Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 5
       }
     },
     {
@@ -30893,6 +31213,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-11T07:04:00Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-13T06:16:12Z",
         "scriptName": "emby"
       },
@@ -30904,16 +31234,6 @@
     {
       "dimensions": {
         "datetime": "2026-01-11T12:29:30Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-11T07:04:00Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -30983,7 +31303,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T15:10:20Z",
+        "datetime": "2026-01-09T16:15:35Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -30993,7 +31313,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T16:15:35Z",
+        "datetime": "2026-01-19T15:10:20Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -31463,6 +31783,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:50:08Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 6
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-11T13:02:29Z",
         "scriptName": "emby"
       },
@@ -31713,7 +32043,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T10:00:41Z",
+        "datetime": "2026-01-14T14:49:36Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -31723,7 +32053,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-14T14:49:36Z",
+        "datetime": "2026-01-09T10:00:41Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -31999,6 +32329,16 @@
       "sum": {
         "errors": 0,
         "requests": 21
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:24:32Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -32413,22 +32753,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T14:51:29Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-07T13:01:07Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-19T14:51:29Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -32493,7 +32833,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T13:03:32Z",
+        "datetime": "2026-01-10T00:42:48Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -32503,7 +32843,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-10T00:42:48Z",
+        "datetime": "2026-01-08T13:03:32Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -33333,16 +33673,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T12:52:04Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-19T13:16:34Z",
         "scriptName": "emby"
       },
@@ -33354,6 +33684,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-10T10:21:20Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-19T12:52:04Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -33473,16 +33813,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T06:33:56Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-11T07:00:21Z",
         "scriptName": "emby"
       },
@@ -33494,6 +33824,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-11T13:01:38Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-09T06:33:56Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -33993,6 +34333,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:22:59Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-09T10:10:37Z",
         "scriptName": "emby"
       },
@@ -34103,7 +34453,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T05:22:00Z",
+        "datetime": "2026-01-18T15:00:22Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -34113,7 +34463,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-18T15:00:22Z",
+        "datetime": "2026-01-09T05:22:00Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -34173,7 +34523,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T18:52:42Z",
+        "datetime": "2026-01-07T12:14:56Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -34183,7 +34533,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-07T12:14:56Z",
+        "datetime": "2026-01-19T18:52:42Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -34239,6 +34589,16 @@
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:22:23Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
       }
     },
     {
@@ -34593,16 +34953,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-10T10:47:43Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-19T18:22:49Z",
         "scriptName": "emby"
       },
@@ -34614,6 +34964,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-19T13:08:44Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-10T10:47:43Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -34883,7 +35243,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T12:52:53Z",
+        "datetime": "2026-01-08T08:06:33Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -34903,7 +35263,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T08:06:33Z",
+        "datetime": "2026-01-11T12:52:53Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -35274,6 +35634,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-09T03:30:55Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T12:28:08Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -36103,22 +36473,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T12:10:02Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-19T14:52:55Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-08T12:10:02Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
       }
     },
     {
@@ -36553,7 +36923,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-18T15:12:07Z",
+        "datetime": "2026-01-09T09:17:21Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -36563,7 +36933,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T09:17:21Z",
+        "datetime": "2026-01-18T15:12:07Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -36963,7 +37333,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T13:09:56Z",
+        "datetime": "2026-01-20T06:14:02Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -36973,7 +37343,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T06:14:02Z",
+        "datetime": "2026-01-08T13:09:56Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -37363,7 +37733,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-10T14:01:28Z",
+        "datetime": "2026-01-17T07:58:16Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -37383,7 +37753,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-17T07:58:16Z",
+        "datetime": "2026-01-10T14:01:28Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -37813,22 +38183,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T10:08:22Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-12T13:10:16Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-09T10:08:22Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
       }
     },
     {
@@ -37863,7 +38233,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T05:42:11Z",
+        "datetime": "2026-01-20T08:09:02Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -37873,7 +38243,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T08:09:02Z",
+        "datetime": "2026-01-20T05:42:11Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -37963,7 +38333,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-18T15:21:09Z",
+        "datetime": "2026-01-07T12:09:06Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -37973,7 +38343,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-07T12:09:06Z",
+        "datetime": "2026-01-18T15:21:09Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -38049,6 +38419,16 @@
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:23:09Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
       }
     },
     {
@@ -38513,22 +38893,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T06:01:16Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 7
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-19T11:59:26Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-11T06:01:16Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 7
       }
     },
     {
@@ -38863,22 +39243,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T14:50:29Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-08T12:45:04Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-08T14:50:29Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -38903,12 +39283,12 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T12:02:26Z",
+        "datetime": "2026-01-08T06:17:25Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
-        "requests": 1
+        "requests": 2
       }
     },
     {
@@ -38933,12 +39313,12 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T06:17:25Z",
+        "datetime": "2026-01-19T12:02:26Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
-        "requests": 2
+        "requests": 1
       }
     },
     {
@@ -39253,7 +39633,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-18T15:34:23Z",
+        "datetime": "2026-01-08T12:33:00Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -39263,7 +39643,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T12:33:00Z",
+        "datetime": "2026-01-18T15:34:23Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -39323,22 +39703,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T07:01:27Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 3
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-09T03:25:45Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-09T07:01:27Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 3
       }
     },
     {
@@ -39673,22 +40053,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-07T13:01:00Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 4
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-07T12:17:10Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 19
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-07T13:01:00Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 4
       }
     },
     {
@@ -39813,16 +40193,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T07:49:42Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-19T12:40:21Z",
         "scriptName": "emby"
       },
@@ -39834,6 +40204,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-13T13:01:09Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T07:49:42Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -39864,6 +40244,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-17T13:14:48Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:22:58Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -39923,7 +40313,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T07:40:02Z",
+        "datetime": "2026-01-19T14:07:54Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -39933,7 +40323,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T14:07:54Z",
+        "datetime": "2026-01-20T07:40:02Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -40063,7 +40453,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-07T12:46:21Z",
+        "datetime": "2026-01-17T13:08:04Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -40073,7 +40463,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-17T13:08:04Z",
+        "datetime": "2026-01-07T12:46:21Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -40743,22 +41133,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T13:02:44Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-19T04:56:56Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-19T13:02:44Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -40833,6 +41223,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-08T13:54:52Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-19T19:12:23Z",
         "scriptName": "emby"
       },
@@ -40849,16 +41249,6 @@
       "sum": {
         "errors": 0,
         "requests": 2
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-08T13:54:52Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
       }
     },
     {
@@ -40909,6 +41299,16 @@
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:25:01Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
       }
     },
     {
@@ -40973,7 +41373,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T05:10:21Z",
+        "datetime": "2026-01-19T15:17:40Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -40983,7 +41383,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T15:17:40Z",
+        "datetime": "2026-01-20T05:10:21Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -41064,6 +41464,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-20T08:14:02Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T12:35:51Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -41343,16 +41753,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T06:01:01Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 9
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-08T08:10:03Z",
         "scriptName": "emby"
       },
@@ -41363,7 +41763,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T18:29:09Z",
+        "datetime": "2026-01-19T12:40:40Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -41373,7 +41773,17 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T12:40:40Z",
+        "datetime": "2026-01-11T06:01:01Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 9
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-19T18:29:09Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -41663,6 +42073,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:23:05Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 24
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-07T10:14:10Z",
         "scriptName": "emby"
       },
@@ -41843,7 +42263,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-07T12:39:00Z",
+        "datetime": "2026-01-12T13:47:52Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -41853,7 +42273,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-12T13:47:52Z",
+        "datetime": "2026-01-07T12:39:00Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -42253,6 +42673,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-18T15:18:49Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-08T08:07:22Z",
         "scriptName": "emby"
       },
@@ -42264,16 +42694,6 @@
     {
       "dimensions": {
         "datetime": "2026-01-08T12:36:40Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-18T15:18:49Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -42373,7 +42793,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T14:58:43Z",
+        "datetime": "2026-01-09T17:01:57Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -42383,7 +42803,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T17:01:57Z",
+        "datetime": "2026-01-08T14:58:43Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -42753,7 +43173,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T07:15:23Z",
+        "datetime": "2026-01-18T15:20:28Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -42763,7 +43183,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-18T15:20:28Z",
+        "datetime": "2026-01-20T07:15:23Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -42933,16 +43353,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T06:00:11Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-19T11:37:50Z",
         "scriptName": "emby"
       },
@@ -42954,6 +43364,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-14T15:13:15Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-11T06:00:11Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -43063,6 +43483,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:24:14Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 5
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-14T12:17:28Z",
         "scriptName": "emby"
       },
@@ -43074,6 +43504,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-08T14:50:19Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:23:46Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -43183,22 +43623,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T06:09:20Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-09T06:02:17Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-09T06:09:20Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
       }
     },
     {
@@ -43473,6 +43913,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-11T06:44:41Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-13T06:19:51Z",
         "scriptName": "emby"
       },
@@ -43483,12 +43933,12 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T06:44:41Z",
+        "datetime": "2026-01-20T12:22:52Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
-        "requests": 1
+        "requests": 12
       }
     },
     {
@@ -43863,22 +44313,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T05:02:16Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-07T12:53:29Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 10
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-19T05:02:16Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
       }
     },
     {
@@ -43923,22 +44373,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T15:38:43Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 5
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-12T08:25:13Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-11T15:38:43Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 5
       }
     },
     {
@@ -44083,22 +44533,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T12:40:09Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-12T12:57:24Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-08T12:40:09Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -44433,6 +44883,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:26:35Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-20T08:00:32Z",
         "scriptName": "emby"
       },
@@ -44529,6 +44989,16 @@
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:24:15Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 20
       }
     },
     {
@@ -44743,7 +45213,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T15:38:50Z",
+        "datetime": "2026-01-19T09:59:53Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -44753,7 +45223,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T09:59:53Z",
+        "datetime": "2026-01-11T15:38:50Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -44833,22 +45303,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T10:32:24Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 9
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-08T13:01:19Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-09T10:32:24Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 9
       }
     },
     {
@@ -44943,7 +45413,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-14T01:44:24Z",
+        "datetime": "2026-01-20T08:06:42Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -44953,7 +45423,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T08:06:42Z",
+        "datetime": "2026-01-14T01:44:24Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -45183,22 +45653,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-15T08:27:47Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-20T09:20:56Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 9
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-15T08:27:47Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -45293,22 +45763,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T11:42:52Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-11T06:02:43Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 6
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-19T11:42:52Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -45533,6 +46003,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:23:20Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-09T03:24:10Z",
         "scriptName": "emby"
       },
@@ -45559,6 +46039,16 @@
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:21:57Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 21
       }
     },
     {
@@ -45803,22 +46293,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T12:50:32Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 12
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-08T11:28:02Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-09T12:50:32Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 12
       }
     },
     {
@@ -45863,7 +46353,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-07T13:02:11Z",
+        "datetime": "2026-01-09T16:19:43Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -45873,7 +46363,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T16:19:43Z",
+        "datetime": "2026-01-07T13:02:11Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -45983,7 +46473,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T12:24:20Z",
+        "datetime": "2026-01-09T16:32:37Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -45993,7 +46483,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T16:32:37Z",
+        "datetime": "2026-01-19T12:24:20Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -46064,6 +46554,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-08T12:21:12Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:24:33Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -46763,7 +47263,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-07T12:42:47Z",
+        "datetime": "2026-01-11T11:15:20Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -46773,7 +47273,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T11:15:20Z",
+        "datetime": "2026-01-07T12:42:47Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -47173,6 +47673,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:26:25Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-15T08:28:36Z",
         "scriptName": "emby"
       },
@@ -47329,6 +47839,16 @@
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:23:19Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 3
       }
     },
     {
@@ -47523,7 +48043,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T14:49:14Z",
+        "datetime": "2026-01-08T14:49:49Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -47533,7 +48053,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T14:49:49Z",
+        "datetime": "2026-01-08T14:49:14Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -47963,6 +48483,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:26:36Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-07T12:03:55Z",
         "scriptName": "emby"
       },
@@ -48003,7 +48533,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-07T12:53:45Z",
+        "datetime": "2026-01-19T11:39:56Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -48013,7 +48543,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T11:39:56Z",
+        "datetime": "2026-01-07T12:53:45Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -49083,22 +49613,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T06:48:13Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-19T16:01:20Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 4
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T06:48:13Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -49183,7 +49713,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T13:36:42Z",
+        "datetime": "2026-01-08T08:10:00Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -49193,7 +49723,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T08:10:00Z",
+        "datetime": "2026-01-08T13:36:42Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -49283,7 +49813,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T06:28:03Z",
+        "datetime": "2026-01-09T13:22:08Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -49293,7 +49823,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T13:22:08Z",
+        "datetime": "2026-01-20T06:28:03Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -49319,6 +49849,16 @@
       "sum": {
         "errors": 0,
         "requests": 7
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:22:18Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 3
       }
     },
     {
@@ -49453,22 +49993,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-12T13:47:54Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 10
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-11T02:56:43Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 5
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-12T13:47:54Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 10
       }
     },
     {
@@ -49624,6 +50164,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-07T08:21:01Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:23:43Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -49813,6 +50363,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-08T13:51:22Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-20T03:01:13Z",
         "scriptName": "emby"
       },
@@ -49833,16 +50393,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T13:51:22Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-14T01:45:00Z",
         "scriptName": "emby"
       },
@@ -49853,7 +50403,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T06:13:49Z",
+        "datetime": "2026-01-08T10:27:15Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -49863,7 +50413,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T10:27:15Z",
+        "datetime": "2026-01-11T06:13:49Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -50143,16 +50693,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T08:05:02Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-08T13:10:49Z",
         "scriptName": "emby"
       },
@@ -50164,6 +50704,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-08T12:38:19Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T08:05:02Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -50243,7 +50793,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-07T08:21:32Z",
+        "datetime": "2026-01-10T22:05:23Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -50253,7 +50803,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-10T22:05:23Z",
+        "datetime": "2026-01-07T08:21:32Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -50473,6 +51023,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:23:41Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-19T10:02:09Z",
         "scriptName": "emby"
       },
@@ -50549,6 +51109,16 @@
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:26:33Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
       }
     },
     {
@@ -50673,12 +51243,12 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-10T04:46:39Z",
+        "datetime": "2026-01-19T16:01:36Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
-        "requests": 3
+        "requests": 1
       }
     },
     {
@@ -50703,12 +51273,12 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T16:01:36Z",
+        "datetime": "2026-01-10T04:46:39Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
-        "requests": 1
+        "requests": 3
       }
     },
     {
@@ -50883,7 +51453,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T11:12:04Z",
+        "datetime": "2026-01-20T06:44:03Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -50903,7 +51473,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T06:44:03Z",
+        "datetime": "2026-01-20T11:12:04Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -51363,7 +51933,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-17T16:02:01Z",
+        "datetime": "2026-01-18T15:00:42Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -51373,7 +51943,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-18T15:00:42Z",
+        "datetime": "2026-01-17T16:02:01Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -51723,7 +52293,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-14T14:26:38Z",
+        "datetime": "2026-01-19T19:22:02Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -51733,7 +52303,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T19:22:02Z",
+        "datetime": "2026-01-14T14:26:38Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -51763,7 +52333,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-18T15:33:03Z",
+        "datetime": "2026-01-19T15:44:06Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -51773,7 +52343,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T15:44:06Z",
+        "datetime": "2026-01-18T15:33:03Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -52083,7 +52653,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-07T10:11:11Z",
+        "datetime": "2026-01-12T12:16:10Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -52093,7 +52663,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-12T12:16:10Z",
+        "datetime": "2026-01-07T10:11:11Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -52233,7 +52803,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-18T15:34:03Z",
+        "datetime": "2026-01-08T10:26:07Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -52243,7 +52813,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T10:26:07Z",
+        "datetime": "2026-01-18T15:34:03Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -52483,7 +53053,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T13:19:54Z",
+        "datetime": "2026-01-19T12:40:51Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -52493,7 +53063,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T12:40:51Z",
+        "datetime": "2026-01-19T13:19:54Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -52643,22 +53213,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-15T02:20:52Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 19
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-20T07:59:32Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-15T02:20:52Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 19
       }
     },
     {
@@ -52699,6 +53269,16 @@
       "sum": {
         "errors": 0,
         "requests": 3
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:25:09Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 10
       }
     },
     {
@@ -52919,6 +53499,16 @@
       "sum": {
         "errors": 0,
         "requests": 3
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:26:40Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -53153,12 +53743,12 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T07:25:42Z",
+        "datetime": "2026-01-11T02:18:01Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
-        "requests": 1
+        "requests": 6
       }
     },
     {
@@ -53173,17 +53763,17 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T02:18:01Z",
+        "datetime": "2026-01-15T18:23:58Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
-        "requests": 6
+        "requests": 1
       }
     },
     {
       "dimensions": {
-        "datetime": "2026-01-15T18:23:58Z",
+        "datetime": "2026-01-20T07:25:42Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -53473,7 +54063,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-10T10:59:57Z",
+        "datetime": "2026-01-11T23:49:24Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -53483,7 +54073,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T23:49:24Z",
+        "datetime": "2026-01-10T10:59:57Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -54203,16 +54793,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T12:56:48Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-15T06:50:49Z",
         "scriptName": "emby"
       },
@@ -54229,6 +54809,16 @@
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-08T12:56:48Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
       }
     },
     {
@@ -54253,7 +54843,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T05:39:31Z",
+        "datetime": "2026-01-19T10:14:16Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -54263,7 +54853,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T10:14:16Z",
+        "datetime": "2026-01-20T05:39:31Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -54693,7 +55283,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T08:02:52Z",
+        "datetime": "2026-01-09T16:40:16Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -54703,7 +55293,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T16:40:16Z",
+        "datetime": "2026-01-08T08:02:52Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -55093,7 +55683,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T09:14:10Z",
+        "datetime": "2026-01-07T10:09:34Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -55103,7 +55693,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-07T10:09:34Z",
+        "datetime": "2026-01-09T09:14:10Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -56273,22 +56863,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T10:00:37Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-19T13:32:07Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 8
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-19T10:00:37Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
       }
     },
     {
@@ -56383,22 +56973,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T12:56:49Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-19T18:05:09Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-08T12:56:49Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
       }
     },
     {
@@ -56553,22 +57143,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-13T06:19:14Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 6
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-20T09:02:24Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-13T06:19:14Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 6
       }
     },
     {
@@ -56583,22 +57173,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T13:13:34Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-20T06:22:02Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-08T13:13:34Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
       }
     },
     {
@@ -56633,7 +57223,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T13:53:40Z",
+        "datetime": "2026-01-08T13:47:02Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -56643,7 +57233,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T13:47:02Z",
+        "datetime": "2026-01-08T13:53:40Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -56703,6 +57293,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-18T15:01:03Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-08T08:40:17Z",
         "scriptName": "emby"
       },
@@ -56723,16 +57323,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-18T15:01:03Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-09T10:09:42Z",
         "scriptName": "emby"
       },
@@ -56743,7 +57333,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T12:45:54Z",
+        "datetime": "2026-01-11T06:53:01Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -56753,7 +57343,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T06:53:01Z",
+        "datetime": "2026-01-19T12:45:54Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -56893,22 +57483,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T12:51:44Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-16T10:30:19Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 40
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-19T12:51:44Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -57853,6 +58443,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:24:00Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 16
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-08T14:47:41Z",
         "scriptName": "emby"
       },
@@ -57933,7 +58533,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T07:01:20Z",
+        "datetime": "2026-01-18T14:56:02Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -57943,7 +58543,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-18T14:56:02Z",
+        "datetime": "2026-01-09T07:01:20Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -58013,7 +58613,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T14:50:25Z",
+        "datetime": "2026-01-12T12:58:19Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -58023,7 +58623,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-12T12:58:19Z",
+        "datetime": "2026-01-08T14:50:25Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -58713,7 +59313,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-17T14:06:21Z",
+        "datetime": "2026-01-08T10:22:41Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -58723,7 +59323,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T10:22:41Z",
+        "datetime": "2026-01-17T14:06:21Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -58873,7 +59473,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T23:40:49Z",
+        "datetime": "2026-01-20T06:41:43Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -58883,7 +59483,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T06:41:43Z",
+        "datetime": "2026-01-09T23:40:49Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -59063,16 +59663,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T06:51:03Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-11T12:32:54Z",
         "scriptName": "emby"
       },
@@ -59083,7 +59673,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T12:23:50Z",
+        "datetime": "2026-01-20T06:51:03Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -59094,6 +59684,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-12T08:57:22Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-19T12:23:50Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -59163,7 +59763,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T14:52:17Z",
+        "datetime": "2026-01-08T14:57:28Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -59173,7 +59773,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T14:57:28Z",
+        "datetime": "2026-01-19T14:52:17Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -59773,6 +60373,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:26:29Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-09T10:30:33Z",
         "scriptName": "emby"
       },
@@ -59873,16 +60483,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T12:35:31Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-09T03:31:16Z",
         "scriptName": "emby"
       },
@@ -59893,7 +60493,27 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-08T12:35:31Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-09T13:39:28Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 3
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:50:07Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -60093,22 +60713,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-15T02:21:15Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 4
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-17T15:36:15Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-15T02:21:15Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 4
       }
     },
     {
@@ -60343,7 +60963,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T06:22:29Z",
+        "datetime": "2026-01-18T15:32:23Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -60353,7 +60973,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-18T15:32:23Z",
+        "datetime": "2026-01-20T06:22:29Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -60943,6 +61563,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:24:22Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 6
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-19T12:27:40Z",
         "scriptName": "emby"
       },
@@ -60973,22 +61603,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T12:20:50Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-19T12:55:36Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-19T12:20:50Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -61883,22 +62513,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T18:19:29Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-19T11:32:13Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-19T18:19:29Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -62073,7 +62703,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T18:02:29Z",
+        "datetime": "2026-01-08T08:05:31Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -62083,7 +62713,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T08:05:31Z",
+        "datetime": "2026-01-19T18:02:29Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -62123,7 +62753,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T03:23:13Z",
+        "datetime": "2026-01-17T16:19:42Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -62133,7 +62763,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-17T16:19:42Z",
+        "datetime": "2026-01-20T03:23:13Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -62423,7 +63053,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T05:07:30Z",
+        "datetime": "2026-01-19T09:18:29Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -62433,7 +63063,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T09:18:29Z",
+        "datetime": "2026-01-19T05:07:30Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -62463,7 +63093,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T12:59:14Z",
+        "datetime": "2026-01-12T13:25:55Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -62473,7 +63103,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-12T13:25:55Z",
+        "datetime": "2026-01-19T12:59:14Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -62883,22 +63513,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T15:22:27Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-11T15:39:58Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-09T15:22:27Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -63853,6 +64483,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:26:21Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-14T21:07:17Z",
         "scriptName": "emby"
       },
@@ -64423,7 +65063,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T05:14:20Z",
+        "datetime": "2026-01-08T06:18:21Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -64433,7 +65073,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T06:18:21Z",
+        "datetime": "2026-01-20T05:14:20Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -65183,7 +65823,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-15T11:53:01Z",
+        "datetime": "2026-01-11T11:32:52Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -65193,7 +65833,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T11:32:52Z",
+        "datetime": "2026-01-15T11:53:01Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -65233,7 +65873,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T07:10:53Z",
+        "datetime": "2026-01-19T12:23:30Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -65243,7 +65883,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T12:23:30Z",
+        "datetime": "2026-01-20T07:10:53Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -65763,22 +66403,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-12T09:37:54Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-20T05:09:58Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 3
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-12T09:37:54Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
       }
     },
     {
@@ -66013,7 +66653,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-10T00:44:07Z",
+        "datetime": "2026-01-12T09:22:55Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -66023,7 +66663,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-12T09:22:55Z",
+        "datetime": "2026-01-10T00:44:07Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -66073,22 +66713,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-12T09:23:16Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 4
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-15T13:32:27Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-12T09:23:16Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 4
       }
     },
     {
@@ -66113,7 +66753,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T02:23:57Z",
+        "datetime": "2026-01-20T06:59:33Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -66123,7 +66763,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T06:59:33Z",
+        "datetime": "2026-01-20T02:23:57Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -66503,7 +67143,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-12T09:25:27Z",
+        "datetime": "2026-01-08T13:00:09Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -66513,7 +67153,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T13:00:09Z",
+        "datetime": "2026-01-12T09:25:27Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -66753,6 +67393,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-17T14:18:51Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 11
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-07T12:53:42Z",
         "scriptName": "emby"
       },
@@ -66789,16 +67439,6 @@
       "sum": {
         "errors": 0,
         "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-17T14:18:51Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 11
       }
     },
     {
@@ -66953,7 +67593,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T13:10:44Z",
+        "datetime": "2026-01-08T14:50:17Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -66963,7 +67603,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T14:50:17Z",
+        "datetime": "2026-01-19T13:10:44Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -67013,7 +67653,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T06:58:21Z",
+        "datetime": "2026-01-19T12:15:16Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -67023,7 +67663,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T12:15:16Z",
+        "datetime": "2026-01-11T06:58:21Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -67073,7 +67713,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T13:09:26Z",
+        "datetime": "2026-01-19T14:55:00Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -67083,7 +67723,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T14:55:00Z",
+        "datetime": "2026-01-08T13:09:26Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -67133,7 +67773,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T12:27:46Z",
+        "datetime": "2026-01-20T07:00:13Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -67143,7 +67783,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T07:00:13Z",
+        "datetime": "2026-01-11T12:27:46Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -67223,7 +67863,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T05:12:40Z",
+        "datetime": "2026-01-12T14:00:10Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -67233,7 +67873,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-12T14:00:10Z",
+        "datetime": "2026-01-20T05:12:40Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -67353,16 +67993,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T01:49:52Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-08T14:45:08Z",
         "scriptName": "emby"
       },
@@ -67379,6 +68009,16 @@
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-08T01:49:52Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
       }
     },
     {
@@ -67499,6 +68139,16 @@
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:24:31Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 4
       }
     },
     {
@@ -67793,7 +68443,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-07T12:10:59Z",
+        "datetime": "2026-01-20T08:28:10Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -67803,7 +68453,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T08:28:10Z",
+        "datetime": "2026-01-07T12:10:59Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -67883,6 +68533,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-19T05:04:45Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-12T18:16:17Z",
         "scriptName": "emby"
       },
@@ -67903,16 +68563,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T05:04:45Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-19T10:45:23Z",
         "scriptName": "emby"
       },
@@ -67923,7 +68573,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-17T13:10:44Z",
+        "datetime": "2026-01-09T03:24:59Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -67953,7 +68603,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T03:24:59Z",
+        "datetime": "2026-01-17T13:10:44Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -68183,7 +68833,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T10:01:53Z",
+        "datetime": "2026-01-15T11:59:26Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -68193,7 +68843,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-15T11:59:26Z",
+        "datetime": "2026-01-19T10:01:53Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -68273,6 +68923,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-14T14:42:57Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-09T06:01:53Z",
         "scriptName": "emby"
       },
@@ -68284,16 +68944,6 @@
     {
       "dimensions": {
         "datetime": "2026-01-19T11:54:22Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-14T14:42:57Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -68693,16 +69343,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-17T13:14:39Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-20T08:08:32Z",
         "scriptName": "emby"
       },
@@ -68713,7 +69353,27 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-17T13:14:39Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-08T08:02:55Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:25:03Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -68913,16 +69573,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-07T10:10:51Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-19T15:02:20Z",
         "scriptName": "emby"
       },
@@ -68933,7 +69583,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-17T15:42:05Z",
+        "datetime": "2026-01-07T10:10:51Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -68959,6 +69609,16 @@
       "sum": {
         "errors": 0,
         "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-17T15:42:05Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -70043,22 +70703,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-15T06:50:56Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 6
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-08T12:11:32Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-15T06:50:56Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 6
       }
     },
     {
@@ -70253,16 +70913,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T06:22:25Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-17T15:36:55Z",
         "scriptName": "emby"
       },
@@ -70273,7 +70923,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-13T05:23:10Z",
+        "datetime": "2026-01-20T06:22:25Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -70284,6 +70934,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-08T13:13:27Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-13T05:23:10Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -70424,6 +71084,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-19T09:59:50Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:55:18Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -70593,7 +71263,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T05:50:31Z",
+        "datetime": "2026-01-08T13:18:26Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -70603,7 +71273,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T13:18:26Z",
+        "datetime": "2026-01-20T05:50:31Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -70834,6 +71504,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-09T06:01:41Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:25:05Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -71873,7 +72553,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T05:01:31Z",
+        "datetime": "2026-01-08T13:49:14Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -71883,7 +72563,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T13:49:14Z",
+        "datetime": "2026-01-19T05:01:31Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -72013,6 +72693,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:24:18Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-18T15:16:47Z",
         "scriptName": "emby"
       },
@@ -72103,16 +72793,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T22:09:52Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-07T13:03:28Z",
         "scriptName": "emby"
       },
@@ -72123,7 +72803,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-15T13:48:24Z",
+        "datetime": "2026-01-11T22:09:52Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -72139,6 +72819,16 @@
       "sum": {
         "errors": 0,
         "requests": 4
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-15T13:48:24Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -72283,7 +72973,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T06:26:24Z",
+        "datetime": "2026-01-17T15:52:15Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -72293,7 +72983,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-17T15:52:15Z",
+        "datetime": "2026-01-20T06:26:24Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -72349,6 +73039,16 @@
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:24:19Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 5
       }
     },
     {
@@ -72943,6 +73643,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:50:09Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-14T17:12:30Z",
         "scriptName": "emby"
       },
@@ -73063,7 +73773,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T13:30:04Z",
+        "datetime": "2026-01-08T11:28:20Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -73073,7 +73783,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T11:28:20Z",
+        "datetime": "2026-01-19T13:30:04Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -73143,7 +73853,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-12T12:56:56Z",
+        "datetime": "2026-01-19T12:26:00Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -73153,7 +73863,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T12:26:00Z",
+        "datetime": "2026-01-12T12:56:56Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -73443,7 +74153,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-13T13:02:50Z",
+        "datetime": "2026-01-08T13:52:45Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -73453,7 +74163,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T13:52:45Z",
+        "datetime": "2026-01-13T13:02:50Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -73873,7 +74583,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T02:30:32Z",
+        "datetime": "2026-01-11T13:01:40Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -73883,7 +74593,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T13:01:40Z",
+        "datetime": "2026-01-20T02:30:32Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -74213,7 +74923,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T14:48:31Z",
+        "datetime": "2026-01-09T16:29:53Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -74223,7 +74933,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T16:29:53Z",
+        "datetime": "2026-01-08T14:48:31Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -74363,6 +75073,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:22:30Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-12T11:51:44Z",
         "scriptName": "emby"
       },
@@ -74443,22 +75163,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T09:17:05Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-11T15:31:24Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 11
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-09T09:17:05Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -74493,22 +75213,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T09:18:08Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 6
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-07T08:21:03Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 19
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-19T09:18:08Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 6
       }
     },
     {
@@ -74549,6 +75269,26 @@
       "sum": {
         "errors": 0,
         "requests": 4
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:26:16Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:26:39Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -74633,7 +75373,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-17T15:58:41Z",
+        "datetime": "2026-01-17T15:55:35Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -74643,7 +75383,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-17T15:55:35Z",
+        "datetime": "2026-01-17T15:58:41Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -74693,7 +75433,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T11:33:50Z",
+        "datetime": "2026-01-19T13:23:24Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -74713,7 +75453,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T13:23:24Z",
+        "datetime": "2026-01-19T11:33:50Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -75743,7 +76483,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T13:01:56Z",
+        "datetime": "2026-01-11T06:54:41Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -75753,7 +76493,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T06:54:41Z",
+        "datetime": "2026-01-08T13:01:56Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -75843,22 +76583,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T08:45:40Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-19T11:40:46Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 3
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T08:45:40Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
       }
     },
     {
@@ -78813,22 +79553,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T16:37:41Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 4
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-14T16:38:02Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-09T16:37:41Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 4
       }
     },
     {
@@ -78883,6 +79623,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:26:30Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-20T07:27:32Z",
         "scriptName": "emby"
       },
@@ -78913,22 +79663,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-12T08:25:16Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-19T11:41:07Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 3
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-12T08:25:16Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -79363,7 +80113,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-10T10:27:40Z",
+        "datetime": "2026-01-20T07:54:02Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -79373,7 +80123,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T07:54:02Z",
+        "datetime": "2026-01-10T10:27:40Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -79533,22 +80283,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-12T13:25:25Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-12T10:37:26Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 23
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-12T13:25:25Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -80073,22 +80823,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T04:31:19Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 10
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-11T02:18:17Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-09T04:31:19Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 10
       }
     },
     {
@@ -80193,7 +80943,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T14:21:34Z",
+        "datetime": "2026-01-20T06:18:42Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -80203,7 +80953,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T06:18:42Z",
+        "datetime": "2026-01-19T14:21:34Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -80453,22 +81203,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-12T13:10:51Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 22
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-07T12:17:07Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-12T13:10:51Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 22
       }
     },
     {
@@ -80503,7 +81253,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T03:22:33Z",
+        "datetime": "2026-01-18T15:40:03Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -80513,7 +81263,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-18T15:40:03Z",
+        "datetime": "2026-01-20T03:22:33Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -80833,6 +81583,26 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:24:45Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:22:31Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 4
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-18T18:32:37Z",
         "scriptName": "emby"
       },
@@ -80873,22 +81643,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T12:49:02Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-12T08:25:56Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-08T12:49:02Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -80919,6 +81689,16 @@
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:26:31Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
       }
     },
     {
@@ -81963,22 +82743,22 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-10T14:02:11Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-14T02:06:18Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 2
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-11T12:25:44Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
       }
     },
     {
@@ -81993,7 +82773,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-10T14:02:11Z",
+        "datetime": "2026-01-11T12:25:44Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -82133,22 +82913,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T07:28:02Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-19T09:58:48Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 6
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T07:28:02Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -82433,7 +83213,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T06:38:13Z",
+        "datetime": "2026-01-13T17:18:09Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -82443,7 +83223,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-13T17:18:09Z",
+        "datetime": "2026-01-20T06:38:13Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -82513,22 +83293,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-07T12:02:05Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-07T12:07:57Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 10
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-07T12:02:05Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -82653,22 +83433,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T10:15:07Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-11T15:31:46Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 3
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-09T10:15:07Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -82723,7 +83503,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T06:29:53Z",
+        "datetime": "2026-01-09T12:42:41Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -82733,7 +83513,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T12:42:41Z",
+        "datetime": "2026-01-20T06:29:53Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -82854,6 +83634,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-09T16:39:27Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:23:30Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -83183,7 +83973,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T05:19:40Z",
+        "datetime": "2026-01-19T16:46:24Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -83193,7 +83983,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T16:46:24Z",
+        "datetime": "2026-01-20T05:19:40Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -83553,22 +84343,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T12:47:02Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-15T02:19:02Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 3
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-08T12:47:02Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -83643,7 +84433,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T06:52:43Z",
+        "datetime": "2026-01-10T10:57:43Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -83653,7 +84443,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-10T10:57:43Z",
+        "datetime": "2026-01-20T06:52:43Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -83683,7 +84473,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-17T13:08:35Z",
+        "datetime": "2026-01-19T13:05:54Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -83693,7 +84483,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T13:05:54Z",
+        "datetime": "2026-01-17T13:08:35Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -83783,6 +84573,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T12:38:55Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-07T13:52:16Z",
         "scriptName": "emby"
       },
@@ -83823,22 +84623,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-18T15:44:34Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-19T16:20:08Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-18T15:44:34Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -83883,7 +84683,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T12:45:24Z",
+        "datetime": "2026-01-09T04:35:50Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -83893,7 +84693,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T04:35:50Z",
+        "datetime": "2026-01-19T12:45:24Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -84063,7 +84863,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T07:01:23Z",
+        "datetime": "2026-01-19T13:16:04Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -84073,7 +84873,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T13:16:04Z",
+        "datetime": "2026-01-20T07:01:23Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -84273,7 +85073,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-15T06:52:59Z",
+        "datetime": "2026-01-19T05:19:53Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -84283,7 +85083,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T05:19:53Z",
+        "datetime": "2026-01-15T06:52:59Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -84433,6 +85233,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-11T11:27:29Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-18T14:46:02Z",
         "scriptName": "emby"
       },
@@ -84443,7 +85253,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T11:27:29Z",
+        "datetime": "2026-01-20T12:34:56Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -85883,16 +86693,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T07:23:39Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-12T10:32:06Z",
         "scriptName": "emby"
       },
@@ -85904,6 +86704,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-20T06:20:12Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T07:23:39Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -85983,16 +86793,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-18T15:15:27Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-10T00:44:46Z",
         "scriptName": "emby"
       },
@@ -86004,6 +86804,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-20T07:29:02Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-18T15:15:27Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -86043,7 +86853,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T08:24:36Z",
+        "datetime": "2026-01-11T13:00:25Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -86053,7 +86863,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T13:00:25Z",
+        "datetime": "2026-01-20T08:24:36Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -86103,22 +86913,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-12T12:59:20Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 4
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-15T08:26:53Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-12T12:59:20Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 4
       }
     },
     {
@@ -86513,7 +87323,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T10:01:48Z",
+        "datetime": "2026-01-11T15:38:10Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -86523,7 +87333,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T15:38:10Z",
+        "datetime": "2026-01-19T10:01:48Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -86543,16 +87353,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T15:39:21Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-19T13:29:48Z",
         "scriptName": "emby"
       },
@@ -86563,17 +87363,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T08:05:19Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 3
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-15T01:45:34Z",
+        "datetime": "2026-01-19T15:39:21Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -86589,6 +87379,26 @@
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-15T01:45:34Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-08T08:05:19Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 3
       }
     },
     {
@@ -86883,22 +87693,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T07:52:54Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 10
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-20T02:23:17Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-08T07:52:54Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 10
       }
     },
     {
@@ -87043,7 +87853,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-16T17:59:04Z",
+        "datetime": "2026-01-14T14:50:48Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -87053,7 +87863,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-14T14:50:48Z",
+        "datetime": "2026-01-16T17:59:04Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -87094,6 +87904,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-20T08:12:52Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:23:18Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -87324,6 +88144,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-08T12:45:06Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:23:36Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -87723,22 +88553,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T06:34:33Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-13T11:45:59Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T06:34:33Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -87863,7 +88693,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T04:30:26Z",
+        "datetime": "2026-01-19T11:46:45Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -87873,7 +88703,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T11:46:45Z",
+        "datetime": "2026-01-09T04:30:26Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -88103,7 +88933,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-18T15:11:47Z",
+        "datetime": "2026-01-11T07:23:20Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -88113,7 +88943,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T07:23:20Z",
+        "datetime": "2026-01-18T15:11:47Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -89023,6 +89853,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:22:57Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-07T10:10:43Z",
         "scriptName": "emby"
       },
@@ -89873,22 +90713,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T06:01:05Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 9
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-09T13:38:17Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-11T06:01:05Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 9
       }
     },
     {
@@ -89933,7 +90773,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T12:44:13Z",
+        "datetime": "2026-01-19T15:25:00Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -89943,7 +90783,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T15:25:00Z",
+        "datetime": "2026-01-11T12:44:13Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -90093,7 +90933,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T08:29:10Z",
+        "datetime": "2026-01-14T14:31:15Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -90103,7 +90943,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-14T14:31:15Z",
+        "datetime": "2026-01-20T08:29:10Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -90203,16 +91043,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T06:41:21Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-08T13:09:45Z",
         "scriptName": "emby"
       },
@@ -90224,6 +91054,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-20T07:03:03Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-11T06:41:21Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -90423,7 +91263,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T10:32:10Z",
+        "datetime": "2026-01-12T05:11:08Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -90433,7 +91273,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-12T05:11:08Z",
+        "datetime": "2026-01-09T10:32:10Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -90553,7 +91393,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-13T06:19:49Z",
+        "datetime": "2026-01-20T07:15:33Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -90563,7 +91403,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T07:15:33Z",
+        "datetime": "2026-01-13T06:19:49Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -91033,7 +91873,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T18:10:09Z",
+        "datetime": "2026-01-17T13:15:09Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -91043,7 +91883,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-17T13:15:09Z",
+        "datetime": "2026-01-19T18:10:09Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -92293,12 +93133,12 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T07:44:18Z",
+        "datetime": "2026-01-13T13:49:04Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
-        "requests": 1
+        "requests": 2
       }
     },
     {
@@ -92313,12 +93153,12 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-13T13:49:04Z",
+        "datetime": "2026-01-08T07:44:18Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
-        "requests": 2
+        "requests": 1
       }
     },
     {
@@ -92353,22 +93193,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-10T10:17:58Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 4
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-19T05:47:07Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-10T10:17:58Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 4
       }
     },
     {
@@ -92389,6 +93229,16 @@
       "sum": {
         "errors": 0,
         "requests": 2
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:22:09Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 4
       }
     },
     {
@@ -92549,6 +93399,16 @@
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T12:22:51Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 4
       }
     },
     {
@@ -92723,7 +93583,27 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:22:47Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-16T18:03:06Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:23:42Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -92913,16 +93793,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-18T15:28:23Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-17T09:09:32Z",
         "scriptName": "emby"
       },
@@ -92934,6 +93804,16 @@
     {
       "dimensions": {
         "datetime": "2026-01-08T14:50:12Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-18T15:28:23Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -93039,6 +93919,16 @@
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:22:35Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
       }
     },
     {
@@ -93343,7 +94233,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T12:39:21Z",
+        "datetime": "2026-01-12T12:55:05Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -93353,7 +94243,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-12T12:55:05Z",
+        "datetime": "2026-01-19T12:39:21Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -94113,6 +95003,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:23:57Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 17
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-08T08:40:22Z",
         "scriptName": "emby"
       },
@@ -94503,22 +95403,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-07T12:14:35Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-13T18:06:19Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-07T12:14:35Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 2
       }
     },
     {
@@ -94773,6 +95673,16 @@
     },
     {
       "dimensions": {
+        "datetime": "2026-01-20T11:22:24Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 3
+      }
+    },
+    {
+      "dimensions": {
         "datetime": "2026-01-19T04:55:19Z",
         "scriptName": "emby"
       },
@@ -94843,22 +95753,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T00:37:26Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 4
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-17T13:17:40Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-09T00:37:26Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 4
       }
     },
     {
@@ -95259,6 +96169,16 @@
       "sum": {
         "errors": 0,
         "requests": 3
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-20T11:51:12Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 1
       }
     },
     {
@@ -95803,7 +96723,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T06:02:31Z",
+        "datetime": "2026-01-12T12:59:16Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -95813,7 +96733,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-12T12:59:16Z",
+        "datetime": "2026-01-20T06:02:31Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -96383,7 +97303,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T06:11:42Z",
+        "datetime": "2026-01-11T07:03:40Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -96393,7 +97313,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T07:03:40Z",
+        "datetime": "2026-01-20T06:11:42Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -96763,22 +97683,22 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T07:44:45Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 4
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-19T13:29:55Z",
         "scriptName": "emby"
       },
       "sum": {
         "errors": 0,
         "requests": 1
+      }
+    },
+    {
+      "dimensions": {
+        "datetime": "2026-01-08T07:44:45Z",
+        "scriptName": "emby"
+      },
+      "sum": {
+        "errors": 0,
+        "requests": 4
       }
     },
     {
@@ -97383,7 +98303,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T07:02:30Z",
+        "datetime": "2026-01-12T09:36:50Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -97393,7 +98313,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-12T09:36:50Z",
+        "datetime": "2026-01-09T07:02:30Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -98063,7 +98983,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-07T12:42:48Z",
+        "datetime": "2026-01-09T04:31:37Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -98073,7 +98993,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T04:31:37Z",
+        "datetime": "2026-01-07T12:42:48Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -98103,7 +99023,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T16:48:20Z",
+        "datetime": "2026-01-09T23:38:07Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -98113,7 +99033,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-09T23:38:07Z",
+        "datetime": "2026-01-09T16:48:20Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -98163,7 +99083,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-16T19:22:15Z",
+        "datetime": "2026-01-10T11:01:13Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -98173,7 +99093,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-10T11:01:13Z",
+        "datetime": "2026-01-16T19:22:15Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -98323,7 +99243,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T08:03:16Z",
+        "datetime": "2026-01-11T22:47:32Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -98333,7 +99253,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T22:47:32Z",
+        "datetime": "2026-01-08T08:03:16Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -98753,7 +99673,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-11T11:16:06Z",
+        "datetime": "2026-01-19T11:45:39Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -98763,7 +99683,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-19T11:45:39Z",
+        "datetime": "2026-01-11T11:16:06Z",
         "scriptName": "emby"
       },
       "sum": {
@@ -99063,16 +99983,6 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-20T05:15:20Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
         "datetime": "2026-01-18T15:42:43Z",
         "scriptName": "emby"
       },
@@ -99083,917 +99993,7 @@
     },
     {
       "dimensions": {
-        "datetime": "2026-01-08T13:40:37Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-20T07:03:33Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-16T19:22:25Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-13T05:24:17Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-19T12:46:34Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-13T18:05:03Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-08T12:11:23Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-10T14:03:11Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-09T07:01:38Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-19T19:00:42Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-19T11:40:06Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-11T11:26:27Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-12T12:57:59Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-07T12:33:57Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-20T05:19:00Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-19T14:52:39Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-19T04:52:35Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-07T08:30:58Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-20T07:20:53Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-09T10:30:16Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-09T12:53:19Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-09T12:25:15Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-08T13:42:07Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-19T12:24:10Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-20T11:10:56Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 34
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-08T12:31:35Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-07T12:12:22Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-12T18:06:01Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-20T05:51:21Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-11T13:01:49Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-09T04:34:44Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-17T13:16:02Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-15T19:39:03Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-18T14:52:02Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-07T12:36:43Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-20T06:33:03Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-19T10:48:53Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 14
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-08T13:06:30Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-11T06:39:01Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-19T16:01:10Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-15T02:17:25Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 4
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-09T07:01:51Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 3
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-20T05:47:31Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-09T04:28:14Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 22
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-11T15:38:15Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-08T08:04:53Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-19T12:21:40Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-09T07:42:37Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-18T14:42:14Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-17T15:49:55Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-12T18:06:30Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-19T16:04:46Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-11T07:26:20Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-13T11:45:19Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-14T14:27:17Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-10T00:33:07Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 3
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-15T02:21:34Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-17T16:24:48Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 3
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-14T11:06:17Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-08T14:47:43Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 5
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-08T01:50:01Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-19T12:59:24Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-19T16:02:01Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-19T10:02:19Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-08T12:44:54Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 5
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-19T18:18:29Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-09T04:34:37Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 13
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-09T16:46:40Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-20T03:04:13Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-09T09:16:54Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-08T13:43:48Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-07T12:04:05Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-11T15:41:25Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-19T19:22:22Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-20T08:39:46Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-19T12:19:50Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-10T23:49:28Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-11T07:20:20Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-19T09:58:50Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 14
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-09T16:37:49Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-09T12:53:37Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 2
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-20T06:32:23Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-07T12:54:49Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-19T12:30:40Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-11T07:38:20Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-08T12:55:03Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-16T00:29:36Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 3
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-20T08:08:02Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-19T13:08:54Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-19T12:02:46Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 1
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-09T16:15:24Z",
-        "scriptName": "emby"
-      },
-      "sum": {
-        "errors": 0,
-        "requests": 11
-      }
-    },
-    {
-      "dimensions": {
-        "datetime": "2026-01-20T02:51:37Z",
+        "datetime": "2026-01-20T05:15:20Z",
         "scriptName": "emby"
       },
       "sum": {
