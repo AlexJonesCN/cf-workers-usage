@@ -70,7 +70,7 @@ cf-workers-usage/
 ## ⚙️ 工作原理
 
 1. **数据获取** - `fetch-data.js` 通过 Cloudflare GraphQL API 获取过去 30 天的 Workers 调用统计
-2. **自动更新** - GitHub Actions 每 20 分钟执行一次数据同步
+2. **自动更新** - GitHub Actions 每小时执行一次数据同步
 3. **数据存储** - 获取的数据保存为 `data.json` 文件
 4. **页面展示** - `index.html` 加载 JSON 数据并使用 ECharts 进行可视化
 5. **自动部署** - 使用 `peaceiris/actions-gh-pages` 自动部署到 GitHub Pages
@@ -83,7 +83,7 @@ cf-workers-usage/
 
 ```yaml
 schedule:
-  - cron: '*/20 * * * *'  # 每 20 分钟运行一次
+  - cron: '0 */1 * * *'  # 每小时运行一次
 ```
 
 ### 自定义域名
