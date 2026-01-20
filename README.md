@@ -2,7 +2,6 @@
 
 📊 用于记录和可视化 Cloudflare Workers 使用额度的监控面板。
 
-[![Update Worker Stats](https://github.com/AlexJonesCN/cf-workers-usage/actions/workflows/update-stats.yml/badge.svg)](https://github.com/AlexJonesCN/cf-workers-usage/actions/workflows/update-stats.yml)
 
 ## ✨ 功能特性
 
@@ -10,7 +9,7 @@
 - 📊 **额度进度条** - 直观显示今日请求用量占比（基于免费版 100,000 次/天限制）
 - 🕐 **多时间范围** - 支持查看最近 24 小时、7 天、30 天的统计数据
 - 📉 **请求趋势图表** - 使用 ECharts 展示请求数和错误数趋势
-- 🔄 **自动更新** - 通过 GitHub Actions 每 20 分钟自动同步数据
+- 🔄 **自动更新** - 通过 GitHub Actions 每小时自动同步数据
 - 🌐 **GitHub Pages 部署** - 零成本托管，自动部署到 GitHub Pages
 
 ## 🖼️ 预览
