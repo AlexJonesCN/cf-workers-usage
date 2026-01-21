@@ -18,6 +18,7 @@ async function fetchData() {
   const dateFrom = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();
   const dateTo = new Date().toISOString();
 
+  // 构建查询
   let queryStr = `
     query Viewer {
       viewer {
@@ -43,9 +44,11 @@ async function fetchData() {
 
   // 如果配置了 Zone ID，则追加流量查询
   if (ZONE_ID) {
+    // ⚠️ 关键修改：从 httpRequestsAdaptiveGroups 改为 httpRequests1hGroups
+    // 这样可以绕过 24小时的时间范围限制，直接查询 30 天数据
     queryStr += `
         zones(filter: {zoneTag: "${ZONE_ID}"}) {
-          httpRequestsAdaptiveGroups(
+          httpRequests1hGroups(
             limit: 10000,
             filter: {
               datetime_geq: "${dateFrom}",
@@ -104,7 +107,8 @@ async function fetchData() {
     // 获取流量数据（如果有）
     let trafficData = [];
     if (ZONE_ID && viewer.zones && viewer.zones.length > 0) {
-        trafficData = viewer.zones[0].httpRequestsAdaptiveGroups;
+        // 对应上面的修改，这里读取的数据字段也要变更为 httpRequests1hGroups
+        trafficData = viewer.zones[0].httpRequests1hGroups;
         console.log(`✅ 成功获取流量数据: ${trafficData.length} 条记录`);
     }
 
