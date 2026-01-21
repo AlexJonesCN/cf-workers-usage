@@ -45,7 +45,6 @@
             margin: 0; 
             padding: 20px; 
         }
-        /* 修正：移除了类名前的空格 */
         .container { max-width: 1200px; margin: 0 auto; }
         
         .header { 
@@ -143,14 +142,12 @@
             transition: all 0.2s; 
             box-shadow: 0 1px 2px var(--shadow); 
         }
-        /* 修正：.btn.active 中间不应有空格，表示同时拥有两个类 */
         .btn.active { 
             background: var(--primary); 
             color: white; 
             font-weight: 500; 
             border-color: var(--primary);
         }
-        /* 修正：:not 前的伪类选择器空格移除 */
         .btn:hover:not(.active) { 
             background: var(--btn-hover); 
         }
@@ -241,16 +238,28 @@
 
     <script>
         // ==========================================
-        // 1. 主题管理 (Theme Management) - 修改版
+        // 1. 严格的临时主题管理 (无本地存储)
         // ==========================================
-        
-        // 获取基于时间的主题 (8点-20点为浅色，其余为深色)
+
+        /**
+         * 强制清除旧的 localStorage (解决您提到的 "依然还是如此" 的问题)
+         * 即使您以前的代码存过 'theme'，现在也会被立刻删掉。
+         */
+        try {
+            localStorage.removeItem('theme');
+            localStorage.removeItem('data-theme'); // 清除可能的旧 Key
+        } catch (e) {
+            console.log('Storage clear skipped');
+        }
+
+        // 纯粹基于时间获取主题
         function getThemeByTime() {
             var hour = new Date().getHours();
+            // 早上8点到晚上8点为浅色，否则深色
             return (hour >= 8 && hour < 20) ? 'light' : 'dark';
         }
 
-        // 应用主题到 HTML 标签
+        // 应用主题
         function applyTheme(theme) {
             document.documentElement.setAttribute('data-theme', theme);
             var toggle = document.getElementById('theme-toggle');
@@ -259,28 +268,38 @@
             }
         }
 
-        // 手动切换按钮点击事件
+        /**
+         * 核心：页面一加载，立即强制计算并应用时间主题。
+         * 这会覆盖任何浏览器可能缓存的 DOM 状态。
+         */
+        var initialTheme = getThemeByTime();
+        applyTheme(initialTheme);
+        console.log("初始化主题 (强制时间模式): " + initialTheme);
+
+
+        // 手动切换函数
         function toggleTheme() {
+            // 获取当前页面上的状态（仅内存中）
             var current = document.documentElement.getAttribute('data-theme') || 'light';
             var newTheme = current === 'dark' ? 'light' : 'dark';
             
-            // 仅在当前页面生命周期内应用，不保存到 localStorage
+            // 应用新主题，但不保存！
             applyTheme(newTheme);
+            console.log("手动切换为: " + newTheme + " (刷新后将失效)");
 
-            // 如果图表已存在，重新渲染以适配新颜色
+            // 如果图表已存在，需要重绘以适配颜色
             if (chartInstance && currentLabels.length > 0) {
                 renderChart(currentLabels, currentReqData, currentErrData, currentRange);
             }
         }
 
-        // 定时检查：如果用户长时间挂机，自动随时间切换
+        // 定时检查：防止用户跨夜挂机，主题不自动变的问题
         function scheduleNextSwitch() {
             var now = new Date();
             var hour = now.getHours();
             var nextSwitchTime = new Date(now);
             var targetTheme;
 
-            // 计算下一次切换的时间点 (08:00 或 20:00)
             if (hour < 8) {
                 nextSwitchTime.setHours(8, 0, 0, 0);
                 targetTheme = 'light';
@@ -294,44 +313,23 @@
             }
 
             var msUntilSwitch = nextSwitchTime.getTime() - now.getTime();
-            
-            // 防止延迟为负数
-            if (msUntilSwitch <= 0) msUntilSwitch = 1000; 
-
-            console.log('下一次自动切换主题: ' + targetTheme + ' 模式，将在 ' + Math.round(msUntilSwitch / 1000 / 60) + ' 分钟后');
+            if (msUntilSwitch <= 0) msUntilSwitch = 1000;
 
             setTimeout(function() {
-                // 超时后，强制变回时间模式
+                // 时间到了，强制切回正确的时间主题
                 applyTheme(targetTheme);
-                // 更新图表
-                if (chartInstance && currentLabels.length > 0) {
+                if (chartInstance) {
                     renderChart(currentLabels, currentReqData, currentErrData, currentRange);
                 }
-                // 递归调度下一次
                 scheduleNextSwitch();
             }, msUntilSwitch);
         }
-
-        // ==========================================
-        // 2. 初始化逻辑 (Initialization)
-        // ==========================================
-
-        // 核心修改：页面加载时，强制使用时间判断，忽略之前的任何状态
-        // 即使浏览器缓存了 DOM 属性，这里也会立即覆盖它
-        var timeBasedTheme = getThemeByTime();
-        applyTheme(timeBasedTheme);
-
-        // 为了保险起见，清除可能存在的旧 localStorage (如果您之前用过的话)
-        try {
-            localStorage.removeItem('theme'); 
-        } catch(e) {}
-
-        // 启动定时切换任务
+        
+        // 启动定时器
         scheduleNextSwitch();
 
-
         // ==========================================
-        // 3. 数据图表逻辑 (Original Script Variables)
+        // 2. 数据与图表逻辑
         // ==========================================
         var rawData = [];
         var chartInstance = null;
@@ -346,6 +344,7 @@
         }
 
         function refreshData() {
+            // 添加时间戳防止 JSON 缓存
             fetch('./data.json?t=' + new Date().getTime())
                 .then(function(res) {
                     if (!res.ok) throw new Error("HTTP " + res.status);
