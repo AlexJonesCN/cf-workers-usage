@@ -237,18 +237,16 @@
     </div>
 
     <script>
-        // Theme Management
-		const STORAGE_KEY = 'theme-preference';
-		
+        // Theme Management - 刷新时始终根据时间设置，运行中可手动切换，8/20点自动切换
+
 		function getThemeByTime() {
 		    const hour = new Date().getHours();
-		    // 8:00-19:59 浅色，20:00-7:59 深色
 		    return (hour >= 8 && hour < 20) ? 'light' : 'dark';
 		}
 		
 		function applyTheme(theme) {
 		    document.documentElement.setAttribute('data-theme', theme);
-		    const toggle = document. getElementById('theme-toggle');
+		    const toggle = document.getElementById('theme-toggle');
 		    if (toggle) {
 		        toggle.textContent = theme === 'dark' ?  '☀️' : '🌙';
 		    }
@@ -257,10 +255,9 @@
 		function toggleTheme() {
 		    const current = document.documentElement.getAttribute('data-theme') || 'light';
 		    const newTheme = current === 'dark' ? 'light' : 'dark';
-		    localStorage.setItem(STORAGE_KEY, newTheme);
 		    applyTheme(newTheme);
 		    
-		    if (chartInstance && currentLabels.length > 0) {
+		    if (chartInstance && currentLabels. length > 0) {
 		        renderChart(currentLabels, currentReqData, currentErrData, currentRange);
 		    }
 		}
@@ -279,8 +276,8 @@
 		        nextSwitchTime.setHours(20, 0, 0, 0);
 		        targetTheme = 'dark';
 		    } else {
-		        nextSwitchTime.setDate(nextSwitchTime. getDate() + 1);
-		        nextSwitchTime.setHours(8, 0, 0, 0);
+		        nextSwitchTime. setDate(nextSwitchTime.getDate() + 1);
+		        nextSwitchTime. setHours(8, 0, 0, 0);
 		        targetTheme = 'light';
 		    }
 		    
@@ -289,19 +286,17 @@
 		    console.log(`Next theme switch: ${targetTheme} mode in ${Math.round(msUntilSwitch / 1000 / 60)} minutes`);
 		    
 		    setTimeout(() => {
-		        localStorage.setItem(STORAGE_KEY, targetTheme);
 		        applyTheme(targetTheme);
 		        
 		        if (chartInstance && currentLabels.length > 0) {
 		            renderChart(currentLabels, currentReqData, currentErrData, currentRange);
 		        }
 		        
-		        // 安排下一次切换
 		        scheduleNextSwitch();
 		    }, msUntilSwitch);
 		}
 		
-		// 🔑 页面加载：直接根据当前时间段设置主题
+		// 页面加载：根据当前时间设置主题
 		applyTheme(getThemeByTime());
 		
 		// 安排定时切换
