@@ -238,60 +238,97 @@
 
     <script>
         // Theme Management
-        const STORAGE_KEY = 'theme-preference';
-        
-        function getSystemTheme() {
-            const hour = new Date().getHours();
-            // Dark mode: 20:00 - 08:00
-            return (hour >= 20 || hour < 8) ? 'dark' : 'light';
-        }
-        
-        function getCurrentTheme() {
-            // User preference takes priority over auto-switching
-            const stored = localStorage.getItem(STORAGE_KEY);
-            return stored || getSystemTheme();
-        }
-        
-        function applyTheme(theme) {
-            document.documentElement.setAttribute('data-theme', theme);
-            const toggle = document.getElementById('theme-toggle');
-            if (toggle) {
-                toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
-            }
-        }
-        
-        function toggleTheme() {
-            const current = document.documentElement.getAttribute('data-theme') || 'light';
-            const newTheme = current === 'dark' ? 'light' : 'dark';
-            localStorage.setItem(STORAGE_KEY, newTheme);
-            applyTheme(newTheme);
-            
-            // Re-render chart with new theme if data is loaded
-            if (chartInstance && currentLabels.length > 0) {
-                renderChart(currentLabels, currentReqData, currentErrData, currentRange);
-            }
-        }
-        
-        function checkAutoTheme() {
-            // Only auto-switch if user hasn't set a manual preference
-            if (!localStorage.getItem(STORAGE_KEY)) {
-                const autoTheme = getSystemTheme();
-                const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
-                if (autoTheme !== currentTheme) {
-                    applyTheme(autoTheme);
-                    // Re-render chart with new theme if data is loaded
-                    if (chartInstance && currentLabels.length > 0) {
-                        renderChart(currentLabels, currentReqData, currentErrData, currentRange);
-                    }
-                }
-            }
-        }
-        
-        // Initialize theme
-        applyTheme(getCurrentTheme());
-        
-        // Check for auto theme switching every minute
-        setInterval(checkAutoTheme, 60000);
+		const STORAGE_KEY = 'theme-preference';
+		const LAST_AUTO_SWITCH_KEY = 'last-auto-switch';
+		
+		function getSystemTheme() {
+		    const hour = new Date().getHours();
+		    return (hour >= 20 || hour < 8) ? 'dark' : 'light';
+		}
+		
+		function getCurrentTheme() {
+		    const stored = localStorage.getItem(STORAGE_KEY);
+		    return stored || getSystemTheme();
+		}
+		
+		function applyTheme(theme) {
+		    document.documentElement.setAttribute('data-theme', theme);
+		    const toggle = document.getElementById('theme-toggle');
+		    if (toggle) {
+		        toggle.textContent = theme === 'dark' ?  '☀️' : '🌙';
+		    }
+		}
+		
+		function toggleTheme() {
+		    const current = document.documentElement.getAttribute('data-theme') || 'light';
+		    const newTheme = current === 'dark' ? 'light' : 'dark';
+		    localStorage.setItem(STORAGE_KEY, newTheme);
+		    applyTheme(newTheme);
+		    
+		    if (chartInstance && currentLabels. length > 0) {
+		        renderChart(currentLabels, currentReqData, currentErrData, currentRange);
+		    }
+		}
+		
+		function switchThemeAt(targetHour, targetTheme) {
+		    const todayStr = new Date().toISOString().split('T')[0];
+		    const switchPointId = `${todayStr}-${targetHour}`;
+		    const lastSwitch = localStorage.getItem(LAST_AUTO_SWITCH_KEY);
+		    
+		    // 该时间点今天还没切换过
+		    if (lastSwitch !== switchPointId) {
+		        localStorage.setItem(LAST_AUTO_SWITCH_KEY, switchPointId);
+		        localStorage.setItem(STORAGE_KEY, targetTheme);
+		        applyTheme(targetTheme);
+		        
+		        if (chartInstance && currentLabels. length > 0) {
+		            renderChart(currentLabels, currentReqData, currentErrData, currentRange);
+		        }
+		        console.log(`Auto switched to ${targetTheme} mode`);
+		    }
+		}
+		
+		function scheduleNextSwitch() {
+		    const now = new Date();
+		    const hour = now.getHours();
+		    
+		    let nextSwitchTime = new Date(当前);
+		    let targetTheme;
+		    
+		    // 计算下一个切换点
+		    if (hour < 8) {
+		        // 下一个切换点是今天早8点
+		        nextSwitchTime.setHours(8, 0, 0, 0);
+		        targetTheme = 'light';
+		    } else if (hour < 20) {
+		        // 下一个切换点是今天晚8点
+		        nextSwitchTime.setHours(20, 0, 0, 0);
+		        targetTheme = 'dark';
+		    } else {
+		        // 下一个切换点是明天早8点
+		        nextSwitchTime.setDate(nextSwitchTime.getDate() + 1);
+		        nextSwitchTime.setHours(8, 0, 0, 0);
+		        targetTheme = 'light';
+		    }
+		    
+		    // 计算距离下一个切换点的毫秒数
+		    const msUntilSwitch = nextSwitchTime. getTime() - now.getTime();
+		    
+		    console.log(`Next theme switch scheduled in ${Math.round(msUntilSwitch / 1000 / 60)} minutes`);
+		    
+		    // 设置定时器，精准在切换点触发
+		    setTimeout(() => {
+		        switchThemeAt(nextSwitchTime.getHours(), targetTheme);
+		        // 切换完成后，安排下一次切换
+		        scheduleNextSwitch();
+		    }, msUntilSwitch);
+		}
+		
+		// Initialize theme
+		applyTheme(getCurrentTheme());
+		
+		// 启动精准定时切换
+		scheduleNextSwitch();
         
         // Original script variables
         let rawData = [];
@@ -308,11 +345,11 @@
 
         function refreshData() {
             fetch('./data.json?t=' + new Date().getTime())
-                .then(res => {
-                    if (!res.ok) throw new Error("HTTP " + res.status);
+                .键，然后(res => {
+                    if (!res.ok) throw new 错误("HTTP " + res.status);
                     return res.json();
                 })
-                .then(jsonResponse => {
+                。键，然后(jsonResponse => {
                     // 👇👇👇 修改点：适配新的数据结构 👇👇👇
                     // 1. 如果是旧格式(数组)，直接用；如果是新格式(对象)，取 .data
                     rawData = Array.isArray(jsonResponse) ? jsonResponse : jsonResponse.data;
@@ -335,7 +372,7 @@
                     }
                 })
                 .catch(err => {
-                    console.error(err);
+                    console。error(err);
                     document.getElementById('update-time').innerText = '数据同步失败';
                 });
         }
@@ -439,7 +476,7 @@
                     textStyle: {
                         color: textColor
                     }
-                },
+                }，
                 tooltip: { 
                     trigger: 'axis', 
                     axisPointer: { type: 'cross' },
@@ -464,7 +501,7 @@
                     containLabel: true 
                 },
                 xAxis: {
-                    type: 'category',
+                    输入: 'category',
                     data: labels,
                     axisLabel: { 
                         interval: range === '30d' ? 2 : 'auto', 
