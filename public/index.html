@@ -240,38 +240,47 @@
     </div>
 
     <script>
-        // Theme Management
+        // ==========================================
+        // 1. 主题管理 (Theme Management) - 修改版
+        // ==========================================
+        
+        // 获取基于时间的主题 (8点-20点为浅色，其余为深色)
         function getThemeByTime() {
             var hour = new Date().getHours();
             return (hour >= 8 && hour < 20) ? 'light' : 'dark';
         }
 
+        // 应用主题到 HTML 标签
         function applyTheme(theme) {
             document.documentElement.setAttribute('data-theme', theme);
             var toggle = document.getElementById('theme-toggle');
             if (toggle) {
-                // 修正：textContent 间的空格
                 toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
             }
         }
 
+        // 手动切换按钮点击事件
         function toggleTheme() {
             var current = document.documentElement.getAttribute('data-theme') || 'light';
             var newTheme = current === 'dark' ? 'light' : 'dark';
+            
+            // 仅在当前页面生命周期内应用，不保存到 localStorage
             applyTheme(newTheme);
 
+            // 如果图表已存在，重新渲染以适配新颜色
             if (chartInstance && currentLabels.length > 0) {
                 renderChart(currentLabels, currentReqData, currentErrData, currentRange);
             }
         }
 
+        // 定时检查：如果用户长时间挂机，自动随时间切换
         function scheduleNextSwitch() {
             var now = new Date();
             var hour = now.getHours();
-
             var nextSwitchTime = new Date(now);
             var targetTheme;
 
+            // 计算下一次切换的时间点 (08:00 或 20:00)
             if (hour < 8) {
                 nextSwitchTime.setHours(8, 0, 0, 0);
                 targetTheme = 'light';
@@ -284,29 +293,46 @@
                 targetTheme = 'light';
             }
 
-            // 修正：getTime() 间的空格
             var msUntilSwitch = nextSwitchTime.getTime() - now.getTime();
+            
+            // 防止延迟为负数
+            if (msUntilSwitch <= 0) msUntilSwitch = 1000; 
 
-            console.log('Next theme switch: ' + targetTheme + ' mode in ' + Math.round(msUntilSwitch / 1000 / 60) + ' minutes');
+            console.log('下一次自动切换主题: ' + targetTheme + ' 模式，将在 ' + Math.round(msUntilSwitch / 1000 / 60) + ' 分钟后');
 
             setTimeout(function() {
+                // 超时后，强制变回时间模式
                 applyTheme(targetTheme);
-
+                // 更新图表
                 if (chartInstance && currentLabels.length > 0) {
                     renderChart(currentLabels, currentReqData, currentErrData, currentRange);
                 }
-
+                // 递归调度下一次
                 scheduleNextSwitch();
             }, msUntilSwitch);
         }
 
-        // 页面加载：根据当前时间设置主题
-        applyTheme(getThemeByTime());
+        // ==========================================
+        // 2. 初始化逻辑 (Initialization)
+        // ==========================================
 
-        // 安排定时切换
+        // 核心修改：页面加载时，强制使用时间判断，忽略之前的任何状态
+        // 即使浏览器缓存了 DOM 属性，这里也会立即覆盖它
+        var timeBasedTheme = getThemeByTime();
+        applyTheme(timeBasedTheme);
+
+        // 为了保险起见，清除可能存在的旧 localStorage (如果您之前用过的话)
+        try {
+            localStorage.removeItem('theme'); 
+        } catch(e) {}
+
+        // 启动定时切换任务
         scheduleNextSwitch();
 
-        // Original script variables
+
+        // ==========================================
+        // 3. 数据图表逻辑 (Original Script Variables)
+        // ==========================================
         var rawData = [];
         var chartInstance = null;
         var currentRange = '24h';
@@ -322,7 +348,6 @@
         function refreshData() {
             fetch('./data.json?t=' + new Date().getTime())
                 .then(function(res) {
-                    // 修正：! res.ok 间的空格
                     if (!res.ok) throw new Error("HTTP " + res.status);
                     return res.json();
                 })
@@ -351,16 +376,13 @@
 
         function calculateTodayQuota() {
             var todayStr = new Date().toISOString().split('T')[0];
-            // 修正：item.dimensions.datetime 间的空格，startsWith 间的空格
             var todayRequests = rawData
                 .filter(function(item) { return item.dimensions.datetime.startsWith(todayStr); })
-                // 修正：item.sum.requests 间的空格
                 .reduce(function(sum, item) { return sum + item.sum.requests; }, 0);
 
             var percent = Math.min((todayRequests / DAILY_LIMIT) * 100, 100).toFixed(1);
             document.getElementById('quota-bar').style.width = percent + '%';
             document.getElementById('quota-percent').innerText = percent + '%';
-            // 修正：toLocaleString() 间的空格
             document.getElementById('quota-detail').innerText = todayRequests.toLocaleString() + ' / ' + DAILY_LIMIT.toLocaleString();
 
             if (percent > 80) document.getElementById('quota-bar').style.backgroundColor = '#ef4444';
@@ -386,7 +408,6 @@
 
             var map = {};
             filtered.forEach(function(item) {
-                // 修正：dimensions.datetime 间的空格
                 var d = new Date(item.dimensions.datetime);
                 var key;
                 if (range === '24h') {
@@ -396,7 +417,6 @@
                 }
 
                 if (!map[key]) map[key] = { req: 0, err: 0 };
-                // 修正：sum.requests 间的空格
                 map[key].req += item.sum.requests;
                 map[key].err += item.sum.errors;
             });
@@ -425,7 +445,6 @@
             var totalReq = requests.reduce(function(a, b) { return a + b; }, 0);
             var totalErr = errors.reduce(function(a, b) { return a + b; }, 0);
             document.getElementById('disp-req').innerText = totalReq.toLocaleString();
-            // 修正：getElementById 间的空格
             document.getElementById('disp-err').innerText = totalErr.toLocaleString();
 
             var avg = sortedKeys.length > 0 ? Math.round(totalReq / sortedKeys.length) : 0;
@@ -452,10 +471,8 @@
             var option = {
                 title: {
                     text: '请求趋势',
-                    left: 'center', // 修正：left 属性值的空格
-                    textStyle: {
-                        color: textColor
-                    }
+                    left: 'center',
+                    textStyle: { color: textColor }
                 },
                 tooltip: {
                     trigger: 'axis',
@@ -463,16 +480,12 @@
                     valueFormatter: function(value) { return Math.floor(value); },
                     backgroundColor: tooltipBg,
                     borderColor: tooltipBorder,
-                    textStyle: {
-                        color: textColor
-                    }
+                    textStyle: { color: textColor }
                 },
                 legend: {
                     data: ['总请求', '错误'],
                     bottom: 0,
-                    textStyle: {
-                        color: textColor
-                    }
+                    textStyle: { color: textColor }
                 },
                 grid: {
                     left: '3%',
@@ -480,7 +493,7 @@
                     bottom: '10%',
                     containLabel: true
                 },
-                xAxis: { // 修正：冒号后多余的空格
+                xAxis: {
                     type: 'category',
                     data: labels,
                     axisLabel: {
@@ -488,11 +501,7 @@
                         rotate: range === '24h' ? 45 : 0,
                         color: axisColor
                     },
-                    axisLine: {
-                        lineStyle: {
-                            color: splitLineColor
-                        }
-                    }
+                    axisLine: { lineStyle: { color: splitLineColor } }
                 },
                 yAxis: {
                     type: 'value',
@@ -501,21 +510,11 @@
                         formatter: function(value) { return Math.floor(value); },
                         color: axisColor
                     },
-                    axisLine: {
-                        lineStyle: {
-                            color: splitLineColor
-                        }
-                    },
-                    splitLine: {
-                        lineStyle: {
-                            color: splitLineColor
-                        }
-                    },
+                    axisLine: { lineStyle: { color: splitLineColor } },
+                    splitLine: { lineStyle: { color: splitLineColor } },
                     axisPointer: {
                         label: {
-                            formatter: function(params) {
-                                return Math.floor(params.value);
-                            }
+                            formatter: function(params) { return Math.floor(params.value); }
                         }
                     }
                 },
@@ -535,14 +534,13 @@
                     },
                     {
                         name: '错误',
-                        type: 'bar', // 修正：属性值前的空格
+                        type: 'bar',
                         data: errData,
                         itemStyle: { color: '#ef4444' }
                     }
                 ]
             };
             chartInstance.setOption(option);
-            // 修正：chartResizeHandler 变量名的空格
             if (!window.chartResizeHandler) {
                 window.chartResizeHandler = function() { 
                     if (chartInstance) chartInstance.resize(); 
