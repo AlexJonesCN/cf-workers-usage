@@ -238,28 +238,25 @@
 
     <script>
         // ==========================================
-        // 1. 严格的临时主题管理 (无本地存储)
+        // 1. 无状态主题系统 (NO STORAGE)
         // ==========================================
-
-        /**
-         * 强制清除旧的 localStorage (解决您提到的 "依然还是如此" 的问题)
-         * 即使您以前的代码存过 'theme'，现在也会被立刻删掉。
-         */
+        
+        // 步骤1：大扫除
+        // 无论之前存了什么，现在立刻删掉。
         try {
-            localStorage.removeItem('theme');
-            localStorage.removeItem('data-theme'); // 清除可能的旧 Key
-        } catch (e) {
-            console.log('Storage clear skipped');
-        }
+            localStorage.clear(); 
+            // 如果您只想删除特定的key，可以用 localStorage.removeItem('theme-preference');
+            console.log("浏览器缓存已强制清除，确保刷新后无残留。");
+        } catch(e) {}
 
-        // 纯粹基于时间获取主题
+        // 步骤2：根据时间获取主题
         function getThemeByTime() {
             var hour = new Date().getHours();
-            // 早上8点到晚上8点为浅色，否则深色
+            // 8点到20点是白天(light)，否则是晚上(dark)
             return (hour >= 8 && hour < 20) ? 'light' : 'dark';
         }
 
-        // 应用主题
+        // 步骤3：应用主题 (只修改界面，不保存！)
         function applyTheme(theme) {
             document.documentElement.setAttribute('data-theme', theme);
             var toggle = document.getElementById('theme-toggle');
@@ -268,32 +265,22 @@
             }
         }
 
-        /**
-         * 核心：页面一加载，立即强制计算并应用时间主题。
-         * 这会覆盖任何浏览器可能缓存的 DOM 状态。
-         */
-        var initialTheme = getThemeByTime();
-        applyTheme(initialTheme);
-        console.log("初始化主题 (强制时间模式): " + initialTheme);
-
-
-        // 手动切换函数
+        // 步骤4：手动切换事件
+        // 关键点：这里去掉了所有 setItem 语句
         function toggleTheme() {
-            // 获取当前页面上的状态（仅内存中）
             var current = document.documentElement.getAttribute('data-theme') || 'light';
             var newTheme = current === 'dark' ? 'light' : 'dark';
             
-            // 应用新主题，但不保存！
+            // 仅在内存中生效
             applyTheme(newTheme);
-            console.log("手动切换为: " + newTheme + " (刷新后将失效)");
-
-            // 如果图表已存在，需要重绘以适配颜色
+            
+            // 更新图表颜色
             if (chartInstance && currentLabels.length > 0) {
                 renderChart(currentLabels, currentReqData, currentErrData, currentRange);
             }
         }
 
-        // 定时检查：防止用户跨夜挂机，主题不自动变的问题
+        // 步骤5：定时检查 (防止长时间挂机后主题不更新)
         function scheduleNextSwitch() {
             var now = new Date();
             var hour = now.getHours();
@@ -316,20 +303,26 @@
             if (msUntilSwitch <= 0) msUntilSwitch = 1000;
 
             setTimeout(function() {
-                // 时间到了，强制切回正确的时间主题
                 applyTheme(targetTheme);
-                if (chartInstance) {
-                    renderChart(currentLabels, currentReqData, currentErrData, currentRange);
-                }
+                if (chartInstance) renderChart(currentLabels, currentReqData, currentErrData, currentRange);
                 scheduleNextSwitch();
             }, msUntilSwitch);
         }
+
+        // ==========================================
+        // 2. 初始化 (入口)
+        // ==========================================
+        
+        // 页面一打开，不查缓存，直接看时间
+        var initTheme = getThemeByTime();
+        applyTheme(initTheme);
         
         // 启动定时器
         scheduleNextSwitch();
 
+
         // ==========================================
-        // 2. 数据与图表逻辑
+        // 3. 数据与图表逻辑
         // ==========================================
         var rawData = [];
         var chartInstance = null;
@@ -344,7 +337,6 @@
         }
 
         function refreshData() {
-            // 添加时间戳防止 JSON 缓存
             fetch('./data.json?t=' + new Date().getTime())
                 .then(function(res) {
                     if (!res.ok) throw new Error("HTTP " + res.status);
@@ -468,11 +460,7 @@
             var tooltipBorder = isDark ? '#4b5563' : '#e5e7eb';
 
             var option = {
-                title: {
-                    text: '请求趋势',
-                    left: 'center',
-                    textStyle: { color: textColor }
-                },
+                title: { text: '请求趋势', left: 'center', textStyle: { color: textColor } },
                 tooltip: {
                     trigger: 'axis',
                     axisPointer: { type: 'cross' },
@@ -481,41 +469,21 @@
                     borderColor: tooltipBorder,
                     textStyle: { color: textColor }
                 },
-                legend: {
-                    data: ['总请求', '错误'],
-                    bottom: 0,
-                    textStyle: { color: textColor }
-                },
-                grid: {
-                    left: '3%',
-                    right: '4%',
-                    bottom: '10%',
-                    containLabel: true
-                },
+                legend: { data: ['总请求', '错误'], bottom: 0, textStyle: { color: textColor } },
+                grid: { left: '3%', right: '4%', bottom: '10%', containLabel: true },
                 xAxis: {
                     type: 'category',
                     data: labels,
-                    axisLabel: {
-                        interval: range === '30d' ? 2 : 'auto',
-                        rotate: range === '24h' ? 45 : 0,
-                        color: axisColor
-                    },
+                    axisLabel: { interval: range === '30d' ? 2 : 'auto', rotate: range === '24h' ? 45 : 0, color: axisColor },
                     axisLine: { lineStyle: { color: splitLineColor } }
                 },
                 yAxis: {
                     type: 'value',
                     minInterval: 1,
-                    axisLabel: {
-                        formatter: function(value) { return Math.floor(value); },
-                        color: axisColor
-                    },
+                    axisLabel: { formatter: function(value) { return Math.floor(value); }, color: axisColor },
                     axisLine: { lineStyle: { color: splitLineColor } },
                     splitLine: { lineStyle: { color: splitLineColor } },
-                    axisPointer: {
-                        label: {
-                            formatter: function(params) { return Math.floor(params.value); }
-                        }
-                    }
+                    axisPointer: { label: { formatter: function(params) { return Math.floor(params.value); } } }
                 },
                 series: [
                     {
