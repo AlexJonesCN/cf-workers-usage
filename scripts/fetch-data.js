@@ -4,11 +4,13 @@ const path = require('path');
 
 const ACCOUNT_ID = process.env.CF_ACCOUNT_ID;
 const API_TOKEN = process.env.CF_API_TOKEN;
+// 新增：获取 Zone ID，如果未配置则设为空
+const ZONE_ID = process.env.CF_ZONE_ID; 
 const endpoint = 'https://api.cloudflare.com/client/v4/graphql';
 
 async function fetchData() {
   if (!ACCOUNT_ID || !API_TOKEN) {
-    console.error('❌ 错误: 环境变量丢失。请检查 GitHub Secrets。');
+    console.error('❌ 错误: 环境变量丢失。请检查 CF_ACCOUNT_ID 和 CF_API_TOKEN。');
     process.exitCode = 1;
     return;
   }
@@ -17,7 +19,9 @@ async function fetchData() {
   const dateFrom = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();
   const dateTo = new Date().toISOString();
 
-  const query = `
+  // 构建查询：同时查询 Account 的 Worker 调用和 Zone 的 HTTP 流量
+  // 注意：httpRequestsAdaptiveGroups 需要 Zone ID，且 filter 中 edgeWorkerID_neq: "" 确保只统计 Worker 流量
+  let queryStr = `
     query Viewer {
       viewer {
         accounts(filter: {accountTag: "${ACCOUNT_ID}"}) {
@@ -38,16 +42,43 @@ async function fetchData() {
             }
           }
         }
+  `;
+
+  // 如果配置了 Zone ID，则追加流量查询
+  if (ZONE_ID) {
+    queryStr += `
+        zones(filter: {zoneTag: "${ZONE_ID}"}) {
+          httpRequestsAdaptiveGroups(
+            limit: 10000,
+            filter: {
+              datetime_geq: "${dateFrom}",
+              datetime_leq: "${dateTo}",
+              edgeWorkerID_neq: ""
+            }
+          ) {
+            sum {
+              edgeResponseBytes
+            }
+            dimensions {
+              datetime
+            }
+          }
+        }
+    `;
+  }
+
+  queryStr += `
       }
     }
   `;
 
   try {
     console.log(`📡 正在连接 Cloudflare API...`);
+    if (!ZONE_ID) console.log(`⚠️ 未检测到 CF_ZONE_ID，将跳过流量数据抓取。`);
 
     const response = await axios.post(
       endpoint,
-      { query },
+      { query: queryStr },
       {
         headers: {
           'Authorization': `Bearer ${API_TOKEN}`,
@@ -63,31 +94,42 @@ async function fetchData() {
       return;
     }
 
-    const accounts = response.data?.data?.viewer?.accounts;
+    const viewer = response.data?.data?.viewer;
+    const accounts = viewer?.accounts;
+
     if (!accounts || accounts.length === 0) {
-      console.error('❌ 未找到数据 (Account ID 可能不匹配)');
+      console.error('❌ 未找到 Worker 数据 (Account ID 可能不匹配)');
       process.exitCode = 1;
       return;
     }
 
-    const rawData = accounts[0].workersInvocationsAdaptive;
+    const workerData = accounts[0].workersInvocationsAdaptive;
     
-    // 👇👇👇 修改点开始：改变了保存的数据结构 👇👇👇
+    // 获取流量数据（如果有）
+    let trafficData = [];
+    if (ZONE_ID && viewer.zones && viewer.zones.length > 0) {
+        trafficData = viewer.zones[0].httpRequestsAdaptiveGroups;
+        console.log(`✅ 成功获取流量数据: ${trafficData.length} 条记录`);
+    }
+
     const output = {
-        updatedAt: new Date().toISOString(), // 记录当前脚本运行的时间 (UTC)
-        data: rawData
+        updatedAt: new Date().toISOString(),
+        data: workerData,     // 原有的请求数数据
+        traffic: trafficData  // 新增的流量数据
     };
     
     const publicDir = path.join(__dirname, '../public');
     if (!fs.existsSync(publicDir)) fs.mkdirSync(publicDir, { recursive: true });
     
     fs.writeFileSync(path.join(publicDir, 'data.json'), JSON.stringify(output, null, 2));
-    // 👆👆👆 修改点结束 👆👆👆
     
-    console.log(`✅ 数据抓取成功！共获取 ${rawData.length} 条记录。`);
+    console.log(`✅ 数据保存成功！Worker记录: ${workerData.length} 条。`);
 
   } catch (error) {
     console.error('❌ 请求异常:', error.message);
+    if (error.response) {
+        console.error('详情:', JSON.stringify(error.response.data, null, 2));
+    }
     process.exitCode = 1;
   }
 }
