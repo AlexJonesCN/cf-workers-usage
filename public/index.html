@@ -8,199 +8,193 @@
     <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
     <style>
         :root { 
-            --primary: #F38020; 
-            --bg: #f3f4f6; 
-            --card: #ffffff; 
-            --text: #1f2937; 
-            --text-secondary: #6b7280;
-            --border: #e5e7eb;
-            --progress-bg: #e5e7eb;
-            --shadow: rgba(0,0,0,0.05);
+            --primary: #F38020;    /* Cloudflare Orange */
+            --secondary: #6366f1;  /* Traffic Indigo */
+            --bg: #f8fafc; 
+            --card-bg: #ffffff; 
+            --text-main: #1e293b; 
+            --text-sub: #64748b;
+            --border: #e2e8f0;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
             --btn-bg: #fff;
-            --btn-hover: #f9fafb;
-            --stat-value: #111827;
+            --btn-hover: #f1f5f9;
         }
         
         [data-theme="dark"] {
-            --bg: #111827;
-            --card: #1f2937;
-            --text: #f9fafb;
-            --text-secondary: #9ca3af;
-            --border: #374151;
-            --progress-bg: #374151;
-            --shadow: rgba(0,0,0,0.3);
-            --btn-bg: #374151;
-            --btn-hover: #4b5563;
-            --stat-value: #f9fafb;
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f1f5f9;
+            --text-sub: #94a3b8;
+            --border: #334155;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+            --btn-bg: #1e293b;
+            --btn-hover: #334155;
         }
         
-        * {
-            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-        }
+        * { box-sizing: border-box; transition: background-color 0.3s, color 0.3s, border-color 0.3s; }
         
         body { 
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
             background: var(--bg); 
-            color: var(--text); 
+            color: var(--text-main); 
             margin: 0; 
             padding: 20px; 
+            line-height: 1.5;
         }
+        
         .container { max-width: 1200px; margin: 0 auto; }
         
+        /* Header Styling */
         .header { 
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
             margin-bottom: 24px; 
-            flex-wrap: wrap; 
-            gap: 10px; 
+            padding: 10px 0;
         }
         .header h1 { 
             margin: 0; 
             font-size: 24px; 
+            font-weight: 700;
             display: flex; 
             align-items: center; 
-            gap: 8px; 
+            gap: 10px; 
+            letter-spacing: -0.5px;
         }
         
-        .header-right {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
+        .header-right { display: flex; align-items: center; gap: 12px; }
         
         .last-update { 
-            font-size: 13px; 
-            color: var(--text-secondary); 
-            background: var(--border); 
+            font-size: 12px; 
+            color: var(--text-sub); 
+            background: var(--card-bg); 
+            border: 1px solid var(--border);
             padding: 6px 12px; 
-            border-radius: 20px; 
+            border-radius: 99px; 
+            font-weight: 500;
         }
         
         .theme-toggle {
-            background: var(--btn-bg);
+            background: var(--card-bg);
             border: 1px solid var(--border);
-            padding: 8px 12px; 
-            border-radius: 20px;
+            width: 36px; height: 36px;
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
             cursor: pointer;
             font-size: 18px;
-            transition: all 0.2s;
-            box-shadow: 0 1px 3px var(--shadow);
+            box-shadow: var(--shadow);
         }
-        
-        .theme-toggle:hover {
-            transform: scale(1.05);
-            box-shadow: 0 2px 6px var(--shadow);
+        .theme-toggle:hover { transform: translateY(-1px); }
+
+        /* Card Common Styles */
+        .card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--border);
         }
 
-        .quota-card { 
-            background: var(--card); 
-            padding: 20px; 
-            border-radius: 12px; 
-            box-shadow: 0 1px 3px var(--shadow); 
-            margin-bottom: 24px; 
-            border-left: 5px solid var(--primary); 
+        /* Quota Card */
+        .quota-card { margin-bottom: 24px; position: relative; overflow: hidden; }
+        .quota-card::before {
+            content: "";
+            position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+            background: var(--primary);
         }
-        .quota-header { 
-            display: flex; 
-            justify-content: space-between; 
-            margin-bottom: 10px; 
-            font-weight: 600; 
-            font-size: 16px; 
-        }
+        .quota-header { display: flex; justify-content: space-between; margin-bottom: 12px; font-weight: 600; font-size: 15px; }
         .progress-bg { 
-            height: 20px; 
-            background: var(--progress-bg); 
-            border-radius: 10px; 
+            height: 12px; 
+            background: var(--btn-hover); 
+            border-radius: 6px; 
             overflow: hidden; 
-            position: relative; 
         }
         .progress-bar { 
             height: 100%; 
-            background: linear-gradient(90deg, #F38020, #f9a056); 
+            background: linear-gradient(90deg, #F38020, #fbbf24); 
             width: 0%; 
             transition: width 1s ease; 
-            border-radius: 10px; 
+            border-radius: 6px; 
         }
         .quota-text { 
-            display: flex; 
-            justify-content: space-between; 
-            font-size: 13px; 
-            color: var(--text-secondary); 
-            margin-top: 6px; 
+            display: flex; justify-content: space-between; 
+            font-size: 13px; color: var(--text-sub); margin-top: 8px; 
         }
 
-        .controls { display: flex; gap: 10px; margin-bottom: 15px; }
+        /* Controls */
+        .controls { display: flex; gap: 8px; margin-bottom: 20px; }
         .btn { 
             border: 1px solid var(--border); 
             background: var(--btn-bg); 
             padding: 8px 16px; 
-            border-radius: 6px; 
+            border-radius: 8px; 
             cursor: pointer; 
-            font-size: 14px; 
-            color: var(--text-secondary); 
-            transition: all 0.2s; 
-            box-shadow: 0 1px 2px var(--shadow); 
+            font-size: 13px; 
+            font-weight: 500;
+            color: var(--text-sub); 
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
         }
+        .btn:hover { background: var(--btn-hover); color: var(--text-main); }
         .btn.active { 
             background: var(--primary); 
             color: white; 
-            font-weight: 500; 
             border-color: var(--primary);
-        }
-        .btn:hover:not(.active) { 
-            background: var(--btn-hover); 
+            box-shadow: 0 2px 4px rgba(243, 128, 32, 0.3);
         }
 
+        /* Stats Grid */
         .grid { 
             display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+            grid-template-columns: repeat(4, 1fr); 
             gap: 16px; 
             margin-bottom: 24px; 
         }
-        .stat-card { 
-            background: var(--card); 
-            padding: 20px; 
-            border-radius: 12px; 
-            box-shadow: 0 1px 3px var(--shadow); 
-        }
+        .stat-card { padding: 20px; }
         .stat-title { 
-            color: var(--text-secondary); 
-            font-size: 13px; 
+            color: var(--text-sub); 
+            font-size: 12px; 
+            font-weight: 600;
             margin-bottom: 8px; 
             text-transform: uppercase; 
             letter-spacing: 0.5px; 
         }
         .stat-value { 
-            font-size: 28px; 
+            font-size: 24px; 
             font-weight: 700; 
-            color: var(--stat-value); 
+            color: var(--text-main); 
+            letter-spacing: -0.5px;
         }
-        .text-green { color: #10b981; } 
+        .text-green { color: var(--secondary); } 
         .text-red { color: #ef4444; }
 
-        #chart-container { 
-            background: var(--card); 
-            padding: 20px; 
-            border-radius: 12px; 
-            box-shadow: 0 1px 3px var(--shadow); 
-            height: 450px; 
+        /* Chart */
+        #chart-container { height: 420px; padding: 20px; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .grid { grid-template-columns: repeat(2, 1fr); }
+            .header h1 { font-size: 20px; }
+        }
+        @media (max-width: 480px) {
+            .grid { grid-template-columns: 1fr; }
+            .controls { overflow-x: auto; padding-bottom: 4px; }
+            .btn { white-space: nowrap; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1><span style="color: var(--primary)">⚡</span> Cloudflare Worker 监控</h1>
+            <h1><span style="color: var(--primary)">⚡</span> Worker Monitor</h1>
             <div class="header-right">
-                <span id="update-time" class="last-update">载入中...</span>
-                <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" title="切换主题">🌙</button>
+                <span id="update-time" class="last-update">Syncing...</span>
+                <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" title="Switch Theme">🌙</button>
             </div>
         </div>
 
-        <div class="quota-card">
+        <div class="card quota-card">
             <div class="quota-header">
-                <span>今日请求用量 (UTC)</span>
+                <span>Today's Requests (UTC)</span>
                 <span id="quota-percent">0%</span>
             </div>
             <div class="progress-bg">
@@ -208,40 +202,42 @@
             </div>
             <div class="quota-text">
                 <span id="quota-detail">0 / 100,000</span>
-                <span>重置时间: 00:00 UTC</span>
+                <span>Reset: 00:00 UTC</span>
             </div>
         </div>
 
         <div class="controls">
-            <button class="btn active" onclick="setRange('24h')">最近 24 小时</button>
-            <button class="btn" onclick="setRange('7d')">最近 7 天</button>
-            <button class="btn" onclick="setRange('30d')">最近 30 天</button>
+            <button class="btn active" onclick="setRange('24h')">Last 24 Hours</button>
+            <button class="btn" onclick="setRange('7d')">Last 7 Days</button>
+            <button class="btn" onclick="setRange('30d')">Last 30 Days</button>
         </div>
 
         <div class="grid">
-            <div class="stat-card">
-                <div class="stat-title">区间总请求数</div>
+            <div class="card stat-card">
+                <div class="stat-title">Total Requests</div>
                 <div class="stat-value" id="disp-req">-</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-title">区间错误数</div>
-                <div class="stat-value text-red" id="disp-err">-</div>
-            </div>
-            <div class="stat-card">
-                <div class="stat-title">区间总流量</div>
+            <div class="card stat-card">
+                <div class="stat-title">Total Traffic</div>
                 <div class="stat-value text-green" id="disp-traffic">-</div>
             </div>
-            <div class="stat-card">
-                <div class="stat-title">平均每小时请求</div>
+            <div class="card stat-card">
+                <div class="stat-title">Errors</div>
+                <div class="stat-value text-red" id="disp-err">-</div>
+            </div>
+            <div class="card stat-card">
+                <div class="stat-title">Avg Req/Hour</div>
                 <div class="stat-value" id="disp-avg">-</div>
             </div>
         </div>
 
-        <div id="chart-container"></div>
+        <div id="chart-container" class="card"></div>
     </div>
 
     <script>
-        // ... (保留你之前的 主题切换代码 不变) ...
+        // ==========================================
+        // 1. Theme Logic
+        // ==========================================
         var currentTheme = getThemeByTime();
         function getThemeByTime() {
             var hour = new Date().getHours();
@@ -278,27 +274,26 @@
         }
         applyTheme(currentTheme);
         scheduleNextSwitch();
-        // ... (主题代码结束) ...
-
 
         // ==========================================
-        // 3. 数据与图表逻辑 (已修改支持流量)
+        // 2. Data & Chart Logic
         // ==========================================
-        var rawData = [];      // 存储请求数据
-        var rawTraffic = [];   // 存储流量数据
+        var rawData = [];
+        var rawTraffic = [];
         var chartInstance = null;
         var currentRange = '24h';
         var currentLabels = [];
         var currentReqData = [];
         var currentErrData = [];
-        var currentTrafficData = []; // 新增
+        var currentTrafficData = [];
         var DAILY_LIMIT = 100000;
 
         function init() {
             refreshData();
+            window.addEventListener('resize', () => { if (chartInstance) chartInstance.resize(); });
         }
 
-        // 格式化流量单位
+        // 核心格式化工具：自动适配 B, KB, MB, GB
         function formatBytes(bytes, decimals = 2) {
             if (!+bytes) return '0 B';
             const k = 1024;
@@ -315,20 +310,12 @@
                     return res.json();
                 })
                 .then(jsonResponse => {
-                    // 兼容旧格式和新格式
-                    if (Array.isArray(jsonResponse)) {
-                        rawData = jsonResponse;
-                        rawTraffic = [];
-                    } else {
-                        rawData = jsonResponse.data || [];
-                        rawTraffic = jsonResponse.traffic || [];
-                    }
+                    rawData = jsonResponse.data || [];
+                    rawTraffic = jsonResponse.traffic || [];
 
                     if (jsonResponse.updatedAt) {
                         var serverTime = new Date(jsonResponse.updatedAt);
-                        document.getElementById('update-time').innerText = '数据更新于: ' + serverTime.toLocaleString();
-                    } else {
-                        document.getElementById('update-time').innerText = '最后同步: ' + new Date().toLocaleString();
+                        document.getElementById('update-time').innerText = 'Updated: ' + serverTime.toLocaleString();
                     }
 
                     calculateTodayQuota();
@@ -336,7 +323,7 @@
                 })
                 .catch(err => {
                     console.error(err);
-                    document.getElementById('update-time').innerText = '数据同步失败';
+                    document.getElementById('update-time').innerText = 'Sync Failed';
                 });
         }
 
@@ -352,7 +339,7 @@
             document.getElementById('quota-detail').innerText = todayRequests.toLocaleString() + ' / ' + DAILY_LIMIT.toLocaleString();
             
             if (percent > 80) document.getElementById('quota-bar').style.backgroundColor = '#ef4444';
-            else document.getElementById('quota-bar').style.backgroundColor = ''; // 重置颜色
+            else document.getElementById('quota-bar').style.background = ''; 
         }
 
         function setRange(range) {
@@ -371,21 +358,17 @@
             else if (range === '7d') startTime.setDate(now.getDate() - 7);
             else startTime.setDate(now.getDate() - 30);
 
-            // 1. 处理请求数据
+            // Data Processing
             var filteredReq = rawData.filter(item => new Date(item.dimensions.datetime) >= startTime);
-            var map = {}; // key -> {req, err, traffic}
+            var filteredTraffic = rawTraffic.filter(item => new Date(item.dimensions.datetime) >= startTime);
+            var map = {}; 
 
-            // 辅助函数：生成统一的时间 Key
             function getTimeKey(dateStr) {
                 var d = new Date(dateStr);
-                if (range === '24h') {
-                    return (d.getMonth() + 1) + '/' + d.getDate() + ' ' + d.getHours() + ':00';
-                } else {
-                    return d.toISOString().split('T')[0];
-                }
+                if (range === '24h') return (d.getMonth() + 1) + '/' + d.getDate() + ' ' + d.getHours() + ':00';
+                return d.toISOString().split('T')[0];
             }
 
-            // 聚合请求数据
             filteredReq.forEach(item => {
                 var key = getTimeKey(item.dimensions.datetime);
                 if (!map[key]) map[key] = { req: 0, err: 0, bytes: 0 };
@@ -393,16 +376,13 @@
                 map[key].err += item.sum.errors;
             });
 
-            // 2. 处理流量数据 (如果存在)
-            var filteredTraffic = rawTraffic.filter(item => new Date(item.dimensions.datetime) >= startTime);
             filteredTraffic.forEach(item => {
                 var key = getTimeKey(item.dimensions.datetime);
-                // 注意：如果某时刻只有流量没有请求（罕见），也要初始化
                 if (!map[key]) map[key] = { req: 0, err: 0, bytes: 0 };
-                map[key].bytes += (item.sum.edgeResponseBytes || 0);
+                // 兼容旧代码 edgeResponseBytes 和新代码 edgeResponseBytes(实际上是bytes)
+                map[key].bytes += (item.sum.edgeResponseBytes || item.sum.bytes || 0);
             });
 
-            // 3. 排序 Keys
             var sortedKeys = Object.keys(map).sort((a, b) => {
                 if (range === '24h') {
                     var parseTime = str => {
@@ -417,19 +397,18 @@
                 return a.localeCompare(b);
             });
 
-            // 4. 生成数组
             var requests = sortedKeys.map(k => map[k].req);
             var errors = sortedKeys.map(k => map[k].err);
             var traffic = sortedKeys.map(k => map[k].bytes);
 
-            // 5. 更新统计卡片
+            // Update Cards
             var totalReq = requests.reduce((a, b) => a + b, 0);
             var totalErr = errors.reduce((a, b) => a + b, 0);
             var totalBytes = traffic.reduce((a, b) => a + b, 0);
             
             document.getElementById('disp-req').innerText = totalReq.toLocaleString();
             document.getElementById('disp-err').innerText = totalErr.toLocaleString();
-            document.getElementById('disp-traffic').innerText = formatBytes(totalBytes); // 显示格式化流量
+            document.getElementById('disp-traffic').innerText = formatBytes(totalBytes); 
 
             var avg = sortedKeys.length > 0 ? Math.round(totalReq / sortedKeys.length) : 0;
             document.getElementById('disp-avg').innerText = avg.toLocaleString();
@@ -447,104 +426,143 @@
             chartInstance = echarts.init(document.getElementById('chart-container'));
 
             var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            var textColor = isDark ? '#f9fafb' : '#1f2937';
-            var axisColor = isDark ? '#9ca3af' : '#6b7280';
-            var splitLineColor = isDark ? '#374151' : '#e5e7eb';
-            var tooltipBg = isDark ? '#374151' : '#ffffff';
+            var textColor = isDark ? '#94a3b8' : '#64748b';
+            var axisColor = isDark ? '#334155' : '#e2e8f0';
+            var splitColor = isDark ? '#1e293b' : '#f1f5f9';
+            var tooltipBg = isDark ? 'rgba(30, 41, 59, 0.9)' : 'rgba(255, 255, 255, 0.9)';
+            var tooltipBorder = isDark ? '#334155' : '#e2e8f0';
+            var tooltipText = isDark ? '#f1f5f9' : '#0f172a';
 
             var option = {
-                title: { text: '请求与流量趋势', left: 'center', textStyle: { color: textColor } },
+                title: { 
+                    text: 'Requests & Traffic Trend', 
+                    left: '0', 
+                    textStyle: { color: isDark ? '#f1f5f9' : '#1e293b', fontSize: 16, fontWeight: 600 } 
+                },
                 tooltip: {
                     trigger: 'axis',
-                    axisPointer: { type: 'cross' },
+                    axisPointer: { type: 'line' }, // 这里的线更干净
                     backgroundColor: tooltipBg,
-                    textStyle: { color: textColor },
+                    borderColor: tooltipBorder,
+                    textStyle: { color: tooltipText },
+                    padding: [12, 16],
                     formatter: function (params) {
-                        let res = params[0].name + '<br/>';
+                        let res = `<div style="margin-bottom: 8px; font-weight: 600; color:${tooltipText}">${params[0].name}</div>`;
                         params.forEach(item => {
                             let val = item.value;
-                            if (item.seriesName === '流量') val = formatBytes(val);
-                            // 修正圆点颜色显示
-                            let marker = item.marker || `<span style="display:inline-block;margin-right:4px;border-radius:10px;width:10px;height:10px;background-color:${item.color};"></span>`;
-                            res += marker + item.seriesName + ': ' + val + '<br/>';
+                            let label = item.seriesName;
+                            // 流量格式化
+                            if (label === 'Traffic') {
+                                val = formatBytes(val, 2); // 保留2位小数
+                            } else {
+                                val = Math.floor(val).toLocaleString(); // 整数
+                            }
+                            
+                            // 修正圆点样式
+                            let color = item.color;
+                            if(typeof color === 'object') color = color.colorStops ? color.colorStops[0].color : item.color; // 处理渐变色
+
+                            res += `
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; min-width: 150px;">
+                                <span style="font-size: 12px; color: ${textColor}">
+                                    <span style="display:inline-block;margin-right:6px;border-radius:50%;width:8px;height:8px;background-color:${color};"></span>
+                                    ${label}
+                                </span>
+                                <span style="font-weight: 600; font-size: 13px; margin-left: 12px;">${val}</span>
+                            </div>`;
                         });
                         return res;
                     }
                 },
                 legend: { 
-                    data: ['总请求', '流量', '错误'], 
-                    bottom: 0, 
+                    data: ['Requests', 'Traffic', 'Errors'], 
+                    right: 0, 
+                    top: 0,
                     textStyle: { color: textColor } 
                 },
-                grid: { left: '3%', right: '4%', bottom: '10%', containLabel: true },
+                grid: { left: '2%', right: '2%', bottom: '5%', top: '15%', containLabel: true },
                 xAxis: {
                     type: 'category',
                     data: labels,
                     axisLabel: { 
                         interval: range === '30d' ? 2 : 'auto', 
-                        rotate: range === '24h' ? 45 : 0, 
-                        color: axisColor 
+                        rotate: 0, 
+                        color: textColor,
+                        fontSize: 11
                     },
-                    axisLine: { lineStyle: { color: splitLineColor } }
+                    axisLine: { show: false },
+                    axisTick: { show: false }
                 },
                 yAxis: [
                     {
                         type: 'value',
-                        name: '请求数',
-                        position: 'left',
+                        name: 'Requests',
                         minInterval: 1,
-                        axisLabel: { color: axisColor },
-                        splitLine: { lineStyle: { color: splitLineColor } }
+                        splitLine: { lineStyle: { color: splitColor } },
+                        axisLabel: { color: textColor, fontSize: 11 },
+                        position: 'left'
                     },
                     {
                         type: 'value',
-                        name: '流量',
+                        name: 'Traffic',
                         position: 'right',
+                        // 🟢 关键修复：强制最小值为0，防止出现 954MB 这种奇怪的起始刻度
+                        min: 0, 
+                        // 🟢 关键修复：给最大值留一点空间，让刻度更整齐
+                        max: function(value) { return value.max > 0 ? value.max * 1.1 : 1024 * 1024; },
+                        splitLine: { show: false },
                         axisLabel: { 
-                            color: axisColor,
-                            formatter: function(value) { return formatBytes(value, 0); }
-                        },
-                        splitLine: { show: false } // 右轴不显示分割线，防乱
+                            color: textColor,
+                            fontSize: 11,
+                            // 🟢 关键修复：纵坐标格式化，最大2位小数
+                            formatter: function(value) { return formatBytes(value, 1); }
+                        }
                     }
                 ],
                 series: [
                     {
-                        name: '总请求',
+                        name: 'Requests',
                         type: 'line',
                         smooth: true,
+                        showSymbol: false,
                         yAxisIndex: 0,
                         data: reqData,
+                        lineStyle: { width: 3, color: '#F38020' },
                         areaStyle: {
                             color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
-                                { offset: 0, color: 'rgba(243, 128, 32, 0.4)' },
-                                { offset: 1, color: 'rgba(243, 128, 32, 0.05)' }
+                                { offset: 0, color: 'rgba(243, 128, 32, 0.2)' },
+                                { offset: 1, color: 'rgba(243, 128, 32, 0.0)' }
                             ])
                         },
                         itemStyle: { color: '#F38020' }
                     },
                     {
-                        name: '流量',
+                        name: 'Traffic',
                         type: 'line',
-                        smooth: true,
-                        yAxisIndex: 1, // 使用右侧 Y 轴
+                        smooth: true,       // 🟢 变更为平滑曲线
+                        showSymbol: false,
+                        yAxisIndex: 1,
                         data: trafficData,
-                        itemStyle: { color: '#10b981' }, // 绿色
-                        lineStyle: { width: 2, type: 'dashed' } // 虚线区分
+                        lineStyle: { width: 3, color: '#6366f1' }, // 靛蓝色，对比度更好
+                        areaStyle: {        // 🟢 增加渐变面积，更美观
+                            color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
+                                { offset: 0, color: 'rgba(99, 102, 241, 0.2)' },
+                                { offset: 1, color: 'rgba(99, 102, 241, 0.0)' }
+                            ])
+                        },
+                        itemStyle: { color: '#6366f1' }
                     },
                     {
-                        name: '错误',
+                        name: 'Errors',
                         type: 'bar',
                         yAxisIndex: 0,
                         data: errData,
-                        itemStyle: { color: '#ef4444' }
+                        itemStyle: { color: '#ef4444', borderRadius: [4, 4, 0, 0] },
+                        barMaxWidth: 20
                     }
                 ]
             };
             chartInstance.setOption(option);
-            if (!window.chartResizeHandler) {
-                window.chartResizeHandler = () => { if (chartInstance) chartInstance.resize(); };
-                window.addEventListener('resize', window.chartResizeHandler);
-            }
         }
 
         init();
