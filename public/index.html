@@ -228,6 +228,10 @@
                 <div class="stat-value text-red" id="disp-err">-</div>
             </div>
             <div class="stat-card">
+                <div class="stat-title">区间总流量</div>
+                <div class="stat-value text-green" id="disp-traffic">-</div>
+            </div>
+            <div class="stat-card">
                 <div class="stat-title">平均每小时请求</div>
                 <div class="stat-value" id="disp-avg">-</div>
             </div>
@@ -237,119 +241,88 @@
     </div>
 
     <script>
-        // ==========================================
-        // 1. 无状态主题系统 (纯内存，刷新即重置)
-        // ==========================================
-        
-        // 全局变量，记录当前主题状态
-        // 页面刷新时，JS重新加载，此变量会被重置
+        // ... (保留你之前的 主题切换代码 不变) ...
         var currentTheme = getThemeByTime();
-
-        // 根据时间判断初始主题
         function getThemeByTime() {
             var hour = new Date().getHours();
-            // 8点到20点是白天(light)，否则是晚上(dark)
             return (hour >= 8 && hour < 20) ? 'light' : 'dark';
         }
-
-        // 应用主题到 DOM
         function applyTheme(theme) {
             document.documentElement.setAttribute('data-theme', theme);
             var toggle = document.getElementById('theme-toggle');
-            if (toggle) {
-                toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
-            }
-            // 同步更新全局变量
+            if (toggle) toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
             currentTheme = theme;
         }
-
-        // 切换按钮点击事件
         function toggleTheme() {
-            // 取反当前主题
             var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-            
-            // 应用新主题 (仅在内存中生效，不保存到 localStorage)
             applyTheme(newTheme);
-            
-            // 立即重绘图表以适配新颜色
             if (chartInstance && currentLabels.length > 0) {
-                renderChart(currentLabels, currentReqData, currentErrData, currentRange);
+                renderChart(currentLabels, currentReqData, currentErrData, currentTrafficData, currentRange);
             }
         }
-
-        // 定时检查：防止用户长时间挂机跨越了 8:00 或 20:00
-        // 注意：这里的逻辑是，如果时间到了自动切换点，会自动覆盖用户的手动设置
         function scheduleNextSwitch() {
             var now = new Date();
             var hour = now.getHours();
             var nextSwitchTime = new Date(now);
             var targetTheme;
-
-            if (hour < 8) {
-                // 下一次切换是早上 8 点 -> 变亮
-                nextSwitchTime.setHours(8, 0, 0, 0);
-                targetTheme = 'light';
-            } else if (hour < 20) {
-                // 下一次切换是晚上 20 点 -> 变暗
-                nextSwitchTime.setHours(20, 0, 0, 0);
-                targetTheme = 'dark';
-            } else {
-                // 下一次切换是明天早上 8 点 -> 变亮
-                nextSwitchTime.setDate(nextSwitchTime.getDate() + 1);
-                nextSwitchTime.setHours(8, 0, 0, 0);
-                targetTheme = 'light';
-            }
-
+            if (hour < 8) { nextSwitchTime.setHours(8, 0, 0, 0); targetTheme = 'light'; } 
+            else if (hour < 20) { nextSwitchTime.setHours(20, 0, 0, 0); targetTheme = 'dark'; } 
+            else { nextSwitchTime.setDate(nextSwitchTime.getDate() + 1); nextSwitchTime.setHours(8, 0, 0, 0); targetTheme = 'light'; }
             var msUntilSwitch = nextSwitchTime.getTime() - now.getTime();
-            // 防止计算出的时间是负数或0
             if (msUntilSwitch <= 0) msUntilSwitch = 1000; 
-
             setTimeout(function() {
-                // 时间到了，执行自动切换
                 applyTheme(targetTheme);
-                // 更新图表
-                if (chartInstance) renderChart(currentLabels, currentReqData, currentErrData, currentRange);
-                // 递归调用，预约下一次切换
+                if (chartInstance) renderChart(currentLabels, currentReqData, currentErrData, currentTrafficData, currentRange);
                 scheduleNextSwitch();
             }, msUntilSwitch);
         }
-
-        // ==========================================
-        // 2. 初始化执行
-        // ==========================================
-        
-        // 页面加载时立即应用基于时间的主题
         applyTheme(currentTheme);
-        
-        // 启动定时器
         scheduleNextSwitch();
+        // ... (主题代码结束) ...
 
 
         // ==========================================
-        // 3. 数据与图表逻辑 (保持不变)
+        // 3. 数据与图表逻辑 (已修改支持流量)
         // ==========================================
-        var rawData = [];
+        var rawData = [];      // 存储请求数据
+        var rawTraffic = [];   // 存储流量数据
         var chartInstance = null;
         var currentRange = '24h';
         var currentLabels = [];
         var currentReqData = [];
         var currentErrData = [];
+        var currentTrafficData = []; // 新增
         var DAILY_LIMIT = 100000;
 
         function init() {
             refreshData();
         }
 
+        // 格式化流量单位
+        function formatBytes(bytes, decimals = 2) {
+            if (!+bytes) return '0 B';
+            const k = 1024;
+            const dm = decimals < 0 ? 0 : decimals;
+            const sizes = ['B', 'KB', 'MB', 'GB', 'TB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+        }
+
         function refreshData() {
-            // 添加时间戳防止缓存
             fetch('./data.json?t=' + new Date().getTime())
-                .then(function(res) {
+                .then(res => {
                     if (!res.ok) throw new Error("HTTP " + res.status);
                     return res.json();
                 })
-                .then(function(jsonResponse) {
-                    // 兼容直接数组或对象格式
-                    rawData = Array.isArray(jsonResponse) ? jsonResponse : jsonResponse.data;
+                .then(jsonResponse => {
+                    // 兼容旧格式和新格式
+                    if (Array.isArray(jsonResponse)) {
+                        rawData = jsonResponse;
+                        rawTraffic = [];
+                    } else {
+                        rawData = jsonResponse.data || [];
+                        rawTraffic = jsonResponse.traffic || [];
+                    }
 
                     if (jsonResponse.updatedAt) {
                         var serverTime = new Date(jsonResponse.updatedAt);
@@ -358,14 +331,10 @@
                         document.getElementById('update-time').innerText = '最后同步: ' + new Date().toLocaleString();
                     }
 
-                    try {
-                        calculateTodayQuota();
-                        setRange(currentRange);
-                    } catch (e) {
-                        console.error("Render error:", e);
-                    }
+                    calculateTodayQuota();
+                    setRange(currentRange);
                 })
-                .catch(function(err) {
+                .catch(err => {
                     console.error(err);
                     document.getElementById('update-time').innerText = '数据同步失败';
                 });
@@ -374,20 +343,21 @@
         function calculateTodayQuota() {
             var todayStr = new Date().toISOString().split('T')[0];
             var todayRequests = rawData
-                .filter(function(item) { return item.dimensions.datetime.startsWith(todayStr); })
-                .reduce(function(sum, item) { return sum + item.sum.requests; }, 0);
+                .filter(item => item.dimensions.datetime.startsWith(todayStr))
+                .reduce((sum, item) => sum + item.sum.requests, 0);
 
             var percent = Math.min((todayRequests / DAILY_LIMIT) * 100, 100).toFixed(1);
             document.getElementById('quota-bar').style.width = percent + '%';
             document.getElementById('quota-percent').innerText = percent + '%';
             document.getElementById('quota-detail').innerText = todayRequests.toLocaleString() + ' / ' + DAILY_LIMIT.toLocaleString();
-
+            
             if (percent > 80) document.getElementById('quota-bar').style.backgroundColor = '#ef4444';
+            else document.getElementById('quota-bar').style.backgroundColor = ''; // 重置颜色
         }
 
         function setRange(range) {
             currentRange = range;
-            document.querySelectorAll('.btn').forEach(function(b) { b.classList.remove('active'); });
+            document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
 
             var btns = document.querySelectorAll('.btn');
             if (range === '24h') btns[0].classList.add('active');
@@ -401,49 +371,65 @@
             else if (range === '7d') startTime.setDate(now.getDate() - 7);
             else startTime.setDate(now.getDate() - 30);
 
-            var filtered = rawData.filter(function(item) { return new Date(item.dimensions.datetime) >= startTime; });
+            // 1. 处理请求数据
+            var filteredReq = rawData.filter(item => new Date(item.dimensions.datetime) >= startTime);
+            var map = {}; // key -> {req, err, traffic}
 
-            var map = {};
-            filtered.forEach(function(item) {
-                var d = new Date(item.dimensions.datetime);
-                var key;
+            // 辅助函数：生成统一的时间 Key
+            function getTimeKey(dateStr) {
+                var d = new Date(dateStr);
                 if (range === '24h') {
-                    // 格式化为 M/D H:00
-                    key = (d.getMonth() + 1) + '/' + d.getDate() + ' ' + d.getHours() + ':00';
+                    return (d.getMonth() + 1) + '/' + d.getDate() + ' ' + d.getHours() + ':00';
                 } else {
-                    key = d.toISOString().split('T')[0];
+                    return d.toISOString().split('T')[0];
                 }
+            }
 
-                if (!map[key]) map[key] = { req: 0, err: 0 };
+            // 聚合请求数据
+            filteredReq.forEach(item => {
+                var key = getTimeKey(item.dimensions.datetime);
+                if (!map[key]) map[key] = { req: 0, err: 0, bytes: 0 };
                 map[key].req += item.sum.requests;
                 map[key].err += item.sum.errors;
             });
 
-            var sortedKeys = Object.keys(map).sort(function(a, b) {
+            // 2. 处理流量数据 (如果存在)
+            var filteredTraffic = rawTraffic.filter(item => new Date(item.dimensions.datetime) >= startTime);
+            filteredTraffic.forEach(item => {
+                var key = getTimeKey(item.dimensions.datetime);
+                // 注意：如果某时刻只有流量没有请求（罕见），也要初始化
+                if (!map[key]) map[key] = { req: 0, err: 0, bytes: 0 };
+                map[key].bytes += (item.sum.edgeResponseBytes || 0);
+            });
+
+            // 3. 排序 Keys
+            var sortedKeys = Object.keys(map).sort((a, b) => {
                 if (range === '24h') {
-                    var parseTime = function(str) {
+                    var parseTime = str => {
                         var parts = str.split(' ');
-                        var datePart = parts[0];
-                        var timePart = parts[1];
-                        var dateParts = datePart.split('/');
-                        var m = dateParts[0];
-                        var dd = dateParts[1];
-                        var h = timePart.split(':')[0];
+                        var dateParts = parts[0].split('/');
+                        var h = parts[1].split(':')[0];
                         var year = new Date().getFullYear();
-                        return new Date(year, m - 1, dd, h).getTime();
+                        return new Date(year, dateParts[0] - 1, dateParts[1], h).getTime();
                     };
                     return parseTime(a) - parseTime(b);
                 }
                 return a.localeCompare(b);
             });
 
-            var requests = sortedKeys.map(function(k) { return map[k].req; });
-            var errors = sortedKeys.map(function(k) { return map[k].err; });
+            // 4. 生成数组
+            var requests = sortedKeys.map(k => map[k].req);
+            var errors = sortedKeys.map(k => map[k].err);
+            var traffic = sortedKeys.map(k => map[k].bytes);
 
-            var totalReq = requests.reduce(function(a, b) { return a + b; }, 0);
-            var totalErr = errors.reduce(function(a, b) { return a + b; }, 0);
+            // 5. 更新统计卡片
+            var totalReq = requests.reduce((a, b) => a + b, 0);
+            var totalErr = errors.reduce((a, b) => a + b, 0);
+            var totalBytes = traffic.reduce((a, b) => a + b, 0);
+            
             document.getElementById('disp-req').innerText = totalReq.toLocaleString();
             document.getElementById('disp-err').innerText = totalErr.toLocaleString();
+            document.getElementById('disp-traffic').innerText = formatBytes(totalBytes); // 显示格式化流量
 
             var avg = sortedKeys.length > 0 ? Math.round(totalReq / sortedKeys.length) : 0;
             document.getElementById('disp-avg').innerText = avg.toLocaleString();
@@ -451,54 +437,82 @@
             currentLabels = sortedKeys;
             currentReqData = requests;
             currentErrData = errors;
+            currentTrafficData = traffic;
 
-            renderChart(sortedKeys, requests, errors, range);
+            renderChart(sortedKeys, requests, errors, traffic, range);
         }
 
-        function renderChart(labels, reqData, errData, range) {
+        function renderChart(labels, reqData, errData, trafficData, range) {
             if (chartInstance) chartInstance.dispose();
             chartInstance = echarts.init(document.getElementById('chart-container'));
 
-            // 每次渲染图表时，重新读取当前的 data-theme
             var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            
             var textColor = isDark ? '#f9fafb' : '#1f2937';
             var axisColor = isDark ? '#9ca3af' : '#6b7280';
             var splitLineColor = isDark ? '#374151' : '#e5e7eb';
             var tooltipBg = isDark ? '#374151' : '#ffffff';
-            var tooltipBorder = isDark ? '#4b5563' : '#e5e7eb';
 
             var option = {
-                title: { text: '请求趋势', left: 'center', textStyle: { color: textColor } },
+                title: { text: '请求与流量趋势', left: 'center', textStyle: { color: textColor } },
                 tooltip: {
                     trigger: 'axis',
                     axisPointer: { type: 'cross' },
-                    valueFormatter: function(value) { return Math.floor(value); },
                     backgroundColor: tooltipBg,
-                    borderColor: tooltipBorder,
-                    textStyle: { color: textColor }
+                    textStyle: { color: textColor },
+                    formatter: function (params) {
+                        let res = params[0].name + '<br/>';
+                        params.forEach(item => {
+                            let val = item.value;
+                            if (item.seriesName === '流量') val = formatBytes(val);
+                            // 修正圆点颜色显示
+                            let marker = item.marker || `<span style="display:inline-block;margin-right:4px;border-radius:10px;width:10px;height:10px;background-color:${item.color};"></span>`;
+                            res += marker + item.seriesName + ': ' + val + '<br/>';
+                        });
+                        return res;
+                    }
                 },
-                legend: { data: ['总请求', '错误'], bottom: 0, textStyle: { color: textColor } },
+                legend: { 
+                    data: ['总请求', '流量', '错误'], 
+                    bottom: 0, 
+                    textStyle: { color: textColor } 
+                },
                 grid: { left: '3%', right: '4%', bottom: '10%', containLabel: true },
                 xAxis: {
                     type: 'category',
                     data: labels,
-                    axisLabel: { interval: range === '30d' ? 2 : 'auto', rotate: range === '24h' ? 45 : 0, color: axisColor },
+                    axisLabel: { 
+                        interval: range === '30d' ? 2 : 'auto', 
+                        rotate: range === '24h' ? 45 : 0, 
+                        color: axisColor 
+                    },
                     axisLine: { lineStyle: { color: splitLineColor } }
                 },
-                yAxis: {
-                    type: 'value',
-                    minInterval: 1,
-                    axisLabel: { formatter: function(value) { return Math.floor(value); }, color: axisColor },
-                    axisLine: { lineStyle: { color: splitLineColor } },
-                    splitLine: { lineStyle: { color: splitLineColor } },
-                    axisPointer: { label: { formatter: function(params) { return Math.floor(params.value); } } }
-                },
+                yAxis: [
+                    {
+                        type: 'value',
+                        name: '请求数',
+                        position: 'left',
+                        minInterval: 1,
+                        axisLabel: { color: axisColor },
+                        splitLine: { lineStyle: { color: splitLineColor } }
+                    },
+                    {
+                        type: 'value',
+                        name: '流量',
+                        position: 'right',
+                        axisLabel: { 
+                            color: axisColor,
+                            formatter: function(value) { return formatBytes(value, 0); }
+                        },
+                        splitLine: { show: false } // 右轴不显示分割线，防乱
+                    }
+                ],
                 series: [
                     {
                         name: '总请求',
                         type: 'line',
                         smooth: true,
+                        yAxisIndex: 0,
                         data: reqData,
                         areaStyle: {
                             color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
@@ -509,8 +523,18 @@
                         itemStyle: { color: '#F38020' }
                     },
                     {
+                        name: '流量',
+                        type: 'line',
+                        smooth: true,
+                        yAxisIndex: 1, // 使用右侧 Y 轴
+                        data: trafficData,
+                        itemStyle: { color: '#10b981' }, // 绿色
+                        lineStyle: { width: 2, type: 'dashed' } // 虚线区分
+                    },
+                    {
                         name: '错误',
                         type: 'bar',
+                        yAxisIndex: 0,
                         data: errData,
                         itemStyle: { color: '#ef4444' }
                     }
@@ -518,9 +542,7 @@
             };
             chartInstance.setOption(option);
             if (!window.chartResizeHandler) {
-                window.chartResizeHandler = function() { 
-                    if (chartInstance) chartInstance.resize(); 
-                };
+                window.chartResizeHandler = () => { if (chartInstance) chartInstance.resize(); };
                 window.addEventListener('resize', window.chartResizeHandler);
             }
         }
