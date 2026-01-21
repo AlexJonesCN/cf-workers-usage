@@ -74,17 +74,18 @@
             font-weight: 500;
         }
         
-        .theme-toggle {
+        .icon-btn {
             background: var(--card-bg);
             border: 1px solid var(--border);
             width: 36px; height: 36px;
             border-radius: 50%;
             display: flex; align-items: center; justify-content: center;
             cursor: pointer;
-            font-size: 18px;
+            font-size: 16px;
             box-shadow: var(--shadow);
+            user-select: none;
         }
-        .theme-toggle:hover { transform: translateY(-1px); }
+        .icon-btn:hover { transform: translateY(-1px); background: var(--btn-hover); }
 
         /* Card Common Styles */
         .card {
@@ -185,16 +186,17 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1><span style="color: var(--primary)">⚡</span> Worker Monitor</h1>
+            <h1><span style="color: var(--primary)">⚡</span> <span data-i18n="title">Worker 监控</span></h1>
             <div class="header-right">
-                <span id="update-time" class="last-update">Syncing...</span>
-                <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" title="Switch Theme">🌙</button>
+                <span id="update-time" class="last-update" data-i18n="loading">载入中...</span>
+                <button id="lang-toggle" class="icon-btn" onclick="toggleLanguage()" title="切换语言">En</button>
+                <button id="theme-toggle" class="icon-btn" onclick="toggleTheme()" title="切换主题">🌙</button>
             </div>
         </div>
 
         <div class="card quota-card">
             <div class="quota-header">
-                <span>Today's Requests (UTC)</span>
+                <span data-i18n="quota_title">今日请求用量 (UTC)</span>
                 <span id="quota-percent">0%</span>
             </div>
             <div class="progress-bg">
@@ -202,31 +204,31 @@
             </div>
             <div class="quota-text">
                 <span id="quota-detail">0 / 100,000</span>
-                <span>Reset: 00:00 UTC</span>
+                <span data-i18n="quota_reset">重置时间: 00:00 UTC</span>
             </div>
         </div>
 
         <div class="controls">
-            <button class="btn active" onclick="setRange('24h')">Last 24 Hours</button>
-            <button class="btn" onclick="setRange('7d')">Last 7 Days</button>
-            <button class="btn" onclick="setRange('30d')">Last 30 Days</button>
+            <button class="btn active" onclick="setRange('24h')" data-i18n="btn_24h">最近 24 小时</button>
+            <button class="btn" onclick="setRange('7d')" data-i18n="btn_7d">最近 7 天</button>
+            <button class="btn" onclick="setRange('30d')" data-i18n="btn_30d">最近 30 天</button>
         </div>
 
         <div class="grid">
             <div class="card stat-card">
-                <div class="stat-title">Total Requests</div>
+                <div class="stat-title" data-i18n="stat_req">区间总请求数</div>
                 <div class="stat-value" id="disp-req">-</div>
             </div>
             <div class="card stat-card">
-                <div class="stat-title">Total Traffic</div>
+                <div class="stat-title" data-i18n="stat_traffic">区间总流量</div>
                 <div class="stat-value text-green" id="disp-traffic">-</div>
             </div>
             <div class="card stat-card">
-                <div class="stat-title">Errors</div>
+                <div class="stat-title" data-i18n="stat_err">区间错误数</div>
                 <div class="stat-value text-red" id="disp-err">-</div>
             </div>
             <div class="card stat-card">
-                <div class="stat-title">Avg Req/Hour</div>
+                <div class="stat-title" data-i18n="stat_avg">平均每小时请求</div>
                 <div class="stat-value" id="disp-avg">-</div>
             </div>
         </div>
@@ -235,6 +237,77 @@
     </div>
 
     <script>
+        // ==========================================
+        // 0. I18n System (多语言系统)
+        // ==========================================
+        var currentLang = 'zh'; // 默认中文
+        
+        const translations = {
+            zh: {
+                title: "Worker 监控",
+                loading: "载入中...",
+                update_prefix: "更新于: ",
+                update_fail: "同步失败",
+                quota_title: "今日请求用量 (UTC)",
+                quota_reset: "重置时间: 00:00 UTC",
+                btn_24h: "最近 24 小时",
+                btn_7d: "最近 7 天",
+                btn_30d: "最近 30 天",
+                stat_req: "区间总请求数",
+                stat_traffic: "区间总流量",
+                stat_err: "区间错误数",
+                stat_avg: "平均每小时请求",
+                chart_title: "请求与流量趋势",
+                legend_req: "总请求",
+                legend_traffic: "流量",
+                legend_err: "错误",
+                lang_btn: "En"
+            },
+            en: {
+                title: "Worker Monitor",
+                loading: "Loading...",
+                update_prefix: "Updated: ",
+                update_fail: "Sync Failed",
+                quota_title: "Today's Requests (UTC)",
+                quota_reset: "Reset: 00:00 UTC",
+                btn_24h: "Last 24 Hours",
+                btn_7d: "Last 7 Days",
+                btn_30d: "Last 30 Days",
+                stat_req: "Total Requests",
+                stat_traffic: "Total Traffic",
+                stat_err: "Errors",
+                stat_avg: "Avg Req/Hour",
+                chart_title: "Requests & Traffic Trend",
+                legend_req: "Requests",
+                legend_traffic: "Traffic",
+                legend_err: "Errors",
+                lang_btn: "中"
+            }
+        };
+
+        function updateLanguageUI() {
+            var t = translations[currentLang];
+            // 更新所有带 data-i18n 的元素
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                var key = el.getAttribute('data-i18n');
+                if (t[key]) el.innerText = t[key];
+            });
+            // 更新语言按钮文字
+            document.getElementById('lang-toggle').innerText = t.lang_btn;
+            
+            // 如果图表已存在，需要刷新图表文字
+            if (chartInstance && currentLabels.length > 0) {
+                renderChart(currentLabels, currentReqData, currentErrData, currentTrafficData, currentRange);
+            }
+            // 刷新更新时间显示
+            updateTimeDisplay();
+        }
+
+        function toggleLanguage() {
+            currentLang = currentLang === 'zh' ? 'en' : 'zh';
+            updateLanguageUI();
+        }
+
         // ==========================================
         // 1. Theme Logic
         // ==========================================
@@ -280,6 +353,7 @@
         // ==========================================
         var rawData = [];
         var rawTraffic = [];
+        var lastUpdateTimeStr = null; // 保存最后更新时间字符串
         var chartInstance = null;
         var currentRange = '24h';
         var currentLabels = [];
@@ -302,6 +376,16 @@
             const i = Math.floor(Math.log(bytes) / Math.log(k));
             return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
         }
+        
+        function updateTimeDisplay() {
+            var t = translations[currentLang];
+            var el = document.getElementById('update-time');
+            if (lastUpdateTimeStr) {
+                el.innerText = t.update_prefix + lastUpdateTimeStr;
+            } else {
+                el.innerText = t.loading;
+            }
+        }
 
         function refreshData() {
             fetch('./data.json?t=' + new Date().getTime())
@@ -315,15 +399,17 @@
 
                     if (jsonResponse.updatedAt) {
                         var serverTime = new Date(jsonResponse.updatedAt);
-                        document.getElementById('update-time').innerText = 'Updated: ' + serverTime.toLocaleString();
+                        lastUpdateTimeStr = serverTime.toLocaleString();
                     }
+                    updateTimeDisplay();
 
                     calculateTodayQuota();
                     setRange(currentRange);
                 })
                 .catch(err => {
                     console.error(err);
-                    document.getElementById('update-time').innerText = 'Sync Failed';
+                    var t = translations[currentLang];
+                    document.getElementById('update-time').innerText = t.update_fail;
                 });
         }
 
@@ -346,6 +432,7 @@
             currentRange = range;
             document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
 
+            // 这里的按钮文字由 i18n 控制，但 active 类需要手动加
             var btns = document.querySelectorAll('.btn');
             if (range === '24h') btns[0].classList.add('active');
             if (range === '7d') btns[1].classList.add('active');
@@ -418,16 +505,18 @@
             currentErrData = errors;
             currentTrafficData = traffic;
 
-            renderChart(sortedKeys, requests, errors, traffic, range);
+            renderChart(sortedKeys, requests, errors, traffic, currentRange);
         }
 
         function renderChart(labels, reqData, errData, trafficData, range) {
             if (chartInstance) chartInstance.dispose();
             chartInstance = echarts.init(document.getElementById('chart-container'));
 
+            // 获取当前语言包
+            var t = translations[currentLang];
+
             var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
             var textColor = isDark ? '#94a3b8' : '#64748b';
-            var axisColor = isDark ? '#334155' : '#e2e8f0';
             var splitColor = isDark ? '#1e293b' : '#f1f5f9';
             var tooltipBg = isDark ? 'rgba(30, 41, 59, 0.9)' : 'rgba(255, 255, 255, 0.9)';
             var tooltipBorder = isDark ? '#334155' : '#e2e8f0';
@@ -435,13 +524,13 @@
 
             var option = {
                 title: { 
-                    text: 'Requests & Traffic Trend', 
+                    text: t.chart_title, // 动态标题
                     left: '0', 
                     textStyle: { color: isDark ? '#f1f5f9' : '#1e293b', fontSize: 16, fontWeight: 600 } 
                 },
                 tooltip: {
                     trigger: 'axis',
-                    axisPointer: { type: 'line' }, // 这里的线更干净
+                    axisPointer: { type: 'line' }, 
                     backgroundColor: tooltipBg,
                     borderColor: tooltipBorder,
                     textStyle: { color: tooltipText },
@@ -452,15 +541,15 @@
                             let val = item.value;
                             let label = item.seriesName;
                             // 流量格式化
-                            if (label === 'Traffic') {
-                                val = formatBytes(val, 2); // 保留2位小数
+                            if (item.seriesIndex === 1) { // Traffic
+                                val = formatBytes(val, 2); 
                             } else {
-                                val = Math.floor(val).toLocaleString(); // 整数
+                                val = Math.floor(val).toLocaleString(); 
                             }
                             
                             // 修正圆点样式
                             let color = item.color;
-                            if(typeof color === 'object') color = color.colorStops ? color.colorStops[0].color : item.color; // 处理渐变色
+                            if(typeof color === 'object') color = color.colorStops ? color.colorStops[0].color : item.color; 
 
                             res += `
                             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; min-width: 150px;">
@@ -475,7 +564,7 @@
                     }
                 },
                 legend: { 
-                    data: ['Requests', 'Traffic', 'Errors'], 
+                    data: [t.legend_req, t.legend_traffic, t.legend_err], // 动态图例
                     right: 0, 
                     top: 0,
                     textStyle: { color: textColor } 
@@ -496,7 +585,7 @@
                 yAxis: [
                     {
                         type: 'value',
-                        name: 'Requests',
+                        name: t.legend_req, // 动态Y轴名
                         minInterval: 1,
                         splitLine: { lineStyle: { color: splitColor } },
                         axisLabel: { color: textColor, fontSize: 11 },
@@ -504,24 +593,21 @@
                     },
                     {
                         type: 'value',
-                        name: 'Traffic',
+                        name: t.legend_traffic, // 动态Y轴名
                         position: 'right',
-                        // 🟢 关键修复：强制最小值为0，防止出现 954MB 这种奇怪的起始刻度
                         min: 0, 
-                        // 🟢 关键修复：给最大值留一点空间，让刻度更整齐
                         max: function(value) { return value.max > 0 ? value.max * 1.1 : 1024 * 1024; },
                         splitLine: { show: false },
                         axisLabel: { 
                             color: textColor,
                             fontSize: 11,
-                            // 🟢 关键修复：纵坐标格式化，最大2位小数
                             formatter: function(value) { return formatBytes(value, 1); }
                         }
                     }
                 ],
                 series: [
                     {
-                        name: 'Requests',
+                        name: t.legend_req,
                         type: 'line',
                         smooth: true,
                         showSymbol: false,
@@ -537,14 +623,14 @@
                         itemStyle: { color: '#F38020' }
                     },
                     {
-                        name: 'Traffic',
+                        name: t.legend_traffic,
                         type: 'line',
-                        smooth: true,       // 🟢 变更为平滑曲线
+                        smooth: true,       
                         showSymbol: false,
                         yAxisIndex: 1,
                         data: trafficData,
-                        lineStyle: { width: 3, color: '#6366f1' }, // 靛蓝色，对比度更好
-                        areaStyle: {        // 🟢 增加渐变面积，更美观
+                        lineStyle: { width: 3, color: '#6366f1' }, 
+                        areaStyle: {        
                             color: new echarts.graphic.LinearGradient(0, 0, 0, 1, [
                                 { offset: 0, color: 'rgba(99, 102, 241, 0.2)' },
                                 { offset: 1, color: 'rgba(99, 102, 241, 0.0)' }
@@ -553,7 +639,7 @@
                         itemStyle: { color: '#6366f1' }
                     },
                     {
-                        name: 'Errors',
+                        name: t.legend_err,
                         type: 'bar',
                         yAxisIndex: 0,
                         data: errData,
