@@ -53,9 +53,6 @@ async function fetchData() {
             }
           ) {
             sum {
-              # 👇 关键修改：使用 GraphQL 别名功能
-              # 将数据库里的 'bytes' 字段取出来，伪装成 'edgeResponseBytes'
-              # 这样前端 index.html 就不需要任何修改，直接能读到数据
               edgeResponseBytes: bytes
             }
             dimensions {
