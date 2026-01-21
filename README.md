@@ -104,7 +104,7 @@ const DAILY_LIMIT = 100000; // 修改为你需要的数值
 
 ## 📜 许可证
 
-ISC License
+MIT License
 
 ## 🤝 贡献
 
