@@ -4,7 +4,6 @@ const path = require('path');
 
 const ACCOUNT_ID = process.env.CF_ACCOUNT_ID;
 const API_TOKEN = process.env.CF_API_TOKEN;
-// 新增：获取 Zone ID，如果未配置则设为空
 const ZONE_ID = process.env.CF_ZONE_ID; 
 const endpoint = 'https://api.cloudflare.com/client/v4/graphql';
 
@@ -19,8 +18,6 @@ async function fetchData() {
   const dateFrom = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000).toISOString();
   const dateTo = new Date().toISOString();
 
-  // 构建查询：同时查询 Account 的 Worker 调用和 Zone 的 HTTP 流量
-  // 注意：httpRequestsAdaptiveGroups 需要 Zone ID，且 filter 中 edgeWorkerID_neq: "" 确保只统计 Worker 流量
   let queryStr = `
     query Viewer {
       viewer {
@@ -52,8 +49,7 @@ async function fetchData() {
             limit: 10000,
             filter: {
               datetime_geq: "${dateFrom}",
-              datetime_leq: "${dateTo}",
-              edgeWorkerID_neq: ""
+              datetime_leq: "${dateTo}"
             }
           ) {
             sum {
@@ -114,8 +110,8 @@ async function fetchData() {
 
     const output = {
         updatedAt: new Date().toISOString(),
-        data: workerData,     // 原有的请求数数据
-        traffic: trafficData  // 新增的流量数据
+        data: workerData,
+        traffic: trafficData
     };
     
     const publicDir = path.join(__dirname, '../public');
