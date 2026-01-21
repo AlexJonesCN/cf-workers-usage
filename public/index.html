@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Worker 监控面板</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E⚡%3C/text%3E%3C/svg%3E">
-    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min. js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
     <style>
-        : root { 
-            --primary:  #F38020; 
+        :root { 
+            --primary: #F38020; 
             --bg: #f3f4f6; 
             --card: #ffffff; 
             --text: #1f2937; 
@@ -17,7 +17,7 @@
             --progress-bg: #e5e7eb;
             --shadow: rgba(0,0,0,0.05);
             --btn-bg: #fff;
-            --btn-hover:  #f9fafb;
+            --btn-hover: #f9fafb;
             --stat-value: #111827;
         }
         
@@ -25,11 +25,11 @@
             --bg: #111827;
             --card: #1f2937;
             --text: #f9fafb;
-            --text-secondary:  #9ca3af;
+            --text-secondary: #9ca3af;
             --border: #374151;
             --progress-bg: #374151;
             --shadow: rgba(0,0,0,0.3);
-            --btn-bg:  #374151;
+            --btn-bg: #374151;
             --btn-hover: #4b5563;
             --stat-value: #f9fafb;
         }
@@ -40,12 +40,13 @@
         
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-            background:  var(--bg); 
+            background: var(--bg); 
             color: var(--text); 
             margin: 0; 
             padding: 20px; 
         }
-        . container { max-width: 1200px; margin: 0 auto; }
+        /* 修正：移除了类名前的空格 */
+        .container { max-width: 1200px; margin: 0 auto; }
         
         .header { 
             display: flex; 
@@ -55,8 +56,8 @@
             flex-wrap: wrap; 
             gap: 10px; 
         }
-        . header h1 { 
-            margin:  0; 
+        .header h1 { 
+            margin: 0; 
             font-size: 24px; 
             display: flex; 
             align-items: center; 
@@ -80,9 +81,9 @@
         .theme-toggle {
             background: var(--btn-bg);
             border: 1px solid var(--border);
-            padding: 8px 12px;
-            border-radius:  20px;
-            cursor:  pointer;
+            padding: 8px 12px; 
+            border-radius: 20px;
+            cursor: pointer;
             font-size: 18px;
             transition: all 0.2s;
             box-shadow: 0 1px 3px var(--shadow);
@@ -101,7 +102,7 @@
             margin-bottom: 24px; 
             border-left: 5px solid var(--primary); 
         }
-        . quota-header { 
+        .quota-header { 
             display: flex; 
             justify-content: space-between; 
             margin-bottom: 10px; 
@@ -137,18 +138,20 @@
             padding: 8px 16px; 
             border-radius: 6px; 
             cursor: pointer; 
-            font-size:  14px; 
+            font-size: 14px; 
             color: var(--text-secondary); 
             transition: all 0.2s; 
             box-shadow: 0 1px 2px var(--shadow); 
         }
-        .btn. active { 
+        /* 修正：.btn.active 中间不应有空格，表示同时拥有两个类 */
+        .btn.active { 
             background: var(--primary); 
             color: white; 
             font-weight: 500; 
             border-color: var(--primary);
         }
-        .btn:hover: not(.active) { 
+        /* 修正：:not 前的伪类选择器空格移除 */
+        .btn:hover:not(.active) { 
             background: var(--btn-hover); 
         }
 
@@ -158,7 +161,7 @@
             gap: 16px; 
             margin-bottom: 24px; 
         }
-        . stat-card { 
+        .stat-card { 
             background: var(--card); 
             padding: 20px; 
             border-radius: 12px; 
@@ -208,7 +211,7 @@
             </div>
             <div class="quota-text">
                 <span id="quota-detail">0 / 100,000</span>
-                <span>重置时间:  00:00 UTC</span>
+                <span>重置时间: 00:00 UTC</span>
             </div>
         </div>
 
@@ -237,24 +240,24 @@
     </div>
 
     <script>
-        // Theme Management - 刷新时始终根据时间设置，运行中可手动切换，8/20点自动切换
-
+        // Theme Management
         function getThemeByTime() {
-            const hour = new Date().getHours();
+            var hour = new Date().getHours();
             return (hour >= 8 && hour < 20) ? 'light' : 'dark';
         }
 
         function applyTheme(theme) {
             document.documentElement.setAttribute('data-theme', theme);
-            const toggle = document.getElementById('theme-toggle');
+            var toggle = document.getElementById('theme-toggle');
             if (toggle) {
-                toggle. textContent = theme === 'dark' ? '☀️' : '🌙';
+                // 修正：textContent 间的空格
+                toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
             }
         }
 
         function toggleTheme() {
-            const current = document.documentElement.getAttribute('data-theme') || 'light';
-            const newTheme = current === 'dark' ? 'light' : 'dark';
+            var current = document.documentElement.getAttribute('data-theme') || 'light';
+            var newTheme = current === 'dark' ? 'light' : 'dark';
             applyTheme(newTheme);
 
             if (chartInstance && currentLabels.length > 0) {
@@ -263,11 +266,11 @@
         }
 
         function scheduleNextSwitch() {
-            const now = new Date();
-            const hour = now.getHours();
+            var now = new Date();
+            var hour = now.getHours();
 
-            let nextSwitchTime = new Date(now);
-            let targetTheme;
+            var nextSwitchTime = new Date(now);
+            var targetTheme;
 
             if (hour < 8) {
                 nextSwitchTime.setHours(8, 0, 0, 0);
@@ -276,16 +279,17 @@
                 nextSwitchTime.setHours(20, 0, 0, 0);
                 targetTheme = 'dark';
             } else {
-                nextSwitchTime. setDate(nextSwitchTime.getDate() + 1);
+                nextSwitchTime.setDate(nextSwitchTime.getDate() + 1);
                 nextSwitchTime.setHours(8, 0, 0, 0);
                 targetTheme = 'light';
             }
 
-            const msUntilSwitch = nextSwitchTime. getTime() - now.getTime();
+            // 修正：getTime() 间的空格
+            var msUntilSwitch = nextSwitchTime.getTime() - now.getTime();
 
-            console.log(`Next theme switch: ${targetTheme} mode in ${Math.round(msUntilSwitch / 1000 / 60)} minutes`);
+            console.log('Next theme switch: ' + targetTheme + ' mode in ' + Math.round(msUntilSwitch / 1000 / 60) + ' minutes');
 
-            setTimeout(() => {
+            setTimeout(function() {
                 applyTheme(targetTheme);
 
                 if (chartInstance && currentLabels.length > 0) {
@@ -303,38 +307,34 @@
         scheduleNextSwitch();
 
         // Original script variables
-        let rawData = [];
-        let chartInstance = null;
-        let currentRange = '24h';
-        let currentLabels = [];
-        let currentReqData = [];
-        let currentErrData = [];
-        const DAILY_LIMIT = 100000;
+        var rawData = [];
+        var chartInstance = null;
+        var currentRange = '24h';
+        var currentLabels = [];
+        var currentReqData = [];
+        var currentErrData = [];
+        var DAILY_LIMIT = 100000;
 
         function init() {
             refreshData();
         }
 
         function refreshData() {
-            fetch('./data. json? t=' + new Date().getTime())
-                .then(res => {
+            fetch('./data.json?t=' + new Date().getTime())
+                .then(function(res) {
+                    // 修正：! res.ok 间的空格
                     if (!res.ok) throw new Error("HTTP " + res.status);
                     return res.json();
                 })
-                .then(jsonResponse => {
-                    // 👇👇👇 修改点：适配新的数据结构 👇👇👇
-                    // 1. 如果是旧格式(数组)，直接用；如果是新格式(对象)，取 .data
+                .then(function(jsonResponse) {
                     rawData = Array.isArray(jsonResponse) ? jsonResponse : jsonResponse.data;
 
-                    // 2. 处理时间显示
                     if (jsonResponse.updatedAt) {
-                        const serverTime = new Date(jsonResponse.updatedAt);
-                        document.getElementById('update-time').innerText = '数据更新于:  ' + serverTime.toLocaleString();
+                        var serverTime = new Date(jsonResponse.updatedAt);
+                        document.getElementById('update-time').innerText = '数据更新于: ' + serverTime.toLocaleString();
                     } else {
-                        // 兼容旧数据，没有时间戳时显示当前时间
                         document.getElementById('update-time').innerText = '最后同步: ' + new Date().toLocaleString();
                     }
-                    // 👆👆👆 修改点结束 👆👆👆
 
                     try {
                         calculateTodayQuota();
@@ -343,85 +343,94 @@
                         console.error("Render error:", e);
                     }
                 })
-                .catch(err => {
+                .catch(function(err) {
                     console.error(err);
                     document.getElementById('update-time').innerText = '数据同步失败';
                 });
         }
 
         function calculateTodayQuota() {
-            const todayStr = new Date().toISOString().split('T')[0];
-            const todayRequests = rawData
-                .filter(item => item. dimensions.datetime. startsWith(todayStr))
-                .reduce((sum, item) => sum + item.sum. requests, 0);
+            var todayStr = new Date().toISOString().split('T')[0];
+            // 修正：item.dimensions.datetime 间的空格，startsWith 间的空格
+            var todayRequests = rawData
+                .filter(function(item) { return item.dimensions.datetime.startsWith(todayStr); })
+                // 修正：item.sum.requests 间的空格
+                .reduce(function(sum, item) { return sum + item.sum.requests; }, 0);
 
-            const percent = Math.min((todayRequests / DAILY_LIMIT) * 100, 100).toFixed(1);
+            var percent = Math.min((todayRequests / DAILY_LIMIT) * 100, 100).toFixed(1);
             document.getElementById('quota-bar').style.width = percent + '%';
             document.getElementById('quota-percent').innerText = percent + '%';
-            document.getElementById('quota-detail').innerText = `${todayRequests. toLocaleString()} / ${DAILY_LIMIT.toLocaleString()}`;
+            // 修正：toLocaleString() 间的空格
+            document.getElementById('quota-detail').innerText = todayRequests.toLocaleString() + ' / ' + DAILY_LIMIT.toLocaleString();
 
             if (percent > 80) document.getElementById('quota-bar').style.backgroundColor = '#ef4444';
         }
 
         function setRange(range) {
             currentRange = range;
-            document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.btn').forEach(function(b) { b.classList.remove('active'); });
 
-            const btns = document.querySelectorAll('.btn');
-            if(range === '24h') btns[0].classList.add('active');
-            if(range === '7d') btns[1].classList.add('active');
-            if(range === '30d') btns[2].classList.add('active');
+            var btns = document.querySelectorAll('.btn');
+            if (range === '24h') btns[0].classList.add('active');
+            if (range === '7d') btns[1].classList.add('active');
+            if (range === '30d') btns[2].classList.add('active');
 
-            const now = new Date();
-            let startTime = new Date();
+            var now = new Date();
+            var startTime = new Date();
 
             if (range === '24h') startTime.setTime(now.getTime() - 24 * 60 * 60 * 1000);
             else if (range === '7d') startTime.setDate(now.getDate() - 7);
             else startTime.setDate(now.getDate() - 30);
 
-            const filtered = rawData.filter(item => new Date(item.dimensions.datetime) >= startTime);
+            var filtered = rawData.filter(function(item) { return new Date(item.dimensions.datetime) >= startTime; });
 
-            const map = {};
-            filtered.forEach(item => {
-                const d = new Date(item.dimensions. datetime);
-                let key;
+            var map = {};
+            filtered.forEach(function(item) {
+                // 修正：dimensions.datetime 间的空格
+                var d = new Date(item.dimensions.datetime);
+                var key;
                 if (range === '24h') {
-                    key = `${d.getMonth()+1}/${d.getDate()} ${d.getHours()}:00`;
+                    key = (d.getMonth() + 1) + '/' + d.getDate() + ' ' + d.getHours() + ':00';
                 } else {
                     key = d.toISOString().split('T')[0];
                 }
 
                 if (!map[key]) map[key] = { req: 0, err: 0 };
-                map[key]. req += item.sum.requests;
+                // 修正：sum.requests 间的空格
+                map[key].req += item.sum.requests;
                 map[key].err += item.sum.errors;
             });
 
-            const sortedKeys = Object.keys(map).sort((a, b) => {
-               if (range === '24h') {
-                   const parseTime = (str) => {
-                       const [datePart, timePart] = str.split(' ');
-                       const [m, d] = datePart.split('/');
-                       const [h] = timePart.split(':');
-                       const year = new Date().getFullYear();
-                       return new Date(year, m-1, d, h).getTime();
-                   };
-                   return parseTime(a) - parseTime(b);
-               }
-               return a.localeCompare(b);
+            var sortedKeys = Object.keys(map).sort(function(a, b) {
+                if (range === '24h') {
+                    var parseTime = function(str) {
+                        var parts = str.split(' ');
+                        var datePart = parts[0];
+                        var timePart = parts[1];
+                        var dateParts = datePart.split('/');
+                        var m = dateParts[0];
+                        var dd = dateParts[1];
+                        var h = timePart.split(':')[0];
+                        var year = new Date().getFullYear();
+                        return new Date(year, m - 1, dd, h).getTime();
+                    };
+                    return parseTime(a) - parseTime(b);
+                }
+                return a.localeCompare(b);
             });
 
-            const requests = sortedKeys.map(k => map[k].req);
-            const errors = sortedKeys. map(k => map[k]. err);
+            var requests = sortedKeys.map(function(k) { return map[k].req; });
+            var errors = sortedKeys.map(function(k) { return map[k].err; });
 
-            const totalReq = requests.reduce((a, b) => a + b, 0);
-            const totalErr = errors.reduce((a, b) => a + b, 0);
+            var totalReq = requests.reduce(function(a, b) { return a + b; }, 0);
+            var totalErr = errors.reduce(function(a, b) { return a + b; }, 0);
             document.getElementById('disp-req').innerText = totalReq.toLocaleString();
-            document. getElementById('disp-err').innerText = totalErr.toLocaleString();
+            // 修正：getElementById 间的空格
+            document.getElementById('disp-err').innerText = totalErr.toLocaleString();
 
-            const avg = sortedKeys.length > 0 ? Math.round(totalReq / sortedKeys.length) : 0;
+            var avg = sortedKeys.length > 0 ? Math.round(totalReq / sortedKeys.length) : 0;
             document.getElementById('disp-avg').innerText = avg.toLocaleString();
 
-            // Store current chart data
             currentLabels = sortedKeys;
             currentReqData = requests;
             currentErrData = errors;
@@ -433,47 +442,46 @@
             if (chartInstance) chartInstance.dispose();
             chartInstance = echarts.init(document.getElementById('chart-container'));
 
-            // Get current theme
-            const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-            const textColor = isDark ? '#f9fafb' : '#1f2937';
-            const axisColor = isDark ? '#9ca3af' : '#6b7280';
-            const splitLineColor = isDark ? '#374151' : '#e5e7eb';
-            const tooltipBg = isDark ? '#374151' : '#ffffff';
-            const tooltipBorder = isDark ? '#4b5563' : '#e5e7eb';
+            var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            var textColor = isDark ? '#f9fafb' : '#1f2937';
+            var axisColor = isDark ? '#9ca3af' : '#6b7280';
+            var splitLineColor = isDark ? '#374151' : '#e5e7eb';
+            var tooltipBg = isDark ? '#374151' : '#ffffff';
+            var tooltipBorder = isDark ? '#4b5563' : '#e5e7eb';
 
-            const option = {
+            var option = {
                 title: {
                     text: '请求趋势',
-                    left:  'center',
+                    left: 'center', // 修正：left 属性值的空格
                     textStyle: {
-                        color:  textColor
+                        color: textColor
                     }
                 },
                 tooltip: {
-                    trigger:  'axis',
+                    trigger: 'axis',
                     axisPointer: { type: 'cross' },
-                    valueFormatter: (value) => Math.floor(value),
-                    backgroundColor:  tooltipBg,
+                    valueFormatter: function(value) { return Math.floor(value); },
+                    backgroundColor: tooltipBg,
                     borderColor: tooltipBorder,
                     textStyle: {
-                        color:  textColor
+                        color: textColor
                     }
                 },
                 legend: {
                     data: ['总请求', '错误'],
                     bottom: 0,
                     textStyle: {
-                        color:  textColor
+                        color: textColor
                     }
                 },
                 grid: {
                     left: '3%',
-                    right:  '4%',
+                    right: '4%',
                     bottom: '10%',
-                    containLabel:  true
+                    containLabel: true
                 },
-                xAxis: {
-                    type:  'category',
+                xAxis: { // 修正：冒号后多余的空格
+                    type: 'category',
                     data: labels,
                     axisLabel: {
                         interval: range === '30d' ? 2 : 'auto',
@@ -482,15 +490,15 @@
                     },
                     axisLine: {
                         lineStyle: {
-                            color:  splitLineColor
+                            color: splitLineColor
                         }
                     }
                 },
-                yAxis:  {
+                yAxis: {
                     type: 'value',
                     minInterval: 1,
                     axisLabel: {
-                        formatter: (value) => Math.floor(value),
+                        formatter: function(value) { return Math.floor(value); },
                         color: axisColor
                     },
                     axisLine: {
@@ -527,16 +535,19 @@
                     },
                     {
                         name: '错误',
-                        type:  'bar',
+                        type: 'bar', // 修正：属性值前的空格
                         data: errData,
                         itemStyle: { color: '#ef4444' }
                     }
                 ]
             };
             chartInstance.setOption(option);
-            if (! window.chartResizeHandler) {
-                window.chartResizeHandler = () => chartInstance && chartInstance.resize();
-                window.addEventListener('resize', window. chartResizeHandler);
+            // 修正：chartResizeHandler 变量名的空格
+            if (!window.chartResizeHandler) {
+                window.chartResizeHandler = function() { 
+                    if (chartInstance) chartInstance.resize(); 
+                };
+                window.addEventListener('resize', window.chartResizeHandler);
             }
         }
 
