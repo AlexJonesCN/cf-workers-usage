@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Worker 监控面板</title>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E⚡%3C/text%3E%3C/svg%3E">
-    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.4.3/dist/echarts.min. js"></script>
     <style>
-        :root { 
-            --primary: #F38020; 
+        : root { 
+            --primary:  #F38020; 
             --bg: #f3f4f6; 
             --card: #ffffff; 
             --text: #1f2937; 
@@ -17,7 +17,7 @@
             --progress-bg: #e5e7eb;
             --shadow: rgba(0,0,0,0.05);
             --btn-bg: #fff;
-            --btn-hover: #f9fafb;
+            --btn-hover:  #f9fafb;
             --stat-value: #111827;
         }
         
@@ -25,11 +25,11 @@
             --bg: #111827;
             --card: #1f2937;
             --text: #f9fafb;
-            --text-secondary: #9ca3af;
+            --text-secondary:  #9ca3af;
             --border: #374151;
             --progress-bg: #374151;
             --shadow: rgba(0,0,0,0.3);
-            --btn-bg: #374151;
+            --btn-bg:  #374151;
             --btn-hover: #4b5563;
             --stat-value: #f9fafb;
         }
@@ -40,12 +40,12 @@
         
         body { 
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; 
-            background: var(--bg); 
+            background:  var(--bg); 
             color: var(--text); 
             margin: 0; 
             padding: 20px; 
         }
-        .container { max-width: 1200px; margin: 0 auto; }
+        . container { max-width: 1200px; margin: 0 auto; }
         
         .header { 
             display: flex; 
@@ -55,8 +55,8 @@
             flex-wrap: wrap; 
             gap: 10px; 
         }
-        .header h1 { 
-            margin: 0; 
+        . header h1 { 
+            margin:  0; 
             font-size: 24px; 
             display: flex; 
             align-items: center; 
@@ -77,12 +77,12 @@
             border-radius: 20px; 
         }
         
-        。theme-toggle {
+        .theme-toggle {
             background: var(--btn-bg);
             border: 1px solid var(--border);
             padding: 8px 12px;
-            border-radius: 20px;
-            cursor: pointer;
+            border-radius:  20px;
+            cursor:  pointer;
             font-size: 18px;
             transition: all 0.2s;
             box-shadow: 0 1px 3px var(--shadow);
@@ -101,7 +101,7 @@
             margin-bottom: 24px; 
             border-left: 5px solid var(--primary); 
         }
-        .quota-header { 
+        . quota-header { 
             display: flex; 
             justify-content: space-between; 
             margin-bottom: 10px; 
@@ -130,25 +130,25 @@
             margin-top: 6px; 
         }
 
-        。controls { display: flex; gap: 10px; margin-bottom: 15px; }
+        .controls { display: flex; gap: 10px; margin-bottom: 15px; }
         .btn { 
             border: 1px solid var(--border); 
             background: var(--btn-bg); 
             padding: 8px 16px; 
             border-radius: 6px; 
             cursor: pointer; 
-            font-size: 14px; 
+            font-size:  14px; 
             color: var(--text-secondary); 
             transition: all 0.2s; 
             box-shadow: 0 1px 2px var(--shadow); 
         }
-        .btn.active { 
+        .btn. active { 
             background: var(--primary); 
             color: white; 
             font-weight: 500; 
             border-color: var(--primary);
         }
-        .btn:hover:not(.active) { 
+        .btn:hover: not(.active) { 
             background: var(--btn-hover); 
         }
 
@@ -158,7 +158,7 @@
             gap: 16px; 
             margin-bottom: 24px; 
         }
-        .stat-card { 
+        . stat-card { 
             background: var(--card); 
             padding: 20px; 
             border-radius: 12px; 
@@ -191,7 +191,7 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1><span style="color:var(--primary)">⚡</span> Cloudflare Worker 监控</h1>
+            <h1><span style="color: var(--primary)">⚡</span> Cloudflare Worker 监控</h1>
             <div class="header-right">
                 <span id="update-time" class="last-update">载入中...</span>
                 <button id="theme-toggle" class="theme-toggle" onclick="toggleTheme()" title="切换主题">🌙</button>
@@ -208,7 +208,7 @@
             </div>
             <div class="quota-text">
                 <span id="quota-detail">0 / 100,000</span>
-                <span>重置时间: 00:00 UTC</span>
+                <span>重置时间:  00:00 UTC</span>
             </div>
         </div>
 
@@ -239,69 +239,69 @@
     <script>
         // Theme Management - 刷新时始终根据时间设置，运行中可手动切换，8/20点自动切换
 
-		function getThemeByTime() {
-		    const hour = new Date().getHours();
-		    return (hour >= 8 && hour < 20) ? 'light' : 'dark';
-		}
-		
-		function applyTheme(theme) {
-		    document.documentElement.setAttribute('data-theme', theme);
-		    const toggle = document.getElementById('theme-toggle');
-		    if (toggle) {
-		        toggle.textContent = theme === 'dark' ?  '☀️' : '🌙';
-		    }
-		}
-		
-		function toggleTheme() {
-		    const current = document.documentElement.getAttribute('data-theme') || 'light';
-		    const newTheme = current === 'dark' ? 'light' : 'dark';
-		    applyTheme(newTheme);
-		    
-		    if (chartInstance && currentLabels. length > 0) {
-		        renderChart(currentLabels, currentReqData, currentErrData, currentRange);
-		    }
-		}
-		
-		function scheduleNextSwitch() {
-		    const now = new Date();
-		    const hour = now.getHours();
-		    
-		    let nextSwitchTime = new Date(now);
-		    let targetTheme;
-		    
-		    if (hour < 8) {
-		        nextSwitchTime.setHours(8, 0, 0, 0);
-		        targetTheme = 'light';
-		    } else if (hour < 20) {
-		        nextSwitchTime.setHours(20, 0, 0, 0);
-		        targetTheme = 'dark';
-		    } else {
-		        nextSwitchTime. setDate(nextSwitchTime.getDate() + 1);
-		        nextSwitchTime. setHours(8, 0, 0, 0);
-		        targetTheme = 'light';
-		    }
-		    
-		    const msUntilSwitch = nextSwitchTime.getTime() - now.getTime();
-		    
-		    console.log(`Next theme switch: ${targetTheme} mode in ${Math.round(msUntilSwitch / 1000 / 60)} minutes`);
-		    
-		    setTimeout(() => {
-		        applyTheme(targetTheme);
-		        
-		        if (chartInstance && currentLabels.length > 0) {
-		            renderChart(currentLabels, currentReqData, currentErrData, currentRange);
-		        }
-		        
-		        scheduleNextSwitch();
-		    }, msUntilSwitch);
-		}
-		
-		// 页面加载：根据当前时间设置主题
-		applyTheme(getThemeByTime());
-		
-		// 安排定时切换
-		scheduleNextSwitch();
-        
+        function getThemeByTime() {
+            const hour = new Date().getHours();
+            return (hour >= 8 && hour < 20) ? 'light' : 'dark';
+        }
+
+        function applyTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            const toggle = document.getElementById('theme-toggle');
+            if (toggle) {
+                toggle. textContent = theme === 'dark' ? '☀️' : '🌙';
+            }
+        }
+
+        function toggleTheme() {
+            const current = document.documentElement.getAttribute('data-theme') || 'light';
+            const newTheme = current === 'dark' ? 'light' : 'dark';
+            applyTheme(newTheme);
+
+            if (chartInstance && currentLabels.length > 0) {
+                renderChart(currentLabels, currentReqData, currentErrData, currentRange);
+            }
+        }
+
+        function scheduleNextSwitch() {
+            const now = new Date();
+            const hour = now.getHours();
+
+            let nextSwitchTime = new Date(now);
+            let targetTheme;
+
+            if (hour < 8) {
+                nextSwitchTime.setHours(8, 0, 0, 0);
+                targetTheme = 'light';
+            } else if (hour < 20) {
+                nextSwitchTime.setHours(20, 0, 0, 0);
+                targetTheme = 'dark';
+            } else {
+                nextSwitchTime. setDate(nextSwitchTime.getDate() + 1);
+                nextSwitchTime.setHours(8, 0, 0, 0);
+                targetTheme = 'light';
+            }
+
+            const msUntilSwitch = nextSwitchTime. getTime() - now.getTime();
+
+            console.log(`Next theme switch: ${targetTheme} mode in ${Math.round(msUntilSwitch / 1000 / 60)} minutes`);
+
+            setTimeout(() => {
+                applyTheme(targetTheme);
+
+                if (chartInstance && currentLabels.length > 0) {
+                    renderChart(currentLabels, currentReqData, currentErrData, currentRange);
+                }
+
+                scheduleNextSwitch();
+            }, msUntilSwitch);
+        }
+
+        // 页面加载：根据当前时间设置主题
+        applyTheme(getThemeByTime());
+
+        // 安排定时切换
+        scheduleNextSwitch();
+
         // Original script variables
         let rawData = [];
         let chartInstance = null;
@@ -316,20 +316,20 @@
         }
 
         function refreshData() {
-            fetch('./data.json?t=' + new Date().getTime())
-                .键，然后(res => {
-                    if (!res.ok) throw new 错误("HTTP " + res.status);
+            fetch('./data. json? t=' + new Date().getTime())
+                .then(res => {
+                    if (!res.ok) throw new Error("HTTP " + res.status);
                     return res.json();
                 })
-                。键，然后(jsonResponse => {
+                .then(jsonResponse => {
                     // 👇👇👇 修改点：适配新的数据结构 👇👇👇
                     // 1. 如果是旧格式(数组)，直接用；如果是新格式(对象)，取 .data
                     rawData = Array.isArray(jsonResponse) ? jsonResponse : jsonResponse.data;
-                    
+
                     // 2. 处理时间显示
                     if (jsonResponse.updatedAt) {
                         const serverTime = new Date(jsonResponse.updatedAt);
-                        document.getElementById('update-time').innerText = '数据更新于: ' + serverTime.toLocaleString();
+                        document.getElementById('update-time').innerText = '数据更新于:  ' + serverTime.toLocaleString();
                     } else {
                         // 兼容旧数据，没有时间戳时显示当前时间
                         document.getElementById('update-time').innerText = '最后同步: ' + new Date().toLocaleString();
@@ -338,13 +338,13 @@
 
                     try {
                         calculateTodayQuota();
-                        setRange(currentRange); 
+                        setRange(currentRange);
                     } catch (e) {
                         console.error("Render error:", e);
                     }
                 })
                 .catch(err => {
-                    console。error(err);
+                    console.error(err);
                     document.getElementById('update-time').innerText = '数据同步失败';
                 });
         }
@@ -352,21 +352,21 @@
         function calculateTodayQuota() {
             const todayStr = new Date().toISOString().split('T')[0];
             const todayRequests = rawData
-                .filter(item => item.dimensions.datetime.startsWith(todayStr))
-                .reduce((sum, item) => sum + item.sum.requests, 0);
+                .filter(item => item. dimensions.datetime. startsWith(todayStr))
+                .reduce((sum, item) => sum + item.sum. requests, 0);
 
             const percent = Math.min((todayRequests / DAILY_LIMIT) * 100, 100).toFixed(1);
             document.getElementById('quota-bar').style.width = percent + '%';
             document.getElementById('quota-percent').innerText = percent + '%';
-            document.getElementById('quota-detail').innerText = `${todayRequests.toLocaleString()} / ${DAILY_LIMIT.toLocaleString()}`;
-            
+            document.getElementById('quota-detail').innerText = `${todayRequests. toLocaleString()} / ${DAILY_LIMIT.toLocaleString()}`;
+
             if (percent > 80) document.getElementById('quota-bar').style.backgroundColor = '#ef4444';
         }
 
         function setRange(range) {
             currentRange = range;
             document.querySelectorAll('.btn').forEach(b => b.classList.remove('active'));
-            
+
             const btns = document.querySelectorAll('.btn');
             if(range === '24h') btns[0].classList.add('active');
             if(range === '7d') btns[1].classList.add('active');
@@ -374,7 +374,7 @@
 
             const now = new Date();
             let startTime = new Date();
-            
+
             if (range === '24h') startTime.setTime(now.getTime() - 24 * 60 * 60 * 1000);
             else if (range === '7d') startTime.setDate(now.getDate() - 7);
             else startTime.setDate(now.getDate() - 30);
@@ -383,7 +383,7 @@
 
             const map = {};
             filtered.forEach(item => {
-                const d = new Date(item.dimensions.datetime);
+                const d = new Date(item.dimensions. datetime);
                 let key;
                 if (range === '24h') {
                     key = `${d.getMonth()+1}/${d.getDate()} ${d.getHours()}:00`;
@@ -392,7 +392,7 @@
                 }
 
                 if (!map[key]) map[key] = { req: 0, err: 0 };
-                map[key].req += item.sum.requests;
+                map[key]. req += item.sum.requests;
                 map[key].err += item.sum.errors;
             });
 
@@ -402,7 +402,7 @@
                        const [datePart, timePart] = str.split(' ');
                        const [m, d] = datePart.split('/');
                        const [h] = timePart.split(':');
-                       const year = new Date().getFullYear(); 
+                       const year = new Date().getFullYear();
                        return new Date(year, m-1, d, h).getTime();
                    };
                    return parseTime(a) - parseTime(b);
@@ -411,13 +411,13 @@
             });
 
             const requests = sortedKeys.map(k => map[k].req);
-            const errors = sortedKeys.map(k => map[k].err);
+            const errors = sortedKeys. map(k => map[k]. err);
 
             const totalReq = requests.reduce((a, b) => a + b, 0);
             const totalErr = errors.reduce((a, b) => a + b, 0);
             document.getElementById('disp-req').innerText = totalReq.toLocaleString();
-            document.getElementById('disp-err').innerText = totalErr.toLocaleString();
-            
+            document. getElementById('disp-err').innerText = totalErr.toLocaleString();
+
             const avg = sortedKeys.length > 0 ? Math.round(totalReq / sortedKeys.length) : 0;
             document.getElementById('disp-avg').innerText = avg.toLocaleString();
 
@@ -442,54 +442,54 @@
             const tooltipBorder = isDark ? '#4b5563' : '#e5e7eb';
 
             const option = {
-                title: { 
-                    text: '请求趋势', 
-                    left: 'center',
+                title: {
+                    text: '请求趋势',
+                    left:  'center',
                     textStyle: {
-                        color: textColor
+                        color:  textColor
                     }
-                }，
-                tooltip: { 
-                    trigger: 'axis', 
+                },
+                tooltip: {
+                    trigger:  'axis',
                     axisPointer: { type: 'cross' },
                     valueFormatter: (value) => Math.floor(value),
-                    backgroundColor: tooltipBg,
+                    backgroundColor:  tooltipBg,
                     borderColor: tooltipBorder,
                     textStyle: {
-                        color: textColor
+                        color:  textColor
                     }
                 },
-                legend: { 
-                    data: ['总请求', '错误'], 
+                legend: {
+                    data: ['总请求', '错误'],
                     bottom: 0,
                     textStyle: {
-                        color: textColor
+                        color:  textColor
                     }
                 },
-                grid: { 
-                    left: '3%', 
-                    right: '4%', 
-                    bottom: '10%', 
-                    containLabel: true 
+                grid: {
+                    left: '3%',
+                    right:  '4%',
+                    bottom: '10%',
+                    containLabel:  true
                 },
                 xAxis: {
-                    输入: 'category',
+                    type:  'category',
                     data: labels,
-                    axisLabel: { 
-                        interval: range === '30d' ? 2 : 'auto', 
+                    axisLabel: {
+                        interval: range === '30d' ? 2 : 'auto',
                         rotate: range === '24h' ? 45 : 0,
                         color: axisColor
                     },
                     axisLine: {
                         lineStyle: {
-                            color: splitLineColor
+                            color:  splitLineColor
                         }
                     }
                 },
-                yAxis: { 
+                yAxis:  {
                     type: 'value',
                     minInterval: 1,
-                    axisLabel: { 
+                    axisLabel: {
                         formatter: (value) => Math.floor(value),
                         color: axisColor
                     },
@@ -527,16 +527,16 @@
                     },
                     {
                         name: '错误',
-                        type: 'bar',
+                        type:  'bar',
                         data: errData,
                         itemStyle: { color: '#ef4444' }
                     }
                 ]
             };
             chartInstance.setOption(option);
-            if (!window.chartResizeHandler) {
+            if (! window.chartResizeHandler) {
                 window.chartResizeHandler = () => chartInstance && chartInstance.resize();
-                window.addEventListener('resize', window.chartResizeHandler);
+                window.addEventListener('resize', window. chartResizeHandler);
             }
         }
 
@@ -544,4 +544,3 @@
     </script>
 </body>
 </html>
-
