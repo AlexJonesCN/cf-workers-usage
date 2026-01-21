@@ -238,49 +238,47 @@
 
     <script>
         // ==========================================
-        // 1. 无状态主题系统 (NO STORAGE)
+        // 1. 无状态主题系统 (纯内存，刷新即重置)
         // ==========================================
         
-        // 步骤1：大扫除
-        // 无论之前存了什么，现在立刻删掉。
-        try {
-            localStorage.clear(); 
-            // 如果您只想删除特定的key，可以用 localStorage.removeItem('theme-preference');
-            console.log("浏览器缓存已强制清除，确保刷新后无残留。");
-        } catch(e) {}
+        // 全局变量，记录当前主题状态
+        // 页面刷新时，JS重新加载，此变量会被重置
+        var currentTheme = getThemeByTime();
 
-        // 步骤2：根据时间获取主题
+        // 根据时间判断初始主题
         function getThemeByTime() {
             var hour = new Date().getHours();
             // 8点到20点是白天(light)，否则是晚上(dark)
             return (hour >= 8 && hour < 20) ? 'light' : 'dark';
         }
 
-        // 步骤3：应用主题 (只修改界面，不保存！)
+        // 应用主题到 DOM
         function applyTheme(theme) {
             document.documentElement.setAttribute('data-theme', theme);
             var toggle = document.getElementById('theme-toggle');
             if (toggle) {
                 toggle.textContent = theme === 'dark' ? '☀️' : '🌙';
             }
+            // 同步更新全局变量
+            currentTheme = theme;
         }
 
-        // 步骤4：手动切换事件
-        // 关键点：这里去掉了所有 setItem 语句
+        // 切换按钮点击事件
         function toggleTheme() {
-            var current = document.documentElement.getAttribute('data-theme') || 'light';
-            var newTheme = current === 'dark' ? 'light' : 'dark';
+            // 取反当前主题
+            var newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             
-            // 仅在内存中生效
+            // 应用新主题 (仅在内存中生效，不保存到 localStorage)
             applyTheme(newTheme);
             
-            // 更新图表颜色
+            // 立即重绘图表以适配新颜色
             if (chartInstance && currentLabels.length > 0) {
                 renderChart(currentLabels, currentReqData, currentErrData, currentRange);
             }
         }
 
-        // 步骤5：定时检查 (防止长时间挂机后主题不更新)
+        // 定时检查：防止用户长时间挂机跨越了 8:00 或 20:00
+        // 注意：这里的逻辑是，如果时间到了自动切换点，会自动覆盖用户的手动设置
         function scheduleNextSwitch() {
             var now = new Date();
             var hour = now.getHours();
@@ -288,41 +286,47 @@
             var targetTheme;
 
             if (hour < 8) {
+                // 下一次切换是早上 8 点 -> 变亮
                 nextSwitchTime.setHours(8, 0, 0, 0);
                 targetTheme = 'light';
             } else if (hour < 20) {
+                // 下一次切换是晚上 20 点 -> 变暗
                 nextSwitchTime.setHours(20, 0, 0, 0);
                 targetTheme = 'dark';
             } else {
+                // 下一次切换是明天早上 8 点 -> 变亮
                 nextSwitchTime.setDate(nextSwitchTime.getDate() + 1);
                 nextSwitchTime.setHours(8, 0, 0, 0);
                 targetTheme = 'light';
             }
 
             var msUntilSwitch = nextSwitchTime.getTime() - now.getTime();
-            if (msUntilSwitch <= 0) msUntilSwitch = 1000;
+            // 防止计算出的时间是负数或0
+            if (msUntilSwitch <= 0) msUntilSwitch = 1000; 
 
             setTimeout(function() {
+                // 时间到了，执行自动切换
                 applyTheme(targetTheme);
+                // 更新图表
                 if (chartInstance) renderChart(currentLabels, currentReqData, currentErrData, currentRange);
+                // 递归调用，预约下一次切换
                 scheduleNextSwitch();
             }, msUntilSwitch);
         }
 
         // ==========================================
-        // 2. 初始化 (入口)
+        // 2. 初始化执行
         // ==========================================
         
-        // 页面一打开，不查缓存，直接看时间
-        var initTheme = getThemeByTime();
-        applyTheme(initTheme);
+        // 页面加载时立即应用基于时间的主题
+        applyTheme(currentTheme);
         
         // 启动定时器
         scheduleNextSwitch();
 
 
         // ==========================================
-        // 3. 数据与图表逻辑
+        // 3. 数据与图表逻辑 (保持不变)
         // ==========================================
         var rawData = [];
         var chartInstance = null;
@@ -337,12 +341,14 @@
         }
 
         function refreshData() {
+            // 添加时间戳防止缓存
             fetch('./data.json?t=' + new Date().getTime())
                 .then(function(res) {
                     if (!res.ok) throw new Error("HTTP " + res.status);
                     return res.json();
                 })
                 .then(function(jsonResponse) {
+                    // 兼容直接数组或对象格式
                     rawData = Array.isArray(jsonResponse) ? jsonResponse : jsonResponse.data;
 
                     if (jsonResponse.updatedAt) {
@@ -402,6 +408,7 @@
                 var d = new Date(item.dimensions.datetime);
                 var key;
                 if (range === '24h') {
+                    // 格式化为 M/D H:00
                     key = (d.getMonth() + 1) + '/' + d.getDate() + ' ' + d.getHours() + ':00';
                 } else {
                     key = d.toISOString().split('T')[0];
@@ -452,7 +459,9 @@
             if (chartInstance) chartInstance.dispose();
             chartInstance = echarts.init(document.getElementById('chart-container'));
 
+            // 每次渲染图表时，重新读取当前的 data-theme
             var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+            
             var textColor = isDark ? '#f9fafb' : '#1f2937';
             var axisColor = isDark ? '#9ca3af' : '#6b7280';
             var splitLineColor = isDark ? '#374151' : '#e5e7eb';
