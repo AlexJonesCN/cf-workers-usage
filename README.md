@@ -2,7 +2,7 @@
 
 📊 一个现代化、高颜值的 Cloudflare Worker 用量监控面板。支持请求数与流量双维度分析，由 GitHub Actions 自动驱动。
 
-![License](https://img.shields.io/github/license/alexjonescn/cf-workers-usage)
+![License](https://img.shields.io/github/license/alexjonescn/cf-workers-usage?v=1)
 ![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/alexjonescn/cf-workers-usage/update-stats.yml?label=Update%20Stats)
 
 ## ✨ 核心特性
