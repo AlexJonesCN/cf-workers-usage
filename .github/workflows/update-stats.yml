@@ -1,21 +1,22 @@
 name: Update Worker Stats
-
 on:
   schedule:
-    # 分钟 小时 日 月 周
-    # */20 代表“每隔20分钟”
     - cron: '0 */1 * * *'
-  workflow_dispatch:       # 允许手动触发
-
+  workflow_dispatch:
 permissions:
   contents: write
-
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+
+      # ✅ 新增：从 gh-pages 分支恢复旧的 data.json
+      - name: Restore data.json from gh-pages
+        run: |
+          git fetch origin gh-pages
+          git checkout origin/gh-pages -- data.json && mv data.json public/data.json || echo "No existing data.json found, starting fresh"
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
@@ -37,5 +38,4 @@ jobs:
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./public
-          # 这样会把 index.html 和 data.json 都推送到 gh-pages 分支
           cname: workers-usage.265209.xyz
